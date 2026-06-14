@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Angjel Spasovski — Frontend Developer</title>
+  <title>Angjel Spasovski - Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -213,6 +213,7 @@
     @keyframes spin { to { transform:rotate(360deg); } }
     .av-ring2 { position:absolute; inset:-38px; border-radius:50%; border:1px dashed rgba(0,229,180,.07); animation:spin 35s linear infinite reverse; }
     .av-placeholder { width:100%; height:100%; border-radius:50%; background:linear-gradient(135deg,var(--bg3) 50%,rgba(0,229,180,.07)); border:2px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:6.5rem; }
+    .av-photo { width:100%; height:100%; border-radius:50%; object-fit:cover; object-position:center 25%; border:2px solid var(--border); display:block; box-shadow:0 18px 70px rgba(0,0,0,.45); position:relative; z-index:1; }
 
     /* ABOUT */
     .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
@@ -376,11 +377,11 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#testimonials">Focus</a></li>
     <li><a href="#certificates">Certs</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Hire Me</a>
+  <a href="#contact" class="nav-cta">Contact</a>
   <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
 </nav>
 
@@ -389,21 +390,21 @@
   <canvas id="particles"></canvas>
   <div class="hero-bg"></div>
   <div class="hero-content reveal">
-    <div class="hero-badge"><span class="bdot"></span>Open to opportunities</div>
+    <div class="hero-badge"><span class="bdot"></span>Software Engineer</div>
     <h1 class="hero-name">Angjel<br><span class="hi">Spasovski</span></h1>
     <p class="hero-type" id="typeEl"><span class="cursor"></span></p>
     <p class="hero-desc">
-      Frontend developer with 10+ years of experience building modern web applications.
-      Currently crafting digital products at OPEN DATA Srl — focused on clean UI, performance, and great user experience.
+      Software Engineer with 10+ years of experience in web application development,
+      frontend engineering, enterprise software products, and reliable user interfaces for complex business workflows.
     </p>
     <div class="hero-ctas">
-      <a href="#projects" class="btn btn-primary"><i class="fas fa-rocket"></i> View Projects</a>
+      <a href="#projects" class="btn btn-primary"><i class="fas fa-rocket"></i> View Work</a>
       <a href="#contact" class="btn btn-ghost"><i class="fas fa-paper-plane"></i> Get in Touch</a>
     </div>
     <div class="hero-stats">
       <div><div class="stat-n">10+</div><div class="stat-l">Years Exp</div></div>
       <div><div class="stat-n">6</div><div class="stat-l">Companies</div></div>
-      <div><div class="stat-n">9</div><div class="stat-l">Certs</div></div>
+      <div><div class="stat-n">12</div><div class="stat-l">Certs</div></div>
       <div><div class="stat-n">MK</div><div class="stat-l">Based in</div></div>
     </div>
   </div>
@@ -412,9 +413,7 @@
       <div class="av-glow"></div>
       <div class="av-ring2"></div>
       <div class="av-ring"></div>
-      <!-- Replace with your photo:
-           <img src="photo.jpg" style="width:100%;height:100%;border-radius:50%;object-fit:cover;border:2px solid var(--border);"> -->
-      <div class="av-placeholder">👨‍💻</div>
+      <img src="assets/profile.png" alt="Angjel Spasovski" class="av-photo">
     </div>
   </div>
 </section>
@@ -426,23 +425,23 @@
   <div class="about-grid">
     <div class="reveal">
       <p class="about-p">
-        Hey! I'm Angjel, a frontend developer based in Skopje, North Macedonia. With over a decade of experience across multiple companies and industries, I've built everything from corporate web portals to interactive user interfaces.
+        I am a Software Engineer based in Skopje, North Macedonia, with 10+ years of experience in web application development, frontend engineering, and enterprise software products.
       </p>
       <p class="about-p">
-        Currently working at OPEN DATA Srl, where I develop and maintain modern frontend solutions. My background also includes IT administration, graphic design, and web development — giving me a broad technical perspective.
+        My recent work has focused on Opera MES, a Manufacturing Execution System for manufacturing operations. I contribute to frontend development, software design, product maintenance, and improvements to complex production workflows.
       </p>
       <p class="about-p">
-        I hold a Bachelor's degree in Computer Science from UKIM (Faculty of Natural Sciences and Mathematics, Informatics – Internet and Mobile Technologies). Always looking to grow and collaborate on meaningful projects.
+        I have also worked on products such as ArkCase and Move One, with experience in JavaScript-based interfaces, CSS, forms, modals, UI maintenance, bug fixing, and long-running enterprise applications. Earlier in my career I gained experience in IT administration, scripting, network maintenance, and web platform support.
       </p>
       <div class="about-info">
         <div><div class="ai-label">Name</div><div class="ai-val">Angjel Spasovski</div></div>
         <div><div class="ai-label">Location</div><div class="ai-val">Skopje, MK</div></div>
-        <div><div class="ai-label">Current Role</div><div class="ai-val">Frontend Developer</div></div>
-        <div><div class="ai-label">Company</div><div class="ai-val" style="color:var(--accent);">OPEN DATA Srl</div></div>
+        <div><div class="ai-label">Current Role</div><div class="ai-val">Software Engineer</div></div>
+        <div><div class="ai-label">Company</div><div class="ai-val" style="color:var(--accent);">CYBERTEC</div></div>
         <div><div class="ai-label">Education</div><div class="ai-val">BSc CS, UKIM</div></div>
-        <div><div class="ai-label">LinkedIn</div><div class="ai-val"><a href="https://www.linkedin.com/in/angjel-spasovski-18398390/" target="_blank" style="color:var(--accent);text-decoration:none;">angjel-spasovski</a></div></div>
+        <div><div class="ai-label">LinkedIn</div><div class="ai-val"><a href="https://www.linkedin.com/in/angjel-spasovski/" target="_blank" style="color:var(--accent);text-decoration:none;">angjel-spasovski</a></div></div>
       </div>
-      <a href="#" class="btn btn-ghost" style="margin-top:2rem;display:inline-flex;"><i class="fas fa-download"></i> Download CV</a>
+      <a href="https://www.linkedin.com/in/angjel-spasovski/" target="_blank" class="btn btn-ghost" style="margin-top:2rem;display:inline-flex;"><i class="fab fa-linkedin-in"></i> LinkedIn Profile</a>
     </div>
     <div class="reveal">
       <div class="term-box">
@@ -454,13 +453,14 @@
         <span style="color:var(--muted);">~ </span><span style="color:var(--accent);">cat</span> about.json<br>
         <span style="color:var(--muted);">{</span><br>
         &nbsp;&nbsp;<span style="color:#7dd3fc;">"name"</span>: <span style="color:#86efac;">"Angjel Spasovski"</span>,<br>
-        &nbsp;&nbsp;<span style="color:#7dd3fc;">"role"</span>: <span style="color:#86efac;">"Frontend Developer"</span>,<br>
-        &nbsp;&nbsp;<span style="color:#7dd3fc;">"company"</span>: <span style="color:#86efac;">"OPEN DATA Srl"</span>,<br>
+        &nbsp;&nbsp;<span style="color:#7dd3fc;">"role"</span>: <span style="color:#86efac;">"Software Engineer"</span>,<br>
+        &nbsp;&nbsp;<span style="color:#7dd3fc;">"company"</span>: <span style="color:#86efac;">"CYBERTEC"</span>,<br>
+        &nbsp;&nbsp;<span style="color:#7dd3fc;">"productFocus"</span>: <span style="color:#86efac;">"Opera MES"</span>,<br>
         &nbsp;&nbsp;<span style="color:#7dd3fc;">"education"</span>: <span style="color:#86efac;">"BSc CS, UKIM"</span>,<br>
         &nbsp;&nbsp;<span style="color:#7dd3fc;">"gradYear"</span>: <span style="color:#fbbf24;">2014</span>,<br>
         &nbsp;&nbsp;<span style="color:#7dd3fc;">"experience"</span>: <span style="color:#fbbf24;">"10+ years"</span>,<br>
         &nbsp;&nbsp;<span style="color:#7dd3fc;">"location"</span>: <span style="color:#86efac;">"Skopje, MK"</span>,<br>
-        &nbsp;&nbsp;<span style="color:#7dd3fc;">"openTo"</span>: <span style="color:#86efac;">"new opportunities"</span><br>
+        &nbsp;&nbsp;<span style="color:#7dd3fc;">"languages"</span>: <span style="color:#86efac;">"English, Macedonian"</span><br>
         <span style="color:var(--muted);">}</span>
       </div>
     </div>
@@ -471,7 +471,7 @@
 <section id="skills">
   <div class="sec-tag">02 // Skills</div>
   <h2 class="sec-title">Technical Stack</h2>
-  <p class="sec-sub">Core technologies and tools I've worked with throughout my career.</p>
+  <p class="sec-sub">Core technologies, product areas, and tools from long-running enterprise web applications.</p>
   <div class="skills-grid stagger" id="skillsGrid">
 
     <div class="sk-card reveal">
@@ -482,6 +482,7 @@
         <span class="tp"><i class="fab fa-html5"></i> HTML5</span>
         <span class="tp"><i class="fab fa-css3-alt"></i> CSS3</span>
         <span class="tp"><i class="fas fa-paint-brush"></i> SASS / SCSS</span>
+        <span class="tp"><i class="fas fa-pencil-ruler"></i> Web Design</span>
       </div>
     </div>
 
@@ -490,6 +491,7 @@
       <div class="tech-pills">
         <span class="tp"><i class="fab fa-angular"></i> AngularJS / Angular 2+</span>
         <span class="tp"><i class="fas fa-layer-group"></i> Bootstrap</span>
+        <span class="tp"><i class="fas fa-window-restore"></i> Forms &amp; Modals</span>
         <span class="tp"><i class="fas fa-mobile-alt"></i> Responsive Design</span>
         <span class="tp"><i class="fas fa-shield-alt"></i> Auth0</span>
       </div>
@@ -502,6 +504,7 @@
         <span class="tp"><i class="fas fa-chart-pie"></i> Plotly</span>
         <span class="tp"><i class="fas fa-table"></i> DevExpress</span>
         <span class="tp"><i class="fas fa-chart-line"></i> Interactive Charts</span>
+        <span class="tp"><i class="fas fa-industry"></i> MES Workflows</span>
       </div>
     </div>
 
@@ -512,6 +515,7 @@
         <span class="tp"><i class="fas fa-database"></i> Oracle SQL</span>
         <span class="tp"><i class="fas fa-exchange-alt"></i> REST APIs</span>
         <span class="tp"><i class="fas fa-code-branch"></i> JSON / XML</span>
+        <span class="tp"><i class="fas fa-sitemap"></i> Software Design</span>
       </div>
     </div>
 
@@ -522,6 +526,7 @@
         <span class="tp"><i class="fas fa-terminal"></i> CLI / Bash</span>
         <span class="tp"><i class="fas fa-cube"></i> npm / Webpack</span>
         <span class="tp"><i class="fab fa-figma"></i> Figma</span>
+        <span class="tp"><i class="fas fa-bug"></i> Debugging</span>
       </div>
     </div>
 
@@ -532,6 +537,7 @@
         <span class="tp"><i class="fas fa-server"></i> IT Administration</span>
         <span class="tp"><i class="fas fa-cube"></i> SolidWorks / CNC</span>
         <span class="tp"><i class="fab fa-microsoft"></i> Windows Server</span>
+        <span class="tp"><i class="fas fa-terminal"></i> Scripting</span>
       </div>
     </div>
 
@@ -542,18 +548,30 @@
 <section id="experience">
   <div class="sec-tag">03 // Experience</div>
   <h2 class="sec-title">Work History</h2>
-  <p class="sec-sub">A decade-long journey across frontend development, IT administration, and design.</p>
+  <p class="sec-sub">A decade-long journey across software engineering, frontend development, IT administration, and design.</p>
   <div class="tl">
 
     <div class="tl-item reveal">
       <div class="tl-dot"></div>
       <div class="tl-card">
         <div class="tl-head">
-          <div><div class="tl-ttl">Frontend Developer</div><div class="tl-co">OPEN DATA Srl — Skopje, MK</div></div>
-          <div class="tl-period">Jun 2018 — Present · 7+ yrs</div>
+          <div><div class="tl-ttl">Software Engineer</div><div class="tl-co">CYBERTEC — Hybrid</div></div>
+          <div class="tl-period">Jun 2024 — Present</div>
         </div>
-        <p class="tl-desc">Building and maintaining modern frontend solutions for a multinational company. Responsible for UI architecture, performance optimization, and delivering high-quality user experiences across web platforms.</p>
-        <div class="tags"><span class="tag">JavaScript</span><span class="tag">AngularJS</span><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">REST APIs</span></div>
+        <p class="tl-desc">Continuing development of Opera MES after OPEN DATA was acquired by CYBERTEC, with a broader engineering focus across frontend development, software design, system improvements, product maintenance, usability, performance, and reliability.</p>
+        <div class="tags"><span class="tag">Opera MES</span><span class="tag">Software Design</span><span class="tag">Frontend</span><span class="tag">Maintainability</span><span class="tag">Enterprise Product</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-dot dim"></div>
+      <div class="tl-card">
+        <div class="tl-head">
+          <div><div class="tl-ttl">Frontend Developer</div><div class="tl-co">OPEN DATA Srl — Skopje, Macedonia</div></div>
+          <div class="tl-period">Jun 2018 — Jun 2024 · 6 yrs 1 mo</div>
+        </div>
+        <p class="tl-desc">Worked on Opera MES, a Manufacturing Execution System for managing and supporting manufacturing operations. Built and maintained web-based user interfaces for complex production workflows, with emphasis on usability, reliability, and long-term maintainability.</p>
+        <div class="tags"><span class="tag">JavaScript</span><span class="tag">HTML5</span><span class="tag">CSS</span><span class="tag">Production Workflows</span><span class="tag">Reusable UI</span></div>
       </div>
     </div>
 
@@ -564,8 +582,8 @@
           <div><div class="tl-ttl">IT Administrator</div><div class="tl-co">Winner – Vienna Insurance Group — Macedonia</div></div>
           <div class="tl-period">Mar 2017 — Jun 2018 · 1 yr 4 mos</div>
         </div>
-        <p class="tl-desc">Managed IT infrastructure, network administration, and technical support for one of the leading insurance groups in the region. Applied CCNA networking knowledge in a production environment.</p>
-        <div class="tags"><span class="tag">Networking</span><span class="tag">IT Support</span><span class="tag">LAN/WAN</span><span class="tag">Windows Server</span></div>
+        <p class="tl-desc">Maintained internal IT infrastructure, network reliability, scripts for collecting data from web sources, company web platform operations, and day-to-day technical support for users.</p>
+        <div class="tags"><span class="tag">Networking</span><span class="tag">IT Support</span><span class="tag">Scripting</span><span class="tag">Web Platform</span></div>
       </div>
     </div>
 
@@ -576,8 +594,8 @@
           <div><div class="tl-ttl">Frontend Developer</div><div class="tl-co">Armedia — Macedonia</div></div>
           <div class="tl-period">Jul 2016 — Mar 2017 · 9 mos</div>
         </div>
-        <p class="tl-desc">Developed frontend interfaces for web applications, collaborating closely with backend teams to integrate APIs and deliver responsive, user-friendly products.</p>
-        <div class="tags"><span class="tag">JavaScript</span><span class="tag">AngularJS</span><span class="tag">HTML/CSS</span></div>
+        <p class="tl-desc">Worked on ArkCase, a case management platform, focusing on frontend maintenance, bug fixing, CSS issues, modals, forms, layout consistency, usability, and application stability.</p>
+        <div class="tags"><span class="tag">ArkCase</span><span class="tag">JavaScript</span><span class="tag">AngularJS</span><span class="tag">Forms</span><span class="tag">CSS</span></div>
       </div>
     </div>
 
@@ -588,8 +606,8 @@
           <div><div class="tl-ttl">Frontend Developer</div><div class="tl-co">Vorteks ED — Skopje, MK</div></div>
           <div class="tl-period">May 2015 — Apr 2016 · 1 yr</div>
         </div>
-        <p class="tl-desc">Worked on frontend development for educational and business platforms, implementing responsive designs and interactive UI components.</p>
-        <div class="tags"><span class="tag">JavaScript</span><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">UI/UX</span></div>
+        <p class="tl-desc">Worked on Move One, a transport and relocation management product, contributing to frontend UI development and maintenance with Stylus, jQuery, and Backbone.js.</p>
+        <div class="tags"><span class="tag">Move One</span><span class="tag">JavaScript</span><span class="tag">CSS</span><span class="tag">Stylus</span><span class="tag">Backbone.js</span></div>
       </div>
     </div>
 
@@ -624,7 +642,7 @@
 <section id="projects">
   <div class="sec-tag">04 // Projects</div>
   <h2 class="sec-title">Selected Work</h2>
-  <p class="sec-sub">Projects I've built professionally and personally — with technologies used and links where available.</p>
+  <p class="sec-sub">Selected professional work and product areas based on long-running enterprise applications.</p>
 
   <div class="proj-list">
 
@@ -632,27 +650,26 @@
       <div class="proj-num">01</div>
       <div>
         <div class="proj-header">
-          <div class="proj-ttl">Project Title #1</div>
+          <div class="proj-ttl">Opera MES</div>
           <span class="proj-type">Professional</span>
         </div>
         <p class="proj-desc">
-          Brief description of this project — what it does, what problem it solves, and what your role was. Add real details from your work at OPEN DATA Srl.
+          Manufacturing Execution System used to support and optimize production processes. Contributed to frontend features, production workflow interfaces, usability improvements, product maintenance, and long-term reliability.
         </p>
         <div class="proj-stack">
-          <span class="proj-tag">AngularJS</span>
-          <span class="proj-tag">Bootstrap</span>
-          <span class="proj-tag">D3.js</span>
+          <span class="proj-tag">JavaScript</span>
+          <span class="proj-tag">Frontend Engineering</span>
+          <span class="proj-tag">Enterprise UI</span>
           <span class="proj-tag">REST API</span>
-          <span class="proj-tag">ColdFusion</span>
+          <span class="proj-tag">Manufacturing Workflows</span>
         </div>
         <div class="proj-links">
-          <a href="#" class="proj-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-          <a href="#" class="proj-link"><i class="fab fa-github"></i> GitHub</a>
+          <a href="#" class="proj-link disabled"><i class="fas fa-lock"></i> Enterprise Product</a>
         </div>
       </div>
       <div class="proj-side">
-        <div class="proj-year">2022 — Present</div>
-        <div class="proj-company">OPEN DATA Srl</div>
+        <div class="proj-year">2018 — Present</div>
+        <div class="proj-company">OPEN DATA / CYBERTEC</div>
       </div>
     </div>
 
@@ -660,26 +677,25 @@
       <div class="proj-num">02</div>
       <div>
         <div class="proj-header">
-          <div class="proj-ttl">Project Title #2</div>
+          <div class="proj-ttl">Production Workflow Interfaces</div>
           <span class="proj-type">Professional</span>
         </div>
         <p class="proj-desc">
-          Brief description of this project. Mention what made it technically interesting — data complexity, custom visualizations, integrations, or performance challenges.
+          Frontend modules for complex manufacturing-domain requirements, translating operational needs into practical web application features and reusable interface patterns.
         </p>
         <div class="proj-stack">
-          <span class="proj-tag">Angular 2+</span>
-          <span class="proj-tag">Plotly</span>
-          <span class="proj-tag">DevExpress</span>
-          <span class="proj-tag">TypeScript</span>
-          <span class="proj-tag">Oracle SQL</span>
+          <span class="proj-tag">JavaScript</span>
+          <span class="proj-tag">HTML5</span>
+          <span class="proj-tag">CSS</span>
+          <span class="proj-tag">Reusable UI</span>
+          <span class="proj-tag">Maintainability</span>
         </div>
         <div class="proj-links">
-          <a href="#" class="proj-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
           <a href="#" class="proj-link disabled"><i class="fab fa-github"></i> Private Repo</a>
         </div>
       </div>
       <div class="proj-side">
-        <div class="proj-year">2020 — 2022</div>
+        <div class="proj-year">2018 — 2024</div>
         <div class="proj-company">OPEN DATA Srl</div>
       </div>
     </div>
@@ -688,21 +704,21 @@
       <div class="proj-num">03</div>
       <div>
         <div class="proj-header">
-          <div class="proj-ttl">Project Title #3</div>
+          <div class="proj-ttl">ArkCase UI Maintenance</div>
           <span class="proj-type">Professional</span>
         </div>
         <p class="proj-desc">
-          Describe a project from Armedia or Vorteks ED. What type of application was it? What were the main technical challenges you solved?
+          Case management platform work focused on frontend maintenance, bug fixing, CSS corrections, modal and form improvements, layout consistency, and usability support.
         </p>
         <div class="proj-stack">
           <span class="proj-tag">AngularJS</span>
-          <span class="proj-tag">Bootstrap</span>
-          <span class="proj-tag">HTML5</span>
-          <span class="proj-tag">CSS3</span>
-          <span class="proj-tag">REST API</span>
+          <span class="proj-tag">CSS</span>
+          <span class="proj-tag">Forms</span>
+          <span class="proj-tag">Modals</span>
+          <span class="proj-tag">Bug Fixing</span>
         </div>
         <div class="proj-links">
-          <a href="#" class="proj-link"><i class="fab fa-github"></i> GitHub</a>
+          <a href="#" class="proj-link disabled"><i class="fab fa-github"></i> Private Repo</a>
         </div>
       </div>
       <div class="proj-side">
@@ -715,11 +731,38 @@
       <div class="proj-num">04</div>
       <div>
         <div class="proj-header">
-          <div class="proj-ttl">Web Application — Artisoft</div>
+          <div class="proj-ttl">Move One Product UI</div>
           <span class="proj-type">Professional</span>
         </div>
         <p class="proj-desc">
-          Enterprise web application built with ColdFusion Markup Language and Oracle SQL Developer. Handled backend logic and database queries for business-critical workflows.
+          Transport and relocation management product where the work centered on frontend UI development and maintenance in a Backbone.js-based application.
+        </p>
+        <div class="proj-stack">
+          <span class="proj-tag">Backbone.js</span>
+          <span class="proj-tag">jQuery</span>
+          <span class="proj-tag">Stylus</span>
+          <span class="proj-tag">CSS</span>
+          <span class="proj-tag">JavaScript</span>
+        </div>
+        <div class="proj-links">
+          <a href="#" class="proj-link disabled"><i class="fab fa-github"></i> Private Repo</a>
+        </div>
+      </div>
+      <div class="proj-side">
+        <div class="proj-year">2015 — 2016</div>
+        <div class="proj-company">Vorteks ED</div>
+      </div>
+    </div>
+
+    <div class="proj-item reveal">
+      <div class="proj-num">05</div>
+      <div>
+        <div class="proj-header">
+          <div class="proj-ttl">Enterprise Web Application</div>
+          <span class="proj-type">Professional</span>
+        </div>
+        <p class="proj-desc">
+          Early enterprise web application work using ColdFusion Markup Language and Oracle SQL Developer, covering backend logic, database queries, and business-critical workflows.
         </p>
         <div class="proj-stack">
           <span class="proj-tag">ColdFusion (CFML)</span>
@@ -738,77 +781,50 @@
       </div>
     </div>
 
-    <div class="proj-item reveal">
-      <div class="proj-num">05</div>
-      <div>
-        <div class="proj-header">
-          <div class="proj-ttl">Personal / Side Project</div>
-          <span class="proj-type">Personal</span>
-        </div>
-        <p class="proj-desc">
-          Add any personal or open-source project you've built on your own time. Could be a tool, a dashboard, an experiment — anything you're proud of!
-        </p>
-        <div class="proj-stack">
-          <span class="proj-tag">Angular 2+</span>
-          <span class="proj-tag">D3.js</span>
-          <span class="proj-tag">Bootstrap</span>
-          <span class="proj-tag">TypeScript</span>
-        </div>
-        <div class="proj-links">
-          <a href="#" class="proj-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-          <a href="#" class="proj-link"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-      </div>
-      <div class="proj-side">
-        <div class="proj-year">2024</div>
-        <div class="proj-company">Personal</div>
-      </div>
-    </div>
-
   </div>
 
   <p style="color:var(--muted);font-size:.79rem;margin-top:2.5rem;text-align:center;background:rgba(0,229,180,.04);border:1px solid var(--border);padding:1rem;border-radius:var(--r);">
-    💡 <em>Replace placeholder titles and descriptions with your real project names, links, and details.</em>
+    <em>Most professional work is private enterprise software, so public demos and repositories are intentionally omitted.</em>
   </p>
 </section>
 
 <!-- TESTIMONIALS -->
 <section id="testimonials">
-  <div class="sec-tag">05 // Testimonials</div>
+  <div class="sec-tag">05 // Professional Focus</div>
 
-  <h2 class="sec-title">What People Say</h2>
-  <p class="sec-sub">Feedback from colleagues and managers I've had the pleasure of working with.</p>
+  <h2 class="sec-title">How I Work</h2>
+  <p class="sec-sub">Practical strengths shaped by enterprise products, production workflows, and long-term maintenance.</p>
   <div class="test-grid">
     <div class="test-card reveal">
       <div class="test-quote">"</div>
-      <div class="test-stars">★★★★★</div>
-      <p class="test-text">Angjel is a reliable and skilled frontend developer. He consistently delivers clean, maintainable code and has a great eye for UI details that elevate the end product.</p>
+      <div class="test-stars">Enterprise UI</div>
+      <p class="test-text">I focus on reliable, usable frontend features for complex business processes, where clarity, maintainability, and predictable behavior matter more than surface-level polish.</p>
       <div class="test-author">
-        <div class="test-avatar">👨‍💼</div>
-        <div><div class="test-name">Colleague Name</div><div class="test-role">Role @ OPEN DATA Srl</div></div>
+        <div class="test-avatar">UI</div>
+        <div><div class="test-name">Frontend Engineering</div><div class="test-role">Opera MES and enterprise workflows</div></div>
       </div>
     </div>
     <div class="test-card reveal">
       <div class="test-quote">"</div>
-      <div class="test-stars">★★★★★</div>
-      <p class="test-text">During his time with us, Angjel showed great dedication and technical versatility — from frontend to IT infrastructure. A true team player with a growth mindset.</p>
+      <div class="test-stars">Maintenance</div>
+      <p class="test-text">A large part of my work is improving existing systems: fixing bugs, refining forms and modals, reducing layout inconsistencies, and keeping long-running products stable.</p>
       <div class="test-author">
-        <div class="test-avatar">👩‍💼</div>
-        <div><div class="test-name">Colleague Name</div><div class="test-role">Role @ Winner Insurance</div></div>
+        <div class="test-avatar">MT</div>
+        <div><div class="test-name">Product Maintenance</div><div class="test-role">Stability, usability, and reliability</div></div>
       </div>
     </div>
     <div class="test-card reveal">
       <div class="test-quote">"</div>
-      <div class="test-stars">★★★★★</div>
-      <p class="test-text">Replace this with a real LinkedIn recommendation or testimonial from a colleague, manager, or client you've worked with.</p>
+      <div class="test-stars">Systems</div>
+      <p class="test-text">My background also includes IT administration, scripting, network maintenance, and web platform support, which helps me approach frontend work with broader system context.</p>
       <div class="test-author">
-        <div class="test-avatar">🧑‍💻</div>
-        <div><div class="test-name">Colleague Name</div><div class="test-role">Role @ Company</div></div>
+        <div class="test-avatar">IT</div>
+        <div><div class="test-name">Technical Breadth</div><div class="test-role">Infrastructure, scripting, and support</div></div>
       </div>
     </div>
   </div>
   <p style="color:var(--muted);font-size:.8rem;margin-top:2rem;text-align:center;">
-    💡 <em>Ask colleagues on LinkedIn for recommendations and paste them here.</em>
+    <em>Recommendations can be added later when you decide which LinkedIn testimonials to publish.</em>
   </p>
 </section>
 
@@ -816,15 +832,15 @@
 <section id="certificates">
   <div class="sec-tag">06 // Certificates</div>
   <h2 class="sec-title">Credentials</h2>
-  <p class="sec-sub">Certifications earned throughout my career — from networking to frontend development.</p>
+  <p class="sec-sub">Selected certifications from frontend development, AI tooling, and networking foundations.</p>
   <div class="cert-grid">
 
     <div class="cert-card reveal">
       <div class="cert-icon"><i class="fab fa-js"></i></div>
       <div>
-        <div class="cert-ttl">JavaScript: Understanding the Weird Parts</div>
+        <div class="cert-ttl">ChatGPT &amp; Generative AI - The Complete Guide</div>
         <div class="cert-issuer">Udemy</div>
-        <div class="cert-date">Issued: August 2017</div>
+        <div class="cert-date">Issued: November 2024</div>
         <a href="#" class="cert-badge"><i class="fas fa-external-link-alt"></i> View Credential</a>
       </div>
     </div>
@@ -832,9 +848,9 @@
     <div class="cert-card reveal">
       <div class="cert-icon"><i class="fab fa-angular"></i></div>
       <div>
-        <div class="cert-ttl">Learn and Understand AngularJS</div>
+        <div class="cert-ttl">Angular Front To Back</div>
         <div class="cert-issuer">Udemy</div>
-        <div class="cert-date">Issued: October 2017</div>
+        <div class="cert-date">Issued: September 2022</div>
         <a href="#" class="cert-badge"><i class="fas fa-external-link-alt"></i> View Credential</a>
       </div>
     </div>
@@ -842,9 +858,9 @@
     <div class="cert-card reveal">
       <div class="cert-icon"><i class="fas fa-lock"></i></div>
       <div>
-        <div class="cert-ttl">AngularJS Authentication with Auth0</div>
+        <div class="cert-ttl">JavaScript: Understanding the Weird Parts</div>
         <div class="cert-issuer">Udemy</div>
-        <div class="cert-date">Issued: May 2017</div>
+        <div class="cert-date">Issued: August 2017</div>
         <a href="#" class="cert-badge"><i class="fas fa-external-link-alt"></i> View Credential</a>
       </div>
     </div>
@@ -919,7 +935,7 @@
   <div class="contact-wrap">
     <div class="reveal">
       <p style="color:var(--muted);font-size:.85rem;line-height:1.85;margin-bottom:2rem;">
-        Open to new opportunities, freelance projects, and interesting collaborations. Feel free to reach out!
+        Open to meaningful software engineering conversations, frontend work, enterprise product improvements, and practical web application projects.
       </p>
       <div class="ci-item">
         <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
@@ -927,15 +943,15 @@
       </div>
       <div class="ci-item">
         <div class="ci-icon"><i class="fas fa-briefcase"></i></div>
-        <div><div class="ci-lbl">Current Role</div><div class="ci-val">Frontend Developer @ OPEN DATA Srl</div></div>
+        <div><div class="ci-lbl">Current Role</div><div class="ci-val">Software Engineer @ CYBERTEC</div></div>
       </div>
       <div class="ci-item">
         <div class="ci-icon"><i class="fas fa-clock"></i></div>
         <div><div class="ci-lbl">Response time</div><div class="ci-val">Within 24 hours</div></div>
       </div>
       <div class="social-row">
-        <a href="https://www.linkedin.com/in/angjel-spasovski-18398390/" target="_blank" class="soc" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" class="soc" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/angjel-spasovski/" target="_blank" class="soc" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/AngjelSpasovski" target="_blank" class="soc" title="GitHub"><i class="fab fa-github"></i></a>
         <a href="#" class="soc" title="Email"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
@@ -959,8 +975,8 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 <span style="color:var(--accent);">Angjel Spasovski</span>. All rights reserved.</p>
-  <p>Frontend Developer · Skopje, North Macedonia</p>
+  <p>© 2026 <span style="color:var(--accent);">Angjel Spasovski</span>. All rights reserved.</p>
+  <p>Software Engineer · Skopje, North Macedonia</p>
 </footer>
 
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
@@ -1020,7 +1036,7 @@
 
   // ── Animated stat counters ────────────────────────────────
   const statEls = document.querySelectorAll('.stat-n');
-  const statTargets = [10, 6, 9]; // Years, Companies, Certs — index 3 is "MK" text, skip
+  const statTargets = [10, 6, 12]; // Years, Companies, Certs - index 3 is "MK" text, skip
   const statSuffixes = ['+', '', ''];
   let counted = false;
   const counterIO = new IntersectionObserver(entries => {
@@ -1049,9 +1065,10 @@
 
   // ── Typewriter ────────────────────────────────────────────
   const lines = [
-    'Frontend Developer',
-    'JavaScript & Angular Specialist',
-    'Data Visualization Enthusiast',
+    'Software Engineer',
+    'Frontend Engineering',
+    'Enterprise Web Applications',
+    'Opera MES Product Work',
     'Based in Skopje, MK'
   ];
   let li = 0, ci = 0, del = false;
