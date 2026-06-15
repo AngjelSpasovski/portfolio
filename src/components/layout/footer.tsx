@@ -1,3 +1,5 @@
+import { Mail } from "lucide-react";
+
 import { Logo } from "@/components/shared/logo";
 import { SocialLinks } from "@/components/shared/social-links";
 import type { SiteContent } from "@/i18n/content";
@@ -9,6 +11,13 @@ export function Footer({ content }: { content: SiteContent }) {
         <div className="space-y-3">
           <Logo locale={content.locale} />
           <p className="max-w-md text-sm text-muted-foreground">{content.footer}</p>
+          <a
+            href={content.social.email}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-blue-600 dark:hover:text-blue-300"
+          >
+            <Mail className="size-4" />
+            angjel.spasovski@gmail.com
+          </a>
         </div>
         <SocialLinks
           github={content.social.github}

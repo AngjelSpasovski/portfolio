@@ -13,7 +13,7 @@ const ThemeContext = React.createContext<ThemeContextValue | null>(null);
 
 function getThemeSnapshot(): Theme {
   if (typeof window === "undefined") {
-    return "light";
+    return "dark";
   }
 
   const stored = window.localStorage.getItem("portfolio-theme");
@@ -21,7 +21,7 @@ function getThemeSnapshot(): Theme {
     return stored;
   }
 
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return "dark";
 }
 
 function subscribeToThemeChanges(callback: () => void) {
@@ -43,7 +43,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const theme: Theme = React.useSyncExternalStore<Theme>(
     subscribeToThemeChanges,
     getThemeSnapshot,
-    () => "light",
+    () => "dark",
   );
 
   React.useEffect(() => {

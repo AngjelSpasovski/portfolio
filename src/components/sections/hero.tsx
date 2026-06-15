@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Download } from "lucide-react";
+import { ArrowUpRight, Download, Mail } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -86,6 +86,14 @@ export function Hero({ content }: { content: SiteContent }) {
               email: content.contact.emailLabel,
             }}
           />
+
+          <a
+            href={content.social.email}
+            className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-card/70 px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-blue-500 hover:text-blue-600 dark:bg-white/5 dark:hover:text-blue-300"
+          >
+            <Mail className="size-4" />
+            angjel.spasovski@gmail.com
+          </a>
 
           <div className="grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
             {content.hero.stats.map((stat) => (
