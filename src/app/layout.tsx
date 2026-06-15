@@ -3,6 +3,7 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { assetPath } from "@/lib/asset-path";
 
 export const metadata: Metadata = {
   title: {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Software Engineer portfolio focused on frontend engineering, enterprise web applications, and practical product work.",
   icons: {
-    icon: "/favicon.svg",
+    icon: assetPath("/favicon.svg"),
   },
   openGraph: {
     title: "Angjel Spasovski - Software Engineer",

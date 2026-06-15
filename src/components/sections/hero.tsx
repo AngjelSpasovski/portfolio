@@ -7,6 +7,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Reveal } from "@/components/shared/reveal";
 import { SocialLinks } from "@/components/shared/social-links";
 import type { SiteContent } from "@/i18n/content";
+import { assetPath } from "@/lib/asset-path";
 
 export function Hero({ content }: { content: SiteContent }) {
   const projectsHref = content.nav[3]?.href ?? "#projects";
@@ -60,8 +61,8 @@ export function Hero({ content }: { content: SiteContent }) {
             >
               {content.hero.secondaryCta}
             </Link>
-            <Link
-              href="/cv/angjel-spasovski-cv.pdf"
+            <a
+              href={assetPath("/cv/angjel-spasovski-cv.pdf")}
               download
               className={buttonVariants({
                 size: "lg",
@@ -72,7 +73,7 @@ export function Hero({ content }: { content: SiteContent }) {
             >
               {content.hero.cvCta}
               <Download className="ml-2 size-4" />
-            </Link>
+            </a>
           </div>
 
           <SocialLinks
@@ -107,7 +108,7 @@ export function Hero({ content }: { content: SiteContent }) {
           <div className="absolute -inset-4 rounded-[2.5rem] border border-blue-500/20 bg-blue-500/10 blur-2xl" />
           <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card p-3 shadow-2xl">
             <Image
-              src="/images/profile.jpg"
+              src={assetPath("/images/profile.jpg")}
               alt="Angjel Spasovski"
               width={1024}
               height={1536}
