@@ -89,7 +89,7 @@ export function Hero({ content }: { content: SiteContent }) {
 
           <a
             href={content.social.email}
-            className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-card/70 px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-blue-500 hover:text-blue-600 dark:bg-white/5 dark:hover:text-blue-300"
+            className="inline-flex min-h-11 w-fit items-center gap-2 rounded-full border border-border bg-card/70 px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-blue-500 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:bg-white/5 dark:hover:text-blue-300"
           >
             <Mail className="size-4" />
             angjel.spasovski@gmail.com

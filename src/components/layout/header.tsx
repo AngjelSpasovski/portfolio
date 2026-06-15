@@ -72,7 +72,7 @@ export function Header({ locale, nav, ctaLabel }: HeaderProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-2xl px-4 py-3 text-sm font-semibold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="rounded-2xl px-4 py-3 text-sm font-semibold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
