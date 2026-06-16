@@ -6,13 +6,34 @@ import { SectionHeading } from "./section-heading";
 
 export function About({ content }: { content: SiteContent }) {
   const id = localeConfig[content.locale].sectionIds.about;
+  const scopeLabel = content.locale === "mk" ? "Практичен фокус" : "Practical focus";
+  const focusItems =
+    content.locale === "mk"
+      ? ["Frontend UI", "Софтверски дизајн", "Одржување производ"]
+      : ["Frontend UI", "Software design", "Product maintenance"];
+  const headingId = `${id}-heading`;
 
   return (
-    <section id={id} className="px-5 py-20 sm:py-28">
+    <section id={id} aria-labelledby={headingId} className="px-5 py-20 sm:py-28">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading tag={content.about.tag} title={content.about.title} />
+        <SectionHeading id={headingId} tag={content.about.tag} title={content.about.title} />
         <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
           <Reveal className="space-y-5">
+            <div className="rounded-3xl border border-blue-500/25 bg-blue-500/[0.04] p-5 shadow-sm dark:bg-blue-500/[0.08]">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-300">
+                {scopeLabel}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {focusItems.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-blue-500/20 bg-background px-3 py-1.5 text-sm font-bold text-foreground shadow-sm"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
             {content.about.paragraphs.map((paragraph) => (
               <p key={paragraph} className="text-pretty text-base leading-8 text-muted-foreground sm:text-lg">
                 {paragraph}
@@ -23,7 +44,7 @@ export function About({ content }: { content: SiteContent }) {
           <Reveal delay={0.1}>
             <div className="grid gap-3 sm:grid-cols-2">
               {content.about.facts.map(({ label, value, icon: Icon }) => (
-                <Card key={label} className="rounded-3xl border-border/80 shadow-sm">
+                <Card key={label} className="rounded-3xl border-border/80 shadow-sm transition-all hover:-translate-y-1 hover:border-blue-500/35 hover:shadow-md">
                   <CardContent className="p-5">
                     <div className="mb-5 grid size-11 place-items-center rounded-2xl bg-blue-600 text-white">
                       <Icon className="size-5" />

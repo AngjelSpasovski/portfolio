@@ -1,5 +1,7 @@
 import { Mail } from "lucide-react";
 
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+
 type SocialLinksProps = {
   github: string;
   linkedin: string;
@@ -39,16 +41,22 @@ export function SocialLinks({ github, linkedin, email, labels }: SocialLinksProp
   return (
     <div className="flex flex-wrap items-center gap-2">
       {items.map(({ key, Icon }) => (
-        <a
-          key={key}
-          href={hrefs[key]}
-          target={key === "email" ? undefined : "_blank"}
-          rel={key === "email" ? undefined : "noreferrer"}
-          aria-label={labels[key]}
-          className="inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-zinc-300 bg-zinc-100 text-zinc-950 shadow-sm transition-colors hover:border-blue-600 hover:bg-blue-600 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:border-white/15 dark:bg-white dark:text-zinc-950 dark:hover:border-blue-500 dark:hover:bg-blue-500 dark:hover:text-white"
-        >
-          <Icon className="size-4" />
-        </a>
+        <Tooltip key={key}>
+          <TooltipTrigger
+            render={
+              <a
+                href={hrefs[key]}
+                target={key === "email" ? undefined : "_blank"}
+                rel={key === "email" ? undefined : "noreferrer"}
+                aria-label={labels[key]}
+                className="inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-zinc-300 bg-zinc-100 text-zinc-950 shadow-sm transition-colors hover:border-blue-600 hover:bg-blue-600 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:border-white/15 dark:bg-white dark:text-zinc-950 dark:hover:border-blue-500 dark:hover:bg-blue-500 dark:hover:text-white"
+              >
+                <Icon className="size-4" />
+              </a>
+            }
+          />
+          <TooltipContent>{labels[key]}</TooltipContent>
+        </Tooltip>
       ))}
     </div>
   );

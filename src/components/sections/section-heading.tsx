@@ -1,16 +1,17 @@
 type SectionHeadingProps = {
+  id?: string;
   tag: string;
   title: string;
   subtitle?: string;
 };
 
-export function SectionHeading({ tag, title, subtitle }: SectionHeadingProps) {
+export function SectionHeading({ id, tag, title, subtitle }: SectionHeadingProps) {
   return (
     <div className="mb-10 max-w-3xl">
       <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-blue-600 dark:text-blue-400">
         {tag}
       </p>
-      <h2 className="text-balance text-3xl font-black tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+      <h2 id={id} className="text-balance text-3xl font-black tracking-tight text-foreground sm:text-4xl lg:text-5xl">
         {title}
       </h2>
       {subtitle ? (

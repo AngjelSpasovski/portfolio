@@ -4,6 +4,8 @@ import type { Locale } from "@/i18n/content";
 import { localeConfig } from "@/i18n/content";
 
 export function Logo({ locale }: { locale: Locale }) {
+  const roleLabel = locale === "mk" ? "Софтверски инженер" : "Software Engineer";
+
   return (
     <Link
       href={localeConfig[locale].path}
@@ -15,7 +17,7 @@ export function Logo({ locale }: { locale: Locale }) {
       </span>
       <span className="hidden leading-none sm:block">
         <span className="block text-sm font-bold tracking-tight">Angjel Spasovski</span>
-        <span className="mt-1 block text-xs text-muted-foreground">Software Engineer</span>
+        <span className="mt-1 block text-xs text-muted-foreground">{roleLabel}</span>
       </span>
     </Link>
   );

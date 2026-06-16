@@ -12,6 +12,8 @@ import {
   Wrench,
 } from "lucide-react";
 
+import { siteConfig } from "@/config/site";
+
 export type Locale = "en" | "mk";
 
 export type NavItem = {
@@ -42,6 +44,7 @@ export type ProjectItem = {
   description: string;
   stack: string[];
   href?: string;
+  visualId?: "dbstore" | "opera-mes";
 };
 
 export type CertificationItem = {
@@ -114,9 +117,9 @@ export type SiteContent = {
 };
 
 const sharedSocial = {
-  github: "https://github.com/AngjelSpasovski",
-  linkedin: "https://www.linkedin.com/in/angjel-spasovski/",
-  email: "mailto:angjel.spasovski@gmail.com",
+  github: siteConfig.links.github,
+  linkedin: siteConfig.links.linkedin,
+  email: `mailto:${siteConfig.emailAddress}`,
 };
 
 export const content: Record<Locale, SiteContent> = {
@@ -247,6 +250,7 @@ export const content: Record<Locale, SiteContent> = {
             "A live web project used as a public example of frontend delivery, product presentation, and practical implementation quality.",
           stack: ["Frontend", "Responsive UI", "Product Website"],
           href: "https://dbstore.online",
+          visualId: "dbstore",
         },
         {
           title: "Opera MES",
@@ -256,6 +260,7 @@ export const content: Record<Locale, SiteContent> = {
           description:
             "Manufacturing Execution System used to support and optimize production processes through reliable frontend workflows and long-term product maintenance.",
           stack: ["JavaScript", "Enterprise UI", "REST API", "Manufacturing Workflows"],
+          visualId: "opera-mes",
         },
       ],
     },
@@ -295,11 +300,11 @@ export const content: Record<Locale, SiteContent> = {
     ],
     hero: {
       badge: "Софтверски инженер",
-      eyebrow: "Frontend engineering за практични enterprise производи",
+      eyebrow: "Frontend инженеринг за практични деловни производи",
       title: "Анѓел",
       highlight: "Спасовски",
       description:
-        "Софтверски инженер со 10+ години искуство во web application development, frontend engineering, enterprise software products и сигурни кориснички интерфејси за комплексни business workflows.",
+        "Софтверски инженер со 10+ години искуство во развој на веб апликации, frontend инженеринг, enterprise софтверски производи и сигурни кориснички интерфејси за комплексни деловни процеси.",
       primaryCta: "Види проекти",
       secondaryCta: "Контакт",
       cvCta: "Преземи CV",
@@ -312,11 +317,11 @@ export const content: Record<Locale, SiteContent> = {
     },
     about: {
       tag: "01 / За мене",
-      title: "Сигурен frontend за комплексни производи.",
+      title: "Сигурен frontend за комплексни деловни производи.",
       paragraphs: [
-        "Мојата понова работа е фокусирана на Opera MES, Manufacturing Execution System за производствени операции, каде придонесувам во frontend development, software design, product maintenance и подобрување на комплексни production workflows.",
-        "Имам работено и на производи како ArkCase и Move One, со искуство во JavaScript интерфејси, CSS, форми, модали, UI maintenance, bug fixing и долгорочни enterprise апликации.",
-        "Претходно стекнав искуство и во IT администрација, scripting, network maintenance и web platform support, што ми помага да гледам пошироко кога градам практични software решенија.",
+        "Мојата понова работа е фокусирана на Opera MES, Manufacturing Execution System за производствени операции. Таму придонесувам во frontend development, software design, product maintenance и подобрување на комплексни производствени процеси.",
+        "Имам работено и на производи како ArkCase и Move One, со искуство во JavaScript интерфејси, CSS, форми, модали, UI одржување, bug fixing и долгорочни enterprise апликации.",
+        "Претходно стекнав искуство и во IT администрација, scripting, network maintenance и web platform support, што ми помага пошироко да размислувам кога градам практични software решенија.",
       ],
       facts: [
         { label: "Моментална улога", value: "Software Engineer @ CYBERTEC", icon: BriefcaseBusiness },
@@ -329,7 +334,7 @@ export const content: Record<Locale, SiteContent> = {
       tag: "02 / Искуство",
       title: "Работно искуство",
       subtitle:
-        "Пат низ software engineering, frontend development, IT администрација и design.",
+        "Пат низ software engineering, frontend development, IT администрација и дизајн.",
       items: [
         {
           role: "Software Engineer",
@@ -337,7 +342,7 @@ export const content: Record<Locale, SiteContent> = {
           period: "Јун 2024 - Сега",
           location: "Hybrid",
           summary:
-            "Продолжување на развојот на Opera MES по аквизицијата на OPEN DATA од CYBERTEC, со поширок engineering фокус на frontend development, software design, системски подобрувања, product maintenance, usability, performance и reliability.",
+            "Продолжување на развојот на Opera MES по аквизицијата на OPEN DATA од CYBERTEC, со поширок engineering фокус на frontend development, software design, системски подобрувања, product maintenance, употребливост, перформанси и стабилност.",
           tags: ["Opera MES", "Software Design", "Frontend", "Maintainability", "Enterprise Product"],
         },
         {
@@ -346,7 +351,7 @@ export const content: Record<Locale, SiteContent> = {
           period: "Јун 2018 - Јун 2024",
           location: "Скопје, Македонија",
           summary:
-            "Работа на Opera MES, градење и одржување web-based UI за комплексни production workflows, со фокус на usability, reliability и долгорочна maintainability.",
+            "Работа на Opera MES, градење и одржување web-based UI за комплексни производствени процеси, со фокус на употребливост, стабилност и долгорочна maintainability.",
           tags: ["JavaScript", "HTML5", "CSS", "Production Workflows", "Reusable UI"],
         },
         {
@@ -355,7 +360,7 @@ export const content: Record<Locale, SiteContent> = {
           period: "Март 2017 - Јун 2018",
           location: "Македонија",
           summary:
-            "Одржување IT infrastructure, network reliability, scripts за data collection, web platform operations и секојдневна техничка поддршка.",
+            "Одржување IT инфраструктура, network reliability, scripts за собирање податоци, web platform operations и секојдневна техничка поддршка.",
           tags: ["Networking", "IT Support", "Scripting", "Web Platform"],
         },
         {
@@ -364,7 +369,7 @@ export const content: Record<Locale, SiteContent> = {
           period: "Јули 2016 - Март 2017",
           location: "Македонија",
           summary:
-            "Работа на ArkCase, со фокус на frontend maintenance, bug fixing, CSS issues, modals, forms, layout consistency, usability и application stability.",
+            "Работа на ArkCase, со фокус на frontend maintenance, bug fixing, CSS issues, модали, форми, layout consistency, употребливост и стабилност на апликацијата.",
           tags: ["ArkCase", "JavaScript", "AngularJS", "Forms", "CSS"],
         },
         {
@@ -373,7 +378,7 @@ export const content: Record<Locale, SiteContent> = {
           period: "Мај 2015 - Април 2016",
           location: "Скопје",
           summary:
-            "Работа на Move One, transport and relocation management product, со frontend UI development и maintenance користејќи Stylus, jQuery и Backbone.js.",
+            "Работа на Move One, transport and relocation management product, со frontend UI development и maintenance со Stylus, jQuery и Backbone.js.",
           tags: ["Move One", "JavaScript", "CSS", "Stylus", "Backbone.js"],
         },
       ],
@@ -382,64 +387,66 @@ export const content: Record<Locale, SiteContent> = {
       tag: "03 / Вештини",
       title: "Технички стек",
       subtitle:
-        "Технологии, product areas и алатки од долгорочни enterprise web апликации.",
+        "Технологии, product области и алатки од долгорочни enterprise web апликации.",
       groups: [
-        { title: "Languages & Core", icon: Code2, items: ["JavaScript", "TypeScript", "HTML5", "CSS3", "SASS / SCSS", "Web Design"] },
-        { title: "Frontend", icon: Sparkles, items: ["AngularJS", "Angular 2+", "Bootstrap", "Responsive Design", "Forms & Modals"] },
-        { title: "Data & APIs", icon: Database, items: ["REST APIs", "JSON / XML", "Oracle SQL", "D3.js", "Plotly", "DevExpress"] },
+        { title: "Јазици и основа", icon: Code2, items: ["JavaScript", "TypeScript", "HTML5", "CSS3", "SASS / SCSS", "Web Design"] },
+        { title: "Frontend", icon: Sparkles, items: ["AngularJS", "Angular 2+", "Bootstrap", "Responsive UI", "Форми и модали"] },
+        { title: "Податоци и APIs", icon: Database, items: ["REST APIs", "JSON / XML", "Oracle SQL", "D3.js", "Plotly", "DevExpress"] },
         { title: "Engineering", icon: Cpu, items: ["Software Design", "Maintainability", "Debugging", "Product Maintenance", "Performance"] },
-        { title: "Tools", icon: Wrench, items: ["Git / GitHub", "npm", "Webpack", "CLI", "Figma"] },
-        { title: "Systems", icon: Network, items: ["IT Administration", "Scripting", "Network Maintenance", "Windows Server", "CCNA Foundations"] },
+        { title: "Алатки", icon: Wrench, items: ["Git / GitHub", "npm", "Webpack", "CLI", "Figma"] },
+        { title: "Системи", icon: Network, items: ["IT Administration", "Scripting", "Network Maintenance", "Windows Server", "CCNA Foundations"] },
       ],
     },
     projects: {
       tag: "04 / Проекти",
       title: "Избрана работа",
       subtitle:
-        "Јавни и приватни product work примери. Private enterprise products се опишани без repository линкови.",
-      note: "Структурата е подготвена за додавање нови live проекти кога ќе одлучиш.",
+        "Јавни и приватни примери од мојата работа на производи. Приватните enterprise производи се опишани без repository линкови.",
+      note: "Структурата е подготвена за додавање нови live проекти кога ќе одлучиме да ја прошириме.",
       items: [
         {
           title: "DB Store",
-          type: "Live project",
+          type: "Live проект",
           period: "2026",
-          company: "Personal / Product",
+          company: "Личен проект",
           description:
-            "Live web project како јавен пример за frontend delivery, product presentation и практичен implementation quality.",
+            "Live web project како јавен пример за frontend delivery, product presentation и практичен квалитет на имплементација.",
           stack: ["Frontend", "Responsive UI", "Product Website"],
           href: "https://dbstore.online",
+          visualId: "dbstore",
         },
         {
           title: "Opera MES",
-          type: "Enterprise product",
-          period: "2018 - Present",
+          type: "Enterprise производ",
+          period: "2018 - Сега",
           company: "OPEN DATA / CYBERTEC",
           description:
-            "Manufacturing Execution System за поддршка и оптимизација на production processes преку сигурни frontend workflows и долгорочен product maintenance.",
+            "Manufacturing Execution System за поддршка и оптимизација на производствени процеси преку сигурни frontend workflows и долгорочен product maintenance.",
           stack: ["JavaScript", "Enterprise UI", "REST API", "Manufacturing Workflows"],
+          visualId: "opera-mes",
         },
       ],
     },
     certifications: {
       tag: "05 / Сертификати",
       title: "Сертификати",
-      subtitle: "Избрани сертификати од frontend development, AI tooling и networking foundations.",
+      subtitle: "Избрани сертификати од frontend development, AI tooling и основи на networking.",
       items: [
-        { title: "ChatGPT & Generative AI - The Complete Guide", issuer: "Udemy", date: "Издаден Nov 2024" },
-        { title: "Angular Front To Back", issuer: "Udemy", date: "Издаден Sep 2022" },
-        { title: "JavaScript: Understanding the Weird Parts", issuer: "Udemy", date: "Издаден Aug 2017" },
-        { title: "CCNA: Network Fundamentals", issuer: "Cisco", date: "Издаден Nov 2011" },
+        { title: "ChatGPT & Generative AI - The Complete Guide", issuer: "Udemy", date: "Издаден ноември 2024" },
+        { title: "Angular Front To Back", issuer: "Udemy", date: "Издаден септември 2022" },
+        { title: "JavaScript: Understanding the Weird Parts", issuer: "Udemy", date: "Издаден август 2017" },
+        { title: "CCNA: Network Fundamentals", issuer: "Cisco", date: "Издаден ноември 2011" },
       ],
     },
     contact: {
       tag: "06 / Контакт",
-      title: "Да зборуваме за практичен software.",
-      text: "Отворен сум за meaningful software engineering conversations, frontend work, enterprise product improvements и практични web application projects.",
-      emailLabel: "Email",
+      title: "Да зборуваме за практичен софтвер.",
+      text: "Отворен сум за квалитетни software engineering разговори, frontend работа, подобрувања на enterprise производи и практични web application проекти.",
+      emailLabel: "Е-пошта",
       githubLabel: "GitHub",
       linkedinLabel: "LinkedIn",
     },
-    footer: "Software Engineer од Скопје, Македонија.",
+    footer: "Софтверски инженер од Скопје, Македонија.",
   },
 };
 

@@ -5,7 +5,7 @@ import { PortfolioPage } from "@/components/portfolio-page";
 export const metadata: Metadata = {
   title: "Анѓел Спасовски - Софтверски инженер",
   description:
-    "Portfolio страна за frontend engineering, enterprise web апликации и практична product work.",
+    "Portfolio страна за frontend инженеринг, enterprise web апликации и практични софтверски решенија.",
   alternates: {
     canonical: "/portfolio/mk/",
     languages: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Анѓел Спасовски - Софтверски инженер",
     description:
-      "Frontend engineering, enterprise web апликации и практична product work.",
+      "Frontend инженеринг, enterprise web апликации и практични софтверски решенија.",
     url: "/portfolio/mk/",
     locale: "mk_MK",
   },

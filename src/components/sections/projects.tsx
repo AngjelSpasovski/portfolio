@@ -1,22 +1,28 @@
-import { ArrowUpRight, Boxes, ChartNoAxesCombined, LockKeyhole, PackageCheck } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight, LockKeyhole } from "lucide-react";
 
 import { Reveal } from "@/components/shared/reveal";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { getProjectVisuals } from "@/data/project-visuals";
+import type { ProjectVisual, ProjectVisualId, ProjectVisualImage } from "@/data/project-visuals";
 import type { SiteContent } from "@/i18n/content";
 import { localeConfig } from "@/i18n/content";
+import { assetPath } from "@/lib/asset-path";
 import { SectionHeading } from "./section-heading";
 
 export function Projects({ content }: { content: SiteContent }) {
   const id = localeConfig[content.locale].sectionIds.projects;
+  const headingId = `${id}-heading`;
   const visitLabel = content.locale === "mk" ? "Отвори проект" : "Visit project";
   const privateLabel = content.locale === "mk" ? "Приватен производ" : "Private product";
 
   return (
-    <section id={id} className="bg-muted/35 px-5 py-20 sm:py-28">
+    <section id={id} aria-labelledby={headingId} className="bg-muted/35 px-5 py-20 sm:py-28">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
+          id={headingId}
           tag={content.projects.tag}
           title={content.projects.title}
           subtitle={content.projects.subtitle}
@@ -27,7 +33,10 @@ export function Projects({ content }: { content: SiteContent }) {
             <Reveal key={project.title} delay={Math.min(index * 0.06, 0.16)}>
               <Card className="h-full overflow-hidden rounded-3xl border-border/80 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
                 <CardContent className="flex h-full flex-col p-0">
-                  <ProjectPreview variant={project.href ? "store" : "enterprise"} />
+                  <ProjectPreview
+                    locale={content.locale}
+                    visualId={project.visualId ?? (project.href ? "dbstore" : "opera-mes")}
+                  />
                   <div className="flex h-full flex-col p-6">
                     <div className="flex items-start justify-between gap-4">
                       <div>
@@ -70,7 +79,7 @@ export function Projects({ content }: { content: SiteContent }) {
                           <LockKeyhole className="mr-2 size-4" />
                           {privateLabel}
                         </Button>
-                    )}
+                      )}
                     </div>
                   </div>
                 </CardContent>
@@ -85,89 +94,87 @@ export function Projects({ content }: { content: SiteContent }) {
   );
 }
 
-function ProjectPreview({ variant }: { variant: "store" | "enterprise" }) {
-  if (variant === "enterprise") {
-    return (
-      <div className="border-b border-border/80 bg-zinc-950 p-4 text-white">
-        <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
-              <span className="flex size-8 items-center justify-center rounded-full bg-blue-500/15 text-blue-300">
-                <Boxes className="size-4" />
-              </span>
-              <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-white/45">Opera MES</p>
-                <p className="text-sm font-black">Production workflow</p>
-              </div>
-            </div>
-            <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-bold text-emerald-200">
-              Live operations
-            </span>
-          </div>
-          <div className="mt-5 grid grid-cols-3 gap-3">
-            {["Orders", "Lines", "Quality"].map((label, index) => (
-              <div key={label} className="rounded-xl border border-white/10 bg-white/[0.06] p-3">
-                <div className="h-1.5 w-10 rounded-full bg-blue-300/70" />
-                <p className="mt-3 text-xs font-bold text-white/55">{label}</p>
-                <p className="mt-1 text-lg font-black">{index === 0 ? "128" : index === 1 ? "12" : "98%"}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-4 h-2 rounded-full bg-white/10">
-            <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-blue-400 to-emerald-300" />
-          </div>
-        </div>
-      </div>
-    );
-  }
+function ProjectPreview({
+  locale,
+  visualId,
+}: {
+  locale: SiteContent["locale"];
+  visualId: ProjectVisualId;
+}) {
+  const visuals = getProjectVisuals(locale);
+
+  return <ProjectVisualPreview visual={visuals[visualId]} />;
+}
+
+function ProjectVisualPreview({ visual }: { visual: ProjectVisual }) {
+  const shellTone =
+    visual.tone === "cyan"
+      ? "from-zinc-950 via-cyan-950/70 to-zinc-950 shadow-cyan-950/30"
+      : "from-slate-950 via-blue-950 to-zinc-950 shadow-blue-950/30";
 
   return (
-    <div className="border-b border-border/80 bg-gradient-to-br from-slate-950 via-blue-950 to-zinc-950 p-4 text-white">
-      <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] shadow-2xl shadow-blue-950/30">
+    <div className={`border-b border-border/80 bg-gradient-to-br ${shellTone} p-4 text-white`}>
+      <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] shadow-2xl">
         <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
           <div className="flex gap-1.5">
             <span className="size-2.5 rounded-full bg-red-300" />
             <span className="size-2.5 rounded-full bg-amber-300" />
             <span className="size-2.5 rounded-full bg-emerald-300" />
           </div>
-          <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white/60">dbstore.online</span>
+          <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white/60">
+            {visual.chromeLabel}
+          </span>
         </div>
-        <div className="grid gap-4 p-4 sm:grid-cols-[1fr_0.85fr]">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="flex size-9 items-center justify-center rounded-xl bg-blue-500 text-white">
-                <PackageCheck className="size-4" />
-              </span>
-              <div>
-                <p className="text-sm font-black">DB Store</p>
-                <p className="text-xs font-bold text-white/45">Product website</p>
-              </div>
+        <div className="grid gap-4 p-4 sm:grid-cols-[0.9fr_1.1fr]">
+          <div className="flex min-h-40 flex-col justify-between gap-4">
+            <div className="grid min-h-28 place-items-center rounded-2xl border border-white/10 bg-white p-4">
+              <Image
+                src={assetPath(visual.logo.src)}
+                alt={visual.logo.alt}
+                width={500}
+                height={400}
+                className="mx-auto h-28 w-full object-contain"
+              />
             </div>
-            <div className="mt-5 grid grid-cols-2 gap-2">
-              {["Catalog", "Orders", "Responsive", "Delivery"].map((label) => (
-                <span key={label} className="rounded-lg bg-white/10 px-3 py-2 text-xs font-bold text-white/70">
-                  {label}
-                </span>
-              ))}
+            <div>
+              <p className="text-sm font-black">{visual.title}</p>
+              <p className="text-xs font-bold text-white/45">{visual.type}</p>
             </div>
           </div>
-          <div className="rounded-xl border border-white/10 bg-white/[0.08] p-3">
-            <div className="flex items-end gap-1.5">
-              {[42, 58, 36, 72, 64, 86].map((height) => (
-                <span
-                  key={height}
-                  className="w-full rounded-t-md bg-gradient-to-t from-blue-500 to-cyan-300"
-                  style={{ height }}
-                />
+          <div className="grid gap-3">
+            <PreviewImage image={visual.main} large />
+            <div className="grid grid-cols-2 gap-3">
+              {visual.thumbnails.map((image) => (
+                <PreviewImage key={image.src} image={image} />
               ))}
-            </div>
-            <div className="mt-4 flex items-center gap-2 text-xs font-bold text-white/55">
-              <ChartNoAxesCombined className="size-4 text-cyan-200" />
-              Product reach preview
             </div>
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function PreviewImage({ image, large = false }: { image: ProjectVisualImage; large?: boolean }) {
+  const frameClass = large
+    ? "relative min-h-36 overflow-hidden rounded-2xl border border-white/10 bg-black"
+    : "relative min-h-16 overflow-hidden rounded-xl border border-white/10 bg-black";
+  const imageClass = large ? "h-full min-h-36 w-full" : "h-full min-h-16 w-full";
+  const labelClass = large
+    ? "absolute bottom-3 left-3 rounded-full bg-black/55 px-3 py-1 text-xs font-bold text-white/75 backdrop-blur"
+    : "absolute bottom-2 left-2 rounded-full bg-black/55 px-2 py-1 text-[10px] font-bold text-white/75 backdrop-blur";
+
+  return (
+    <div className={frameClass}>
+      <Image
+        src={assetPath(image.src)}
+        alt={image.alt}
+        width={large ? 1400 : 700}
+        height={large ? 700 : 360}
+        className={`${imageClass} object-cover object-top ${image.private ? "opacity-70 blur-[1px]" : "opacity-85"}`}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
+      <p className={labelClass}>{image.label}</p>
     </div>
   );
 }

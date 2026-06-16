@@ -1,32 +1,32 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = "https://angjelspasovski.github.io/portfolio";
+import { siteConfig } from "@/config/site";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: `${siteUrl}/`,
+      url: `${siteConfig.siteUrl}/`,
       lastModified: new Date("2026-06-15"),
       changeFrequency: "monthly",
       priority: 1,
       alternates: {
         languages: {
-          en: `${siteUrl}/`,
-          mk: `${siteUrl}/mk/`,
+          en: `${siteConfig.siteUrl}/`,
+          mk: `${siteConfig.siteUrl}/mk/`,
         },
       },
     },
     {
-      url: `${siteUrl}/mk/`,
+      url: `${siteConfig.siteUrl}/mk/`,
       lastModified: new Date("2026-06-15"),
       changeFrequency: "monthly",
       priority: 0.9,
       alternates: {
         languages: {
-          en: `${siteUrl}/`,
-          mk: `${siteUrl}/mk/`,
+          en: `${siteConfig.siteUrl}/`,
+          mk: `${siteConfig.siteUrl}/mk/`,
         },
       },
     },
