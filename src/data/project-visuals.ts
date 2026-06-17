@@ -1,6 +1,6 @@
 import type { Locale } from "@/i18n/types";
 
-export type ProjectVisualId = "dbstore" | "opera-mes";
+export type ProjectVisualId = "dbstore" | "opera-mes" | "dentcare";
 
 export type ProjectVisual = {
   chromeLabel: string;
@@ -77,6 +77,42 @@ export function getProjectVisuals(locale: Locale): Record<ProjectVisualId, Proje
           alt: "Opera MES configuration preview",
           label: locale === "mk" ? "Конфигурација" : "Configuration",
           private: true,
+        },
+      ],
+      tone: "cyan",
+    },
+    dentcare: {
+      chromeLabel: "dentcare-macedonia.web.app",
+      logo: {
+        src: "/images/projects/dentcare/logo.svg",
+        alt: "DentCare Macedonia logo",
+      },
+      title: "DentCare Macedonia",
+      type: locale === "mk" ? "Dental tourism website" : "Dental tourism website",
+      main: {
+        src: "/images/projects/dentcare/home.webp",
+        alt:
+          locale === "mk"
+            ? "DentCare Macedonia home страница"
+            : "DentCare Macedonia home page",
+        label: locale === "mk" ? "Home preview" : "Home preview",
+      },
+      thumbnails: [
+        {
+          src: "/images/projects/dentcare/travel.webp",
+          alt:
+            locale === "mk"
+              ? "DentCare Macedonia travel landmarks секција"
+              : "DentCare Macedonia travel landmarks section",
+          label: locale === "mk" ? "Travel guide" : "Travel guide",
+        },
+        {
+          src: "/images/projects/dentcare/process.webp",
+          alt:
+            locale === "mk"
+              ? "DentCare Macedonia treatment process секција"
+              : "DentCare Macedonia treatment process section",
+          label: locale === "mk" ? "Process flow" : "Process flow",
         },
       ],
       tone: "cyan",

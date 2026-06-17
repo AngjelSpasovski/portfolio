@@ -22,6 +22,7 @@
 - [x] Add Opera MES visuals with privacy blur for private screenshots.
 - [x] Unify DBStore and Opera MES project preview cards with one shared visual template.
 - [x] Add `visualId` to project data so future project entries can map to visual templates explicitly.
+- [x] Add DentCare Macedonia live project with logo, public URL, technologies, and preview screenshots.
 
 ## Next
 
@@ -37,6 +38,6 @@
 ## Later
 
 - [x] Consider a simple admin/editor concept for maintaining portfolio projects.
-- [ ] Add more live project entries when assets and public links are ready.
+- [x] Add more live project entries when assets and public links are ready.
 - [x] Create a more polished CV PDF version aligned with the website style.
 - [x] Review GitHub Actions warnings and update Pages workflow actions when needed.

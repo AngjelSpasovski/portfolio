@@ -30,7 +30,7 @@ export type ProjectItem = {
   description: string;
   stack: string[];
   href?: string;
-  visualId?: "dbstore" | "opera-mes";
+  visualId?: "dbstore" | "opera-mes" | "dentcare";
 };
 
 export type CertificationItem = {
