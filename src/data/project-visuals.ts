@@ -1,4 +1,4 @@
-import type { Locale } from "@/i18n/content";
+import type { Locale } from "@/i18n/types";
 
 export type ProjectVisualId = "dbstore" | "opera-mes";
 

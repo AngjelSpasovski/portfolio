@@ -1,4 +1,3 @@
-import type { LucideIcon } from "lucide-react";
 import {
   BriefcaseBusiness,
   Code2,
@@ -13,108 +12,17 @@ import {
 } from "lucide-react";
 
 import { siteConfig } from "@/config/site";
+import type { Locale, SiteContent } from "./types";
 
-export type Locale = "en" | "mk";
-
-export type NavItem = {
-  label: string;
-  href: string;
-};
-
-export type ExperienceItem = {
-  role: string;
-  company: string;
-  period: string;
-  location: string;
-  summary: string;
-  tags: string[];
-};
-
-export type SkillGroup = {
-  title: string;
-  icon: LucideIcon;
-  items: string[];
-};
-
-export type ProjectItem = {
-  title: string;
-  type: string;
-  period: string;
-  company: string;
-  description: string;
-  stack: string[];
-  href?: string;
-  visualId?: "dbstore" | "opera-mes";
-};
-
-export type CertificationItem = {
-  title: string;
-  issuer: string;
-  date: string;
-};
-
-export type SiteContent = {
-  locale: Locale;
-  langLabel: string;
-  switchLabel: string;
-  nav: NavItem[];
-  social: {
-    github: string;
-    linkedin: string;
-    email: string;
-  };
-  hero: {
-    badge: string;
-    eyebrow: string;
-    title: string;
-    highlight: string;
-    description: string;
-    primaryCta: string;
-    secondaryCta: string;
-    cvCta: string;
-    stats: { value: string; label: string }[];
-  };
-  about: {
-    tag: string;
-    title: string;
-    paragraphs: string[];
-    facts: { label: string; value: string; icon: LucideIcon }[];
-  };
-  experience: {
-    tag: string;
-    title: string;
-    subtitle: string;
-    items: ExperienceItem[];
-  };
-  skills: {
-    tag: string;
-    title: string;
-    subtitle: string;
-    groups: SkillGroup[];
-  };
-  projects: {
-    tag: string;
-    title: string;
-    subtitle: string;
-    items: ProjectItem[];
-    note: string;
-  };
-  certifications: {
-    tag: string;
-    title: string;
-    subtitle: string;
-    items: CertificationItem[];
-  };
-  contact: {
-    tag: string;
-    title: string;
-    text: string;
-    emailLabel: string;
-    githubLabel: string;
-    linkedinLabel: string;
-  };
-  footer: string;
-};
+export type {
+  CertificationItem,
+  ExperienceItem,
+  Locale,
+  NavItem,
+  ProjectItem,
+  SiteContent,
+  SkillGroup,
+} from "./types";
 
 const sharedSocial = {
   github: siteConfig.links.github,
@@ -300,11 +208,11 @@ export const content: Record<Locale, SiteContent> = {
     ],
     hero: {
       badge: "Софтверски инженер",
-      eyebrow: "Frontend инженеринг за практични деловни производи",
+      eyebrow: "Frontend инженеринг за практични enterprise решенија",
       title: "Анѓел",
       highlight: "Спасовски",
       description:
-        "Софтверски инженер со 10+ години искуство во развој на веб апликации, frontend инженеринг, enterprise софтверски производи и сигурни кориснички интерфејси за комплексни деловни процеси.",
+        "Софтверски инженер со 10+ години искуство во развој на веб-апликации, frontend инженеринг, enterprise производи и стабилни кориснички интерфејси за сложени деловни процеси.",
       primaryCta: "Види проекти",
       secondaryCta: "Контакт",
       cvCta: "Преземи CV",
@@ -317,11 +225,11 @@ export const content: Record<Locale, SiteContent> = {
     },
     about: {
       tag: "01 / За мене",
-      title: "Сигурен frontend за комплексни деловни производи.",
+      title: "Стабилен frontend за сложени деловни производи.",
       paragraphs: [
-        "Мојата понова работа е фокусирана на Opera MES, Manufacturing Execution System за производствени операции. Таму придонесувам во frontend development, software design, product maintenance и подобрување на комплексни производствени процеси.",
-        "Имам работено и на производи како ArkCase и Move One, со искуство во JavaScript интерфејси, CSS, форми, модали, UI одржување, bug fixing и долгорочни enterprise апликации.",
-        "Претходно стекнав искуство и во IT администрација, scripting, network maintenance и web platform support, што ми помага пошироко да размислувам кога градам практични software решенија.",
+        "Во последните години работам на Opera MES, Manufacturing Execution System за производствени операции. Мојот придонес е во frontend development, software design, product maintenance и подобрување на сложени производствени процеси.",
+        "Работев и на производи како ArkCase и Move One, со искуство во JavaScript интерфејси, CSS, форми, модали, UI одржување, bug fixing и долгорочни enterprise апликации.",
+        "Претходно стекнав искуство и во IT администрација, scripting, network maintenance и web platform support, што ми дава поширока перспектива кога градам практични software решенија.",
       ],
       facts: [
         { label: "Моментална улога", value: "Software Engineer @ CYBERTEC", icon: BriefcaseBusiness },
@@ -334,33 +242,33 @@ export const content: Record<Locale, SiteContent> = {
       tag: "02 / Искуство",
       title: "Работно искуство",
       subtitle:
-        "Пат низ software engineering, frontend development, IT администрација и дизајн.",
+        "Професионален пат низ software engineering, frontend development, IT администрација и product design.",
       items: [
         {
           role: "Software Engineer",
           company: "CYBERTEC",
-          period: "Јун 2024 - Сега",
-          location: "Hybrid",
+          period: "Јуни 2024 - Сега",
+          location: "Хибридно",
           summary:
-            "Продолжување на развојот на Opera MES по аквизицијата на OPEN DATA од CYBERTEC, со поширок engineering фокус на frontend development, software design, системски подобрувања, product maintenance, употребливост, перформанси и стабилност.",
+            "Продолжувам со развој на Opera MES по аквизицијата на OPEN DATA од CYBERTEC, со поширок engineering фокус на frontend development, software design, системски подобрувања, product maintenance, употребливост, перформанси и стабилност.",
           tags: ["Opera MES", "Software Design", "Frontend", "Maintainability", "Enterprise Product"],
         },
         {
           role: "Frontend Developer",
           company: "OPEN DATA Srl",
-          period: "Јун 2018 - Јун 2024",
+          period: "Јуни 2018 - Јуни 2024",
           location: "Скопје, Македонија",
           summary:
-            "Работа на Opera MES, градење и одржување web-based UI за комплексни производствени процеси, со фокус на употребливост, стабилност и долгорочна maintainability.",
+            "Работа на Opera MES: градење и одржување web-based UI за сложени производствени процеси, со фокус на употребливост, стабилност и долгорочна maintainability.",
           tags: ["JavaScript", "HTML5", "CSS", "Production Workflows", "Reusable UI"],
         },
         {
           role: "IT Administrator",
           company: "Winner - Vienna Insurance Group",
-          period: "Март 2017 - Јун 2018",
+          period: "Март 2017 - Јуни 2018",
           location: "Македонија",
           summary:
-            "Одржување IT инфраструктура, network reliability, scripts за собирање податоци, web platform operations и секојдневна техничка поддршка.",
+            "Одржување IT инфраструктура, сигурност на мрежа, scripts за собирање податоци, web platform operations и секојдневна техничка поддршка.",
           tags: ["Networking", "IT Support", "Scripting", "Web Platform"],
         },
         {
@@ -378,7 +286,7 @@ export const content: Record<Locale, SiteContent> = {
           period: "Мај 2015 - Април 2016",
           location: "Скопје",
           summary:
-            "Работа на Move One, transport and relocation management product, со frontend UI development и maintenance со Stylus, jQuery и Backbone.js.",
+            "Работа на Move One, производ за transport and relocation management, со frontend UI development и maintenance со Stylus, jQuery и Backbone.js.",
           tags: ["Move One", "JavaScript", "CSS", "Stylus", "Backbone.js"],
         },
       ],
@@ -387,7 +295,7 @@ export const content: Record<Locale, SiteContent> = {
       tag: "03 / Вештини",
       title: "Технички стек",
       subtitle:
-        "Технологии, product области и алатки од долгорочни enterprise web апликации.",
+        "Технологии, product области и алатки користени во долгорочни enterprise web апликации.",
       groups: [
         { title: "Јазици и основа", icon: Code2, items: ["JavaScript", "TypeScript", "HTML5", "CSS3", "SASS / SCSS", "Web Design"] },
         { title: "Frontend", icon: Sparkles, items: ["AngularJS", "Angular 2+", "Bootstrap", "Responsive UI", "Форми и модали"] },
@@ -401,16 +309,16 @@ export const content: Record<Locale, SiteContent> = {
       tag: "04 / Проекти",
       title: "Избрана работа",
       subtitle:
-        "Јавни и приватни примери од мојата работа на производи. Приватните enterprise производи се опишани без repository линкови.",
-      note: "Структурата е подготвена за додавање нови live проекти кога ќе одлучиме да ја прошириме.",
+        "Јавни и приватни примери од мојата работа на софтверски производи. Приватните enterprise производи се прикажани без repository линкови.",
+      note: "Структурата е подготвена за додавање нови live проекти кога ќе одлучиме да ја прошириме страницата.",
       items: [
         {
           title: "DB Store",
-          type: "Live проект",
+          type: "Проект во живо",
           period: "2026",
           company: "Личен проект",
           description:
-            "Live web project како јавен пример за frontend delivery, product presentation и практичен квалитет на имплементација.",
+            "Live web project што служи како јавен пример за frontend delivery, product presentation и практичен квалитет на имплементација.",
           stack: ["Frontend", "Responsive UI", "Product Website"],
           href: "https://dbstore.online",
           visualId: "dbstore",
@@ -421,7 +329,7 @@ export const content: Record<Locale, SiteContent> = {
           period: "2018 - Сега",
           company: "OPEN DATA / CYBERTEC",
           description:
-            "Manufacturing Execution System за поддршка и оптимизација на производствени процеси преку сигурни frontend workflows и долгорочен product maintenance.",
+            "Manufacturing Execution System за поддршка и оптимизација на производствени процеси преку стабилни frontend workflows и долгорочен product maintenance.",
           stack: ["JavaScript", "Enterprise UI", "REST API", "Manufacturing Workflows"],
           visualId: "opera-mes",
         },
@@ -441,7 +349,7 @@ export const content: Record<Locale, SiteContent> = {
     contact: {
       tag: "06 / Контакт",
       title: "Да зборуваме за практичен софтвер.",
-      text: "Отворен сум за квалитетни software engineering разговори, frontend работа, подобрувања на enterprise производи и практични web application проекти.",
+      text: "Отворен сум за разговори за software engineering, frontend работа, подобрување на enterprise производи и практични web application проекти.",
       emailLabel: "Е-пошта",
       githubLabel: "GitHub",
       linkedinLabel: "LinkedIn",

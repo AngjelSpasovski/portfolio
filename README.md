@@ -30,6 +30,18 @@ npm run lint
 npm run build
 ```
 
+## Generate CV PDF
+
+```bash
+python scripts/generate-cv-pdf.py
+```
+
+## Project Notes
+
+See [docs/project-guide.md](docs/project-guide.md) for the project structure, project-entry workflow, visual preview setup, localization notes, and styling approach.
+
+See [docs/admin-editor-concept.md](docs/admin-editor-concept.md) for the future frontend-only project editor direction.
+
 ## GitHub Pages Build
 
 The project is configured for static export and GitHub Pages.

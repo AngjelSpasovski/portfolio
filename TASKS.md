@@ -25,18 +25,18 @@
 
 ## Next
 
-- [ ] Review the Macedonian copy again and make it more natural where it still reads translated.
-- [ ] Define a future project/admin form schema for portfolio projects.
+- [x] Review the Macedonian copy again and make it more natural where it still reads translated.
+- [x] Define a future project/admin form schema for portfolio projects.
 - [x] Move project visual configuration out of `projects.tsx` into a dedicated data/config file.
 - [x] Move shared site constants into a central config file: email, GitHub URL, LinkedIn URL, site URL, CV path.
-- [ ] Split content types out of `content.ts` into a dedicated `types.ts` file if the content file grows further.
-- [ ] Keep styling Tailwind-first, with only minimal semantic CSS utilities in `globals.css` when a pattern is repeated.
-- [ ] Add short project documentation explaining how to add a new project, visual preview, and localized content.
-- [ ] Run a final responsive QA pass for mobile, tablet, and desktop before the next push.
+- [x] Split content types out of `content.ts` into a dedicated `types.ts` file if the content file grows further.
+- [x] Keep styling Tailwind-first, with only minimal semantic CSS utilities in `globals.css` when a pattern is repeated.
+- [x] Add short project documentation explaining how to add a new project, visual preview, and localized content.
+- [x] Run a final responsive QA pass for mobile, tablet, and desktop before the next push.
 
 ## Later
 
-- [ ] Consider a simple admin/editor concept for maintaining portfolio projects.
+- [x] Consider a simple admin/editor concept for maintaining portfolio projects.
 - [ ] Add more live project entries when assets and public links are ready.
-- [ ] Create a more polished CV PDF version aligned with the website style.
-- [ ] Review GitHub Actions warnings and update Pages workflow actions when needed.
+- [x] Create a more polished CV PDF version aligned with the website style.
+- [x] Review GitHub Actions warnings and update Pages workflow actions when needed.
