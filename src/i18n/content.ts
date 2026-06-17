@@ -37,10 +37,12 @@ export const content: Record<Locale, SiteContent> = {
     switchLabel: "MK",
     social: sharedSocial,
     nav: [
+      { label: "Home", href: "#home" },
       { label: "About", href: "#about" },
       { label: "Experience", href: "#experience" },
       { label: "Skills", href: "#skills" },
       { label: "Projects", href: "#projects" },
+      { label: "Certs", href: "#certifications" },
       { label: "Contact", href: "#contact" },
     ],
     hero: {
@@ -134,12 +136,12 @@ export const content: Record<Locale, SiteContent> = {
       subtitle:
         "Core technologies, product areas, and tools from long-running enterprise web applications.",
       groups: [
-        { title: "Languages & Core", icon: Code2, items: ["JavaScript", "TypeScript", "HTML5", "CSS3", "SASS / SCSS", "Web Design"] },
-        { title: "Frontend", icon: Sparkles, items: ["AngularJS", "Angular 2+", "Bootstrap", "Responsive Design", "Forms & Modals"] },
-        { title: "Data & APIs", icon: Database, items: ["REST APIs", "JSON / XML", "Oracle SQL", "D3.js", "Plotly", "DevExpress"] },
-        { title: "Engineering", icon: Cpu, items: ["Software Design", "Maintainability", "Debugging", "Product Maintenance", "Performance"] },
-        { title: "Tools", icon: Wrench, items: ["Git / GitHub", "npm", "Webpack", "CLI", "Figma"] },
-        { title: "Systems", icon: Network, items: ["IT Administration", "Scripting", "Network Maintenance", "Windows Server", "CCNA Foundations"] },
+        { title: "Languages & Core",  icon: Code2,    items: ["JavaScript", "TypeScript", "HTML5", "CSS3", "SASS / SCSS", "Web Design"] },
+        { title: "Frontend",          icon: Sparkles, items: ["AngularJS", "Angular 2+", "Bootstrap", "Responsive Design", "Forms & Modals"] },
+        { title: "Data & APIs",       icon: Database, items: ["REST APIs", "JSON / XML", "Oracle SQL", "D3.js", "Plotly", "DevExpress"] },
+        { title: "Engineering",       icon: Cpu,      items: ["Software Design", "Maintainability", "Debugging", "Product Maintenance", "Performance"] },
+        { title: "Tools",             icon: Wrench,   items: ["Git / GitHub", "npm", "Webpack", "CLI", "Figma"] },
+        { title: "Systems",           icon: Network,  items: ["IT Administration", "Scripting", "Network Maintenance", "Windows Server", "CCNA Foundations"] },
       ],
     },
     projects: {
@@ -152,11 +154,25 @@ export const content: Record<Locale, SiteContent> = {
         {
           title: "DB Store",
           type: "Live project",
-          period: "2026",
-          company: "Personal / Product",
+          period: "2025 - 2026",
+          company: "Personal / B2B Product",
           description:
             "A live web project used as a public example of frontend delivery, product presentation, and practical implementation quality.",
-          stack: ["Frontend", "Responsive UI", "Product Website"],
+          stack: [
+            "JavaScript",
+            "TypeScript",
+            "Angular",
+            "Standalone Components",
+            "Bootstrap",
+            "HTML5",
+            "SCSS",
+            "Responsive Design",
+            "Ag-grid",
+            "Plotly.js",
+            "REST API",
+            "EmailJS",
+            "Firebase",
+          ],
           href: "https://dbstore.online",
           visualId: "dbstore",
         },
@@ -167,13 +183,26 @@ export const content: Record<Locale, SiteContent> = {
           company: "OPEN DATA / CYBERTEC",
           description:
             "Manufacturing Execution System used to support and optimize production processes through reliable frontend workflows and long-term product maintenance.",
-          stack: ["JavaScript", "Enterprise UI", "REST API", "Manufacturing Workflows"],
+          stack: [
+            "JavaScript",
+            "TypeScript",
+            "Angular",
+            "Standalone Components",
+            "Bootstrap",
+            "HTML5",
+            "SCSS",
+            "Responsive Design",
+            "Ag-grid",
+            "Plotly.js", 
+            "Enterprise UI", 
+            "Manufacturing Workflows"
+          ],
           visualId: "opera-mes",
         },
         {
           title: "DentCare Macedonia",
           type: "Live project",
-          period: "2026",
+          period: "2025 - 2026",
           company: "Personal / Healthcare Website",
           description:
             "A responsive dental tourism website for patients planning treatment in Macedonia, with multilingual content, consultation flows, travel guidance, and Firebase hosting.",
@@ -220,10 +249,12 @@ export const content: Record<Locale, SiteContent> = {
     switchLabel: "EN",
     social: sharedSocial,
     nav: [
+      { label: "Почеток", href: "#pochetok" },
       { label: "За мене", href: "#za-mene" },
       { label: "Искуство", href: "#iskustvo" },
       { label: "Вештини", href: "#veshtini" },
       { label: "Проекти", href: "#proekti" },
+      { label: "Сертификати", href: "#sertifikati" },
       { label: "Контакт", href: "#kontakt" },
     ],
     hero: {
@@ -317,12 +348,12 @@ export const content: Record<Locale, SiteContent> = {
       subtitle:
         "Технологии, product области и алатки користени во долгорочни enterprise web апликации.",
       groups: [
-        { title: "Јазици и основа", icon: Code2, items: ["JavaScript", "TypeScript", "HTML5", "CSS3", "SASS / SCSS", "Web Design"] },
-        { title: "Frontend", icon: Sparkles, items: ["AngularJS", "Angular 2+", "Bootstrap", "Responsive UI", "Форми и модали"] },
+        { title: "Јазици и основа", icon: Code2,    items: ["JavaScript", "TypeScript", "HTML5", "CSS3", "SASS / SCSS", "Web Design"] },
+        { title: "Frontend",        icon: Sparkles, items: ["AngularJS", "Angular 2+", "Bootstrap", "Responsive UI", "Форми и модали"] },
         { title: "Податоци и APIs", icon: Database, items: ["REST APIs", "JSON / XML", "Oracle SQL", "D3.js", "Plotly", "DevExpress"] },
-        { title: "Engineering", icon: Cpu, items: ["Software Design", "Maintainability", "Debugging", "Product Maintenance", "Performance"] },
-        { title: "Алатки", icon: Wrench, items: ["Git / GitHub", "npm", "Webpack", "CLI", "Figma"] },
-        { title: "Системи", icon: Network, items: ["IT Administration", "Scripting", "Network Maintenance", "Windows Server", "CCNA Foundations"] },
+        { title: "Engineering",     icon: Cpu,      items: ["Software Design", "Maintainability", "Debugging", "Product Maintenance", "Performance"] },
+        { title: "Алатки",          icon: Wrench,   items: ["Git / GitHub", "npm", "Webpack", "CLI", "Figma"] },
+        { title: "Системи",         icon: Network,  items: ["IT Administration", "Scripting", "Network Maintenance", "Windows Server", "CCNA Foundations"] },
       ],
     },
     projects: {
@@ -336,10 +367,24 @@ export const content: Record<Locale, SiteContent> = {
           title: "DB Store",
           type: "Проект во живо",
           period: "2026",
-          company: "Личен проект",
+          company: "Личен / B2B Проект",
           description:
             "Live web project што служи како јавен пример за frontend delivery, product presentation и практичен квалитет на имплементација.",
-          stack: ["Frontend", "Responsive UI", "Product Website"],
+          stack: [
+            "JavaScript",
+            "TypeScript",
+            "Angular",
+            "Standalone Components",
+            "Bootstrap",
+            "HTML5",
+            "SCSS",
+            "Responsive Design",
+            "Ag-grid",
+            "Plotly.js",
+            "REST API",
+            "EmailJS",
+            "Firebase",
+          ],
           href: "https://dbstore.online",
           visualId: "dbstore",
         },
@@ -350,7 +395,20 @@ export const content: Record<Locale, SiteContent> = {
           company: "OPEN DATA / CYBERTEC",
           description:
             "Manufacturing Execution System за поддршка и оптимизација на производствени процеси преку стабилни frontend workflows и долгорочен product maintenance.",
-          stack: ["JavaScript", "Enterprise UI", "REST API", "Manufacturing Workflows"],
+          stack: [
+            "JavaScript",
+            "TypeScript",
+            "Angular",
+            "Standalone Components",
+            "Bootstrap",
+            "HTML5",
+            "SCSS",
+            "Responsive Design",
+            "Ag-grid",
+            "Plotly.js", 
+            "Enterprise UI", 
+            "Manufacturing Workflows"
+          ],
           visualId: "opera-mes",
         },
         {
@@ -400,22 +458,26 @@ export const content: Record<Locale, SiteContent> = {
 
 export const localeConfig = {
   en: {
-    path: "/",
+    path: "/en",
     sectionIds: {
+      home: "home",
       about: "about",
       experience: "experience",
       skills: "skills",
       projects: "projects",
+      certifications: "certifications",
       contact: "contact",
     },
   },
   mk: {
     path: "/mk",
     sectionIds: {
+      home: "pochetok",
       about: "za-mene",
       experience: "iskustvo",
       skills: "veshtini",
       projects: "proekti",
+      certifications: "sertifikati",
       contact: "kontakt",
     },
   },

@@ -16,6 +16,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+export default function EnglishHome() {
   return <PortfolioPage locale="en" />;
 }

@@ -1,12 +1,12 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
-import Link from "next/link";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
-import { LanguageSwitch } from "@/components/shared/language-switch";
+import { LANGUAGE_SWITCH_SECTION_KEY, LanguageSwitch } from "@/components/shared/language-switch";
 import { Logo } from "@/components/shared/logo";
+import { ScrollLink } from "@/components/shared/scroll-link";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import type { Locale, NavItem } from "@/i18n/content";
 
@@ -18,38 +18,63 @@ type HeaderProps = {
 
 export function Header({ locale, nav, ctaLabel }: HeaderProps) {
   const [open, setOpen] = React.useState(false);
-  const [activeHref, setActiveHref] = React.useState(nav[0]?.href ?? "");
+  const [activeHref, setActiveHref] = React.useState("");
   const contactHref = nav[nav.length - 1]?.href ?? "#contact";
 
   React.useEffect(() => {
-    const sectionIds = nav.map((item) => item.href.replace("#", "")).filter(Boolean);
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((section): section is HTMLElement => Boolean(section));
+    const targetSectionId = sessionStorage.getItem(LANGUAGE_SWITCH_SECTION_KEY);
 
-    if (!sections.length || !("IntersectionObserver" in window)) {
+    if (!targetSectionId) {
       return;
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    sessionStorage.removeItem(LANGUAGE_SWITCH_SECTION_KEY);
+    requestAnimationFrame(() => {
+      document.getElementById(targetSectionId)?.scrollIntoView({ behavior: "auto", block: "start" });
+    });
+  }, [locale]);
 
-        if (visibleEntry?.target.id) {
-          setActiveHref(`#${visibleEntry.target.id}`);
+  React.useEffect(() => {
+    const sectionIds = nav.map((item) => item.href.replace("#", "")).filter(Boolean);
+
+    if (!sectionIds.length) {
+      return;
+    }
+
+    const updateActiveSection = () => {
+      const scrollMarker = Math.min(window.innerHeight * 0.35, 260);
+      const sections = sectionIds
+        .map((id) => document.getElementById(id))
+        .filter((section): section is HTMLElement => Boolean(section));
+
+      if (!sections.length) {
+        return;
+      }
+
+      let currentSection = sections[0];
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= scrollMarker) {
+          currentSection = section;
         }
-      },
-      {
-        rootMargin: "-32% 0px -52% 0px",
-        threshold: [0.08, 0.2, 0.4, 0.6],
-      },
-    );
+      }
+      const documentHeight = document.documentElement.scrollHeight;
+      const isAtPageEnd = window.innerHeight + window.scrollY >= documentHeight - 4;
+      const activeSection = isAtPageEnd ? sections[sections.length - 1] : currentSection;
 
-    sections.forEach((section) => observer.observe(section));
+      if (activeSection?.id) {
+        setActiveHref(`#${activeSection.id}`);
+      }
+    };
 
-    return () => observer.disconnect();
+    updateActiveSection();
+
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, [nav]);
 
   return (
@@ -59,34 +84,34 @@ export function Header({ locale, nav, ctaLabel }: HeaderProps) {
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
           {nav.map((item) => (
-            <Link
+            <ScrollLink
               key={item.href}
               href={item.href}
               aria-current={activeHref === item.href ? "page" : undefined}
               className={
                 activeHref === item.href
-                  ? "rounded-full bg-blue-600 px-4 py-2 text-sm font-bold text-white shadow-sm transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:bg-blue-500"
-                  : "rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  ? "rounded-full bg-blue-600 px-3 py-2 text-sm font-bold text-white shadow-sm transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:bg-blue-500 xl:px-4"
+                  : "rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring xl:px-4"
               }
             >
               {item.label}
-            </Link>
+            </ScrollLink>
           ))}
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <LanguageSwitch locale={locale} />
+          <LanguageSwitch locale={locale} activeHref={activeHref} />
           <ThemeToggle />
-          <Link
+          <ScrollLink
             href={contactHref}
             className="inline-flex h-10 items-center justify-center rounded-full bg-blue-600 px-5 text-sm font-bold text-white shadow-sm transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:bg-blue-500 dark:text-white dark:hover:bg-blue-400"
           >
             {ctaLabel}
-          </Link>
+          </ScrollLink>
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <LanguageSwitch locale={locale} />
+          <LanguageSwitch locale={locale} activeHref={activeHref} />
           <ThemeToggle />
           <Button
             type="button"
@@ -110,7 +135,7 @@ export function Header({ locale, nav, ctaLabel }: HeaderProps) {
         >
           <nav className="grid gap-1" aria-label="Mobile navigation">
             {nav.map((item) => (
-              <Link
+              <ScrollLink
                 key={item.href}
                 href={item.href}
                 aria-current={activeHref === item.href ? "page" : undefined}
@@ -122,16 +147,16 @@ export function Header({ locale, nav, ctaLabel }: HeaderProps) {
                 onClick={() => setOpen(false)}
               >
                 {item.label}
-              </Link>
+              </ScrollLink>
             ))}
           </nav>
-          <Link
+          <ScrollLink
             href={contactHref}
             className="mt-3 inline-flex h-11 w-full items-center justify-center rounded-2xl bg-blue-600 px-5 text-sm font-bold text-white shadow-sm transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:bg-blue-500 dark:hover:bg-blue-400"
             onClick={() => setOpen(false)}
           >
             {ctaLabel}
-          </Link>
+          </ScrollLink>
         </div>
       ) : null}
     </header>

@@ -2,11 +2,11 @@ import { CalendarDays, ShieldCheck } from "lucide-react";
 
 import { Reveal } from "@/components/shared/reveal";
 import { Card, CardContent } from "@/components/ui/card";
-import type { SiteContent } from "@/i18n/content";
+import { localeConfig, type SiteContent } from "@/i18n/content";
 import { SectionHeading } from "./section-heading";
 
 export function Certifications({ content }: { content: SiteContent }) {
-  const id = content.locale === "mk" ? "sertifikati" : "certifications";
+  const id = localeConfig[content.locale].sectionIds.certifications;
   const headingId = `${id}-heading`;
 
   return (

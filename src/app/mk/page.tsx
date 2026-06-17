@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/portfolio/mk/",
     languages: {
-      en: "/portfolio/",
+      en: "/portfolio/en/",
       mk: "/portfolio/mk/",
     },
   },

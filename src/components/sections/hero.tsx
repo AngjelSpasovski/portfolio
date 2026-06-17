@@ -1,20 +1,21 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowUpRight, Download, Mail } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Reveal } from "@/components/shared/reveal";
+import { ScrollLink } from "@/components/shared/scroll-link";
 import { SocialLinks } from "@/components/shared/social-links";
 import { siteConfig } from "@/config/site";
-import type { SiteContent } from "@/i18n/content";
+import { localeConfig, type SiteContent } from "@/i18n/content";
 import { assetPath } from "@/lib/asset-path";
 
 export function Hero({ content }: { content: SiteContent }) {
-  const projectsHref = content.nav[3]?.href ?? "#projects";
-  const contactHref = content.nav[content.nav.length - 1]?.href ?? "#contact";
+  const sectionIds = localeConfig[content.locale].sectionIds;
+  const projectsHref = `#${sectionIds.projects}`;
+  const contactHref = `#${sectionIds.contact}`;
   const emailAddress = content.social.email.replace("mailto:", "");
-  const sectionId = content.locale === "mk" ? "pochetok" : "home";
+  const sectionId = sectionIds.home;
   const headingId = `${sectionId}-heading`;
 
   return (
@@ -50,7 +51,7 @@ export function Hero({ content }: { content: SiteContent }) {
           </div>
 
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link
+            <ScrollLink
               href={projectsHref}
               className={buttonVariants({
                 size: "lg",
@@ -60,8 +61,8 @@ export function Hero({ content }: { content: SiteContent }) {
             >
               {content.hero.primaryCta}
               <ArrowUpRight className="ml-2 size-4" />
-            </Link>
-            <Link
+            </ScrollLink>
+            <ScrollLink
               href={contactHref}
               className={buttonVariants({
                 size: "lg",
@@ -71,7 +72,7 @@ export function Hero({ content }: { content: SiteContent }) {
               })}
             >
               {content.hero.secondaryCta}
-            </Link>
+            </ScrollLink>
             <a
               href={assetPath(siteConfig.paths.cv)}
               download
