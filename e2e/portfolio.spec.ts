@@ -88,6 +88,18 @@ test("canonical certifications keep the complete inventory and a compact public 
   expect(portfolioData.certifications.filter((certification) => certification.featured)).toHaveLength(4);
 });
 
+test("canonical experience derives six companies and includes the DB Store part-time role", () => {
+  expect(new Set(portfolioData.experience.map((item) => item.company)).size).toBe(6);
+
+  const dbStoreRole = portfolioData.experience.find((item) => item.id === "dbstore-software-engineer");
+  expect(dbStoreRole).toMatchObject({
+    company: "DB Store",
+    current: true,
+    employmentType: { en: "Part-time", mk: "Part-time" },
+    period: { en: "2025 - Present", mk: "2025 - Сега" },
+  });
+});
+
 test("locale is present in the initial HTML", async ({ request }) => {
   for (const locale of ["en", "mk"]) {
     const response = await request.get(`/${locale}/`);

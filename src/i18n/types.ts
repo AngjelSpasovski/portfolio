@@ -11,6 +11,8 @@ export type NavItem = {
 export type ExperienceItem = {
   role: string;
   company: string;
+  current: boolean;
+  employmentType?: string;
   period: string;
   location: string;
   summary: string;

@@ -12,6 +12,8 @@ type ExperienceRecord = {
   id: string;
   role: LocalizedText;
   company: string;
+  current: boolean;
+  employmentType?: LocalizedText;
   period: LocalizedText;
   location: LocalizedText;
   summary: LocalizedText;
@@ -62,7 +64,6 @@ type CertificationRecord = {
 export type PortfolioData = {
   profile: {
     careerStartYear: number;
-    companiesCount: number;
     locationCode: string;
   };
   experience: ExperienceRecord[];
@@ -94,6 +95,9 @@ function validatePortfolioData(data: PortfolioData) {
   for (const item of data.experience) {
     if (![item.role, item.period, item.location, item.summary].every(hasLocalizedText)) {
       throw new Error(`Experience '${item.id}' is missing localized content.`);
+    }
+    if (item.employmentType && !hasLocalizedText(item.employmentType)) {
+      throw new Error(`Experience '${item.id}' has an incomplete employment type.`);
     }
     assertUnique(item.tags, `tags for experience '${item.id}'`);
   }

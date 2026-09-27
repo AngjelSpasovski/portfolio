@@ -82,11 +82,11 @@ def paragraph(text, style):
 
 def section(title):
     return [
-        Spacer(1, 5 * mm),
+        Spacer(1, 3.5 * mm),
         paragraph(title.upper(), STYLES["section_label"]),
         Spacer(1, 1.5 * mm),
         Rule(),
-        Spacer(1, 2.5 * mm),
+        Spacer(1, 2 * mm),
     ]
 
 
@@ -162,7 +162,12 @@ def experience_card(item):
         [
             [
                 paragraph(f"<b>{item['role']}</b><br/><font color='#5b7cfa'>{item['company']}</font>", STYLES["body"]),
-                paragraph(f"<b>{item['period']}</b><br/>{item['location']}", STYLES["meta_right"]),
+                paragraph(
+                    f"<b>{item['period']}</b><br/>"
+                    f"{item['employment_type'] + '<br/>' if item['employment_type'] else ''}"
+                    f"{item['location']}",
+                    STYLES["meta_right"],
+                ),
             ]
         ],
         colWidths=[105 * mm, 49 * mm],
@@ -193,8 +198,8 @@ def experience_card(item):
                 ("LINEBELOW", (0, 0), (-1, -1), 0.5, LINE),
                 ("LEFTPADDING", (0, 0), (-1, -1), 0),
                 ("RIGHTPADDING", (0, 0), (-1, -1), 0),
-                ("TOPPADDING", (0, 0), (-1, -1), 1.8 * mm),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 2.2 * mm),
+                ("TOPPADDING", (0, 0), (-1, -1), 1.4 * mm),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 1.8 * mm),
             ]
         )
     )
@@ -222,12 +227,12 @@ def project_card(item):
                 ("BOX", (0, 0), (-1, -1), 0.5, LINE),
                 ("LEFTPADDING", (0, 0), (-1, -1), 3.5 * mm),
                 ("RIGHTPADDING", (0, 0), (-1, -1), 3.5 * mm),
-                ("TOPPADDING", (0, 0), (-1, -1), 3 * mm),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 3 * mm),
+                ("TOPPADDING", (0, 0), (-1, -1), 2.5 * mm),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 2.5 * mm),
             ]
         )
     )
-    return KeepTogether([card, Spacer(1, 2 * mm)])
+    return KeepTogether([card, Spacer(1, 1.5 * mm)])
 
 
 def header(canvas, doc):
@@ -260,7 +265,7 @@ def build_designed_cv():
         rightMargin=24 * mm,
         leftMargin=24 * mm,
         topMargin=22 * mm,
-        bottomMargin=15 * mm,
+        bottomMargin=12 * mm,
         title="Angjel Spasovski CV",
         author="Angjel Spasovski",
     )
@@ -290,7 +295,7 @@ def build_designed_cv():
     story.extend(section("Technical Stack"))
     for group, items in SKILLS:
         story.append(paragraph(f"<b>{group}</b>", STYLES["body"]))
-        story.append(Spacer(1, 0.8 * mm))
+        story.append(Spacer(1, 0.5 * mm))
         story.append(tag_table(items))
         story.append(Spacer(1, 1.8 * mm))
 
@@ -372,7 +377,8 @@ def build_ats_cv():
     ats_section(story, "Professional Experience")
     for item in EXPERIENCE:
         story.append(paragraph(f"<b>{item['role']} | {item['company']}</b>", ATS_STYLES["heading"]))
-        story.append(paragraph(f"{item['period']} | {item['location']}", ATS_STYLES["meta"]))
+        employment_type = f" | {item['employment_type']}" if item["employment_type"] else ""
+        story.append(paragraph(f"{item['period']}{employment_type} | {item['location']}", ATS_STYLES["meta"]))
         story.append(paragraph(item["summary"], ATS_STYLES["body"]))
         story.append(paragraph(f"<b>Skills:</b> {', '.join(item['tags'])}", ATS_STYLES["body"]))
         story.append(Spacer(1, 2.5 * mm))
@@ -557,6 +563,8 @@ EXPERIENCE = [
     {
         "role": item["role"]["en"],
         "company": item["company"],
+        "current": item["current"],
+        "employment_type": item.get("employmentType", {}).get("en"),
         "period": item["period"]["en"],
         "location": item["location"]["en"],
         "summary": item["summary"]["en"],

@@ -43,17 +43,18 @@ const skillIcons = {
 function getStats(locale: Locale) {
   const years = new Date().getUTCFullYear() - portfolioData.profile.careerStartYear;
   const experienceValue = `${Math.max(10, Math.floor(years / 10) * 10)}+`;
+  const companiesValue = String(new Set(portfolioData.experience.map((item) => item.company)).size);
 
   return locale === "mk"
     ? [
         { value: experienceValue, label: "Години искуство" },
-        { value: String(portfolioData.profile.companiesCount), label: "Компании" },
+        { value: companiesValue, label: "Компании" },
         { value: String(portfolioData.certifications.length), label: "Сертификати" },
         { value: portfolioData.profile.locationCode, label: "Локација" },
       ]
     : [
         { value: experienceValue, label: "Years experience" },
-        { value: String(portfolioData.profile.companiesCount), label: "Companies" },
+        { value: companiesValue, label: "Companies" },
         { value: String(portfolioData.certifications.length), label: "Certificates" },
         { value: portfolioData.profile.locationCode, label: "Based in" },
       ];
@@ -63,6 +64,8 @@ function getExperience(locale: Locale) {
   return portfolioData.experience.map((item) => ({
     role: localized(item.role, locale),
     company: item.company,
+    current: item.current,
+    employmentType: item.employmentType ? localized(item.employmentType, locale) : undefined,
     period: localized(item.period, locale),
     location: localized(item.location, locale),
     summary: localized(item.summary, locale),

@@ -12,6 +12,18 @@ type LocalizedText = {
   mk: string;
 };
 
+type PortfolioExperience = {
+  id: string;
+  role: LocalizedText;
+  company: string;
+  current: boolean;
+  employmentType?: LocalizedText;
+  period: LocalizedText;
+  location: LocalizedText;
+  summary: LocalizedText;
+  tags: string[];
+};
+
 type PortfolioProject = {
   id: string;
   status: "draft" | "published" | "archived";
@@ -92,6 +104,7 @@ type PortfolioCertification = {
 - Featured technology lists contain five to seven entries.
 - Periods describe the same dates in both languages.
 - Statistics that can be derived from canonical records are not stored manually.
+- Company statistics are derived from unique Work History company names.
 - The complete certification inventory stays canonical; `featured` controls the compact website and CV selection.
 
 ## Presentation Rules

@@ -1,7 +1,6 @@
 {
   "profile": {
     "careerStartYear": 2015,
-    "companiesCount": 6,
     "locationCode": "MK"
   },
   "experience": [
@@ -9,6 +8,7 @@
       "id": "cybertec-software-engineer",
       "role": { "en": "Software Engineer", "mk": "Software Engineer" },
       "company": "CYBERTEC",
+      "current": true,
       "period": { "en": "Jun 2024 - Present", "mk": "Јуни 2024 - Сега" },
       "location": { "en": "Hybrid", "mk": "Хибридно" },
       "summary": {
@@ -18,9 +18,24 @@
       "tags": ["Web Engineering", "Software Design", "TypeScript", "Angular", "Enterprise Product"]
     },
     {
+      "id": "dbstore-software-engineer",
+      "role": { "en": "Software Engineer", "mk": "Software Engineer" },
+      "company": "DB Store",
+      "current": true,
+      "employmentType": { "en": "Part-time", "mk": "Part-time" },
+      "period": { "en": "2025 - Present", "mk": "2025 - Сега" },
+      "location": { "en": "Remote", "mk": "Remote" },
+      "summary": {
+        "en": "Part-time development and ongoing maintenance of DB Store, including frontend improvements, dashboards, data grids, API integrations, bug fixing, performance, reliability, and production support.",
+        "mk": "Part-time развој и континуирано одржување на DB Store, вклучувајќи frontend подобрувања, dashboards, data grids, API integrations, bug fixing, перформанси, стабилност и production support."
+      },
+      "tags": ["Angular", "TypeScript", "Product Maintenance", "Firebase", "AG Grid"]
+    },
+    {
       "id": "open-data-frontend-developer",
       "role": { "en": "Frontend Developer", "mk": "Frontend Developer" },
       "company": "OPEN DATA Srl",
+      "current": false,
       "period": { "en": "Jun 2018 - Jun 2024", "mk": "Јуни 2018 - Јуни 2024" },
       "location": { "en": "Skopje, Macedonia", "mk": "Скопје, Македонија" },
       "summary": {
@@ -33,6 +48,7 @@
       "id": "winner-it-administrator",
       "role": { "en": "IT Administrator", "mk": "IT Administrator" },
       "company": "Winner - Vienna Insurance Group",
+      "current": false,
       "period": { "en": "Mar 2017 - Jun 2018", "mk": "Март 2017 - Јуни 2018" },
       "location": { "en": "Macedonia", "mk": "Македонија" },
       "summary": {
@@ -45,6 +61,7 @@
       "id": "armedia-frontend-developer",
       "role": { "en": "Frontend Developer", "mk": "Frontend Developer" },
       "company": "Armedia",
+      "current": false,
       "period": { "en": "Jul 2016 - Mar 2017", "mk": "Јули 2016 - Март 2017" },
       "location": { "en": "Macedonia", "mk": "Македонија" },
       "summary": {
@@ -57,6 +74,7 @@
       "id": "vorteks-frontend-developer",
       "role": { "en": "Frontend Developer", "mk": "Frontend Developer" },
       "company": "Vorteks ED",
+      "current": false,
       "period": { "en": "May 2015 - Apr 2016", "mk": "Мај 2015 - Април 2016" },
       "location": { "en": "Skopje", "mk": "Скопје" },
       "summary": {

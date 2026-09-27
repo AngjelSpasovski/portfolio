@@ -1,4 +1,4 @@
-import { MapPin } from "lucide-react";
+import { BriefcaseBusiness, MapPin } from "lucide-react";
 
 import { Reveal } from "@/components/shared/reveal";
 import { Badge } from "@/components/ui/badge";
@@ -30,16 +30,16 @@ export function Experience({ content }: { content: SiteContent }) {
                   data-timeline-marker
                   aria-hidden="true"
                   className={
-                    index === 0
+                    item.current
                       ? "absolute left-[var(--timeline-axis)] -translate-x-1/2 top-7 grid size-7 place-items-center rounded-full border border-blue-500/50 bg-background shadow-sm ring-4 ring-blue-500/10"
                       : "absolute left-[var(--timeline-axis)] -translate-x-1/2 top-7 grid size-7 place-items-center rounded-full border border-blue-500/30 bg-background shadow-sm"
                   }
                 >
-                  <span className={index === 0 ? "size-3 rounded-full bg-blue-600" : "size-2.5 rounded-full bg-blue-600"} />
+                  <span className={item.current ? "size-3 rounded-full bg-blue-600" : "size-2.5 rounded-full bg-blue-600"} />
                 </span>
                 <Card
                   className={
-                    index === 0
+                    item.current
                       ? "rounded-3xl border-blue-500/30 bg-blue-500/[0.04] shadow-sm transition-shadow hover:shadow-md dark:bg-blue-500/[0.08]"
                       : "rounded-3xl border-border/80 shadow-sm transition-shadow hover:shadow-md"
                   }
@@ -49,7 +49,7 @@ export function Experience({ content }: { content: SiteContent }) {
                       <div>
                         <div className="flex flex-wrap items-center gap-2">
                           <h3 className="text-xl font-black tracking-tight">{item.role}</h3>
-                          {index === 0 ? (
+                          {item.current ? (
                             <Badge className="rounded-full bg-blue-600 text-white hover:bg-blue-600">
                               {currentLabel}
                             </Badge>
@@ -59,9 +59,15 @@ export function Experience({ content }: { content: SiteContent }) {
                           {item.company}
                         </p>
                       </div>
-                      <div className="text-sm font-semibold text-muted-foreground md:text-right">
+                      <div className="flex flex-col items-start text-sm font-semibold text-muted-foreground md:items-end md:text-right">
                         <p>{item.period}</p>
-                        <p className="mt-1 inline-flex items-center gap-1 md:justify-end">
+                        {item.employmentType ? (
+                          <p className="mt-1 flex items-center gap-1">
+                            <BriefcaseBusiness className="size-3.5" />
+                            {item.employmentType}
+                          </p>
+                        ) : null}
+                        <p className="mt-1 flex items-center gap-1">
                           <MapPin className="size-3.5" />
                           {item.location}
                         </p>

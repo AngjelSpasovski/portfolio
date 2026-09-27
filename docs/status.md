@@ -27,7 +27,7 @@ This is the authoritative work list. Update it as part of every implementation p
 - [x] Verify the exact Opera MES stack before publishing additional technology claims.
 - [x] Translate the remaining DentCare visual labels in Macedonian.
 - [x] Derive the certification count from the canonical certification inventory.
-- [ ] Confirm the displayed company count before replacing the explicit profile value.
+- [x] Add DB Store as a part-time Work History entry and derive the six-company count from canonical experience data.
 - [x] Remove the stale project note about being ready for more live projects.
 
 ## Phase 2 - Routes, Localization, And Metadata
