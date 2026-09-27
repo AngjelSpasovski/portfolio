@@ -55,7 +55,8 @@ This is the authoritative work list. Update it as part of every implementation p
 - [x] Show only five to seven featured technologies on project cards.
 - [x] Add an accessible project details drawer or equivalent detail view.
 - [x] Clearly label personal, enterprise, client, and learning work using canonical categories.
-- [ ] Review Opera MES visuals using sanitized or synthetic data, not blur alone.
+- [x] Replace Opera MES screenshots with synthetic UI previews; remove the unused login capture.
+- [ ] Decide whether to rewrite Git history to remove the previously committed Opera MES captures.
 - [ ] Add credential links for certifications where available.
 
 ## Phase 5 - UX, Accessibility, And Quality

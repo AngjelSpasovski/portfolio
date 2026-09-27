@@ -63,7 +63,7 @@ export function getProjectVisuals(locale: Locale): Record<ProjectVisualId, Proje
       main: {
         src: "/images/projects/opera-mes/machines.webp",
         alt: locale === "mk" ? "Преглед на интерфејсот за машини во Opera MES" : "Opera MES machines interface preview",
-        label: locale === "mk" ? "Куриран преглед" : "Curated product preview",
+        label: locale === "mk" ? "Синтетички преглед на интерфејс" : "Synthetic interface preview",
         private: true,
       },
       thumbnails: [

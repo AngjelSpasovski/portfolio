@@ -29,6 +29,12 @@ Then verify:
 python scripts/generate-cv-pdf.py
 ```
 
+The Opera MES portfolio previews are synthetic and can be regenerated with:
+
+```bash
+npm run generate:opera-previews
+```
+
 The script writes:
 
 - `public/cv/angjel-spasovski-cv.pdf`
