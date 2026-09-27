@@ -74,13 +74,26 @@ export function Hero({ content }: { content: SiteContent }) {
               {content.hero.secondaryCta}
             </ScrollLink>
             <a
-              href={assetPath(siteConfig.paths.cv)}
+              href={assetPath(siteConfig.paths.atsCv)}
               download
               className={buttonVariants({
                 size: "lg",
                 variant: "outline",
                 className:
                   "h-11 rounded-full border-zinc-300 bg-white px-7 font-bold text-zinc-950 shadow-sm hover:bg-zinc-100 dark:border-white/15 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200",
+              })}
+            >
+              {content.hero.atsCvCta}
+              <Download className="ml-2 size-4" />
+            </a>
+            <a
+              href={assetPath(siteConfig.paths.cv)}
+              download
+              className={buttonVariants({
+                size: "lg",
+                variant: "outline",
+                className:
+                  "h-11 rounded-full px-7 font-bold dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10",
               })}
             >
               {content.hero.cvCta}

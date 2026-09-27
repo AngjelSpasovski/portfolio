@@ -39,8 +39,12 @@ The script writes:
 
 - `public/cv/angjel-spasovski-cv.pdf`
 - `output/pdf/angjel-spasovski-cv.pdf`
+- `public/cv/angjel-spasovski-ats-cv.pdf`
+- `output/pdf/angjel-spasovski-ats-cv.pdf`
 
-Visually inspect both pages after generation and confirm that all expected link annotations are present.
+The designed CV is intended for direct reading and portfolio presentation. The ATS CV uses a single-column, photo-free layout with standard headings and selectable text for application systems.
+
+Visually inspect every page after generation and confirm that all expected link annotations are present.
 
 ## GitHub Pages
 

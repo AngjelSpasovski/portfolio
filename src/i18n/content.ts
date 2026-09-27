@@ -145,7 +145,8 @@ export const content: Record<Locale, SiteContent> = {
         "Software Engineer with 10+ years of experience in web application development, frontend engineering, enterprise software products, and reliable user interfaces for complex business workflows.",
       primaryCta: "View work",
       secondaryCta: "Get in touch",
-      cvCta: "Download CV",
+      cvCta: "Designed CV",
+      atsCvCta: "ATS CV",
       stats: getStats("en"),
     },
     about: {
@@ -224,7 +225,8 @@ export const content: Record<Locale, SiteContent> = {
         "Софтверски инженер со 10+ години искуство во развој на веб-апликации, frontend инженеринг, enterprise производи и стабилни кориснички интерфејси за сложени деловни процеси.",
       primaryCta: "Види проекти",
       secondaryCta: "Контакт",
-      cvCta: "Преземи CV",
+      cvCta: "Дизајнирано CV",
+      atsCvCta: "ATS CV",
       stats: getStats("mk"),
     },
     about: {

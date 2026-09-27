@@ -10,6 +10,7 @@ export const siteConfig = {
   },
   paths: {
     cv: "/cv/angjel-spasovski-cv.pdf",
+    atsCv: "/cv/angjel-spasovski-ats-cv.pdf",
     ogImage: "/og-image.png",
     favicon: "/favicon.svg",
   },

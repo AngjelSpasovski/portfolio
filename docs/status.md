@@ -71,7 +71,7 @@ This is the authoritative work list. Update it as part of every implementation p
 - [x] Add focused tests for routes, locale switching, data validation, and navigation state.
 - [x] Run lint and tests explicitly in CI before the production build.
 - [x] Add clickable links to the CV and use the remaining second-page space deliberately.
-- [ ] Plan an ATS-first CV variant without a photo.
+- [x] Add an ATS-first CV variant without a photo while retaining the designed CV.
 
 ## Phase 6 - Optional Enhancements
 

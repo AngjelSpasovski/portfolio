@@ -7,12 +7,14 @@ from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
-from reportlab.platypus import Flowable, Image as RLImage, KeepTogether, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from reportlab.platypus import Flowable, Image as RLImage, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_PUBLIC = ROOT / "public" / "cv" / "angjel-spasovski-cv.pdf"
 OUTPUT_COPY = ROOT / "output" / "pdf" / "angjel-spasovski-cv.pdf"
+ATS_OUTPUT_PUBLIC = ROOT / "public" / "cv" / "angjel-spasovski-ats-cv.pdf"
+ATS_OUTPUT_COPY = ROOT / "output" / "pdf" / "angjel-spasovski-ats-cv.pdf"
 PROFILE_IMAGE = ROOT / "public" / "images" / "profile.jpg"
 TMP_AVATAR = ROOT / "output" / "pdf" / "profile-avatar.png"
 PORTFOLIO_DATA_FILE = ROOT / "src" / "data" / "portfolio-data.json"
@@ -248,7 +250,7 @@ def header(canvas, doc):
     canvas.restoreState()
 
 
-def build():
+def build_designed_cv():
     OUTPUT_PUBLIC.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_COPY.parent.mkdir(parents=True, exist_ok=True)
 
@@ -311,6 +313,97 @@ def build():
     TMP_AVATAR.unlink(missing_ok=True)
     print(OUTPUT_PUBLIC)
     print(OUTPUT_COPY)
+
+
+def ats_section(story, title):
+    story.append(Spacer(1, 3.5 * mm))
+    story.append(paragraph(title.upper(), ATS_STYLES["section"]))
+    story.append(Rule(color=INK, width=0.8))
+    story.append(Spacer(1, 2 * mm))
+
+
+def ats_footer(canvas, doc):
+    canvas.saveState()
+    canvas.setFillColor(MUTED)
+    canvas.setFont("Helvetica", 7.5)
+    canvas.drawRightString(190 * mm, 8 * mm, f"Angjel Spasovski | Page {doc.page}")
+    canvas.restoreState()
+
+
+def build_ats_cv():
+    ATS_OUTPUT_PUBLIC.parent.mkdir(parents=True, exist_ok=True)
+    ATS_OUTPUT_COPY.parent.mkdir(parents=True, exist_ok=True)
+
+    doc = SimpleDocTemplate(
+        str(ATS_OUTPUT_PUBLIC),
+        pagesize=A4,
+        rightMargin=20 * mm,
+        leftMargin=20 * mm,
+        topMargin=16 * mm,
+        bottomMargin=15 * mm,
+        title="Angjel Spasovski ATS CV",
+        author="Angjel Spasovski",
+        subject="Software Engineer CV",
+    )
+
+    story = [
+        paragraph("ANGJEL SPASOVSKI", ATS_STYLES["name"]),
+        paragraph("Software Engineer", ATS_STYLES["role"]),
+        Spacer(1, 2 * mm),
+        paragraph(
+            "Skopje, Macedonia | angjel.spasovski@gmail.com | "
+            "<link href='https://github.com/AngjelSpasovski'>github.com/AngjelSpasovski</link> | "
+            "<link href='https://www.linkedin.com/in/angjel-spasovski/'>linkedin.com/in/angjel-spasovski</link>",
+            ATS_STYLES["contact"],
+        ),
+    ]
+
+    ats_section(story, "Professional Summary")
+    story.append(paragraph(
+        "Software Engineer with 10+ years of experience in web application development, frontend engineering, enterprise software products, and reliable user interfaces for complex business workflows. Experienced in long-running product development, software design, maintainability, usability, performance, and production support.",
+        ATS_STYLES["body"],
+    ))
+
+    ats_section(story, "Technical Skills")
+    for group, items in SKILLS:
+        story.append(paragraph(f"<b>{group}:</b> {', '.join(items)}", ATS_STYLES["body"]))
+        story.append(Spacer(1, 1 * mm))
+
+    ats_section(story, "Professional Experience")
+    for item in EXPERIENCE:
+        story.append(paragraph(f"<b>{item['role']} | {item['company']}</b>", ATS_STYLES["heading"]))
+        story.append(paragraph(f"{item['period']} | {item['location']}", ATS_STYLES["meta"]))
+        story.append(paragraph(item["summary"], ATS_STYLES["body"]))
+        story.append(paragraph(f"<b>Skills:</b> {', '.join(item['tags'])}", ATS_STYLES["body"]))
+        story.append(Spacer(1, 2.5 * mm))
+
+    story.append(PageBreak())
+    ats_section(story, "Selected Projects")
+    for item in PROJECTS:
+        link = f" | <link href='{item['href']}'>{item['href']}</link>" if item.get("href") else ""
+        story.append(KeepTogether([
+            paragraph(f"<b>{item['title']}</b> | {item['type']}{link}", ATS_STYLES["heading"]),
+            paragraph(item["description"], ATS_STYLES["body"]),
+            paragraph(f"<b>Contribution:</b> {item['contribution']}", ATS_STYLES["body"]),
+            paragraph(f"<b>Outcome:</b> {item['outcome']}", ATS_STYLES["body"]),
+            paragraph(f"<b>Technologies:</b> {', '.join(item['stack'])}", ATS_STYLES["body"]),
+            Spacer(1, 2.5 * mm),
+        ]))
+
+    ats_section(story, "Education")
+    story.append(paragraph("BSc Computer Science | UKIM", ATS_STYLES["body"]))
+
+    ats_section(story, "Certifications")
+    for cert in CERTIFICATIONS:
+        story.append(paragraph(f"{cert['title']} | {cert['issuer']} | {cert['date']}", ATS_STYLES["body"]))
+
+    ats_section(story, "Languages")
+    story.append(paragraph("English, Macedonian", ATS_STYLES["body"]))
+
+    doc.build(story, onFirstPage=ats_footer, onLaterPages=ats_footer)
+    ATS_OUTPUT_COPY.write_bytes(ATS_OUTPUT_PUBLIC.read_bytes())
+    print(ATS_OUTPUT_PUBLIC)
+    print(ATS_OUTPUT_COPY)
 
 
 BASE_STYLES = getSampleStyleSheet()
@@ -393,6 +486,69 @@ STYLES = {
     ),
 }
 
+ATS_STYLES = {
+    "name": ParagraphStyle(
+        "ats_name",
+        parent=BASE_STYLES["Title"],
+        fontName="Helvetica-Bold",
+        fontSize=22,
+        leading=25,
+        textColor=INK,
+        alignment=0,
+        spaceAfter=2,
+    ),
+    "role": ParagraphStyle(
+        "ats_role",
+        parent=BASE_STYLES["Normal"],
+        fontName="Helvetica-Bold",
+        fontSize=12,
+        leading=15,
+        textColor=INK,
+    ),
+    "contact": ParagraphStyle(
+        "ats_contact",
+        parent=BASE_STYLES["Normal"],
+        fontName="Helvetica",
+        fontSize=8.5,
+        leading=12,
+        textColor=INK,
+    ),
+    "section": ParagraphStyle(
+        "ats_section",
+        parent=BASE_STYLES["Normal"],
+        fontName="Helvetica-Bold",
+        fontSize=10,
+        leading=13,
+        textColor=INK,
+        spaceAfter=1.2 * mm,
+    ),
+    "heading": ParagraphStyle(
+        "ats_heading",
+        parent=BASE_STYLES["Normal"],
+        fontName="Helvetica-Bold",
+        fontSize=9.5,
+        leading=12.5,
+        textColor=INK,
+    ),
+    "meta": ParagraphStyle(
+        "ats_meta",
+        parent=BASE_STYLES["Normal"],
+        fontName="Helvetica-Oblique",
+        fontSize=8.5,
+        leading=11,
+        textColor=MUTED,
+        spaceAfter=0.8 * mm,
+    ),
+    "body": ParagraphStyle(
+        "ats_body",
+        parent=BASE_STYLES["Normal"],
+        fontName="Helvetica",
+        fontSize=8.7,
+        leading=11.6,
+        textColor=INK,
+    ),
+}
+
 
 with PORTFOLIO_DATA_FILE.open(encoding="utf-8") as data_file:
     PORTFOLIO_DATA = json.load(data_file)
@@ -420,6 +576,8 @@ PROJECTS = [
         "type": item["type"]["en"],
         "href": item.get("links", {}).get("live") or item.get("links", {}).get("repository"),
         "description": item["summary"]["en"],
+        "contribution": item["caseStudy"]["contribution"]["en"],
+        "outcome": item["caseStudy"]["outcome"]["en"],
         "stack": item["featuredTechnologies"],
     }
     for item in sorted(PORTFOLIO_DATA["projects"], key=lambda project: project["sortOrder"])
@@ -438,4 +596,5 @@ CERTIFICATIONS = [
 
 
 if __name__ == "__main__":
-    build()
+    build_designed_cv()
+    build_ats_cv()

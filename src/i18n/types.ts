@@ -69,6 +69,7 @@ export type SiteContent = {
     primaryCta: string;
     secondaryCta: string;
     cvCta: string;
+    atsCvCta: string;
     stats: { value: string; label: string }[];
   };
   about: {
