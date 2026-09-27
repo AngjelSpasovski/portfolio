@@ -10,7 +10,7 @@ export const siteConfig = {
   },
   paths: {
     cv: "/cv/angjel-spasovski-cv.pdf",
-    ogImage: "/og-image.svg",
+    ogImage: "/og-image.png",
     favicon: "/favicon.svg",
   },
 } as const;

@@ -19,7 +19,39 @@ type HeaderProps = {
 export function Header({ locale, nav, ctaLabel }: HeaderProps) {
   const [open, setOpen] = React.useState(false);
   const [activeHref, setActiveHref] = React.useState("");
+  const menuButtonRef = React.useRef<HTMLButtonElement>(null);
+  const mobileNavigationRef = React.useRef<HTMLDivElement>(null);
   const contactHref = nav[nav.length - 1]?.href ?? "#contact";
+  const labels =
+    locale === "mk"
+      ? {
+          primaryNavigation: "Главна навигација",
+          mobileNavigation: "Мобилна навигација",
+          openNavigation: "Отвори навигација",
+          closeNavigation: "Затвори навигација",
+        }
+      : {
+          primaryNavigation: "Primary navigation",
+          mobileNavigation: "Mobile navigation",
+          openNavigation: "Open navigation",
+          closeNavigation: "Close navigation",
+        };
+
+  React.useEffect(() => {
+    if (!open) return;
+
+    const firstLink = mobileNavigationRef.current?.querySelector<HTMLButtonElement>("nav button");
+    firstLink?.focus();
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setOpen(false);
+      requestAnimationFrame(() => menuButtonRef.current?.focus());
+    };
+
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [open]);
 
   React.useEffect(() => {
     const targetSectionId = sessionStorage.getItem(LANGUAGE_SWITCH_SECTION_KEY);
@@ -82,12 +114,12 @@ export function Header({ locale, nav, ctaLabel }: HeaderProps) {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-3xl border border-border/80 bg-background/88 px-3 py-3 shadow-sm backdrop-blur-xl sm:px-5">
         <Logo locale={locale} />
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label={labels.primaryNavigation}>
           {nav.map((item) => (
             <ScrollLink
               key={item.href}
               href={item.href}
-              aria-current={activeHref === item.href ? "page" : undefined}
+              aria-current={activeHref === item.href ? "location" : undefined}
               className={
                 activeHref === item.href
                   ? "rounded-full bg-blue-600 px-3 py-2 text-sm font-bold text-white shadow-sm transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:bg-blue-500 xl:px-4"
@@ -101,7 +133,7 @@ export function Header({ locale, nav, ctaLabel }: HeaderProps) {
 
         <div className="hidden items-center gap-2 lg:flex">
           <LanguageSwitch locale={locale} activeHref={activeHref} />
-          <ThemeToggle />
+          <ThemeToggle locale={locale} />
           <ScrollLink
             href={contactHref}
             className="inline-flex h-10 items-center justify-center rounded-full bg-blue-600 px-5 text-sm font-bold text-white shadow-sm transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:bg-blue-500 dark:text-white dark:hover:bg-blue-400"
@@ -112,13 +144,14 @@ export function Header({ locale, nav, ctaLabel }: HeaderProps) {
 
         <div className="flex items-center gap-2 lg:hidden">
           <LanguageSwitch locale={locale} activeHref={activeHref} />
-          <ThemeToggle />
+          <ThemeToggle locale={locale} />
           <Button
+            ref={menuButtonRef}
             type="button"
             variant="outline"
             size="icon"
             className="size-10 rounded-full"
-            aria-label="Toggle navigation"
+            aria-label={open ? labels.closeNavigation : labels.openNavigation}
             aria-expanded={open}
             aria-controls="mobile-navigation"
             onClick={() => setOpen((value) => !value)}
@@ -130,15 +163,16 @@ export function Header({ locale, nav, ctaLabel }: HeaderProps) {
 
       {open ? (
         <div
+          ref={mobileNavigationRef}
           id="mobile-navigation"
           className="mx-auto mt-2 max-w-7xl rounded-3xl border border-border bg-background/95 p-3 shadow-lg backdrop-blur-xl lg:hidden"
         >
-          <nav className="grid gap-1" aria-label="Mobile navigation">
+          <nav className="grid gap-1" aria-label={labels.mobileNavigation}>
             {nav.map((item) => (
               <ScrollLink
                 key={item.href}
                 href={item.href}
-                aria-current={activeHref === item.href ? "page" : undefined}
+                aria-current={activeHref === item.href ? "location" : undefined}
                 className={
                   activeHref === item.href
                     ? "rounded-2xl bg-blue-600 px-4 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:bg-blue-500"

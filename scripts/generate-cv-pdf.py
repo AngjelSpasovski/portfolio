@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 from PIL import Image as PILImage
@@ -14,6 +15,7 @@ OUTPUT_PUBLIC = ROOT / "public" / "cv" / "angjel-spasovski-cv.pdf"
 OUTPUT_COPY = ROOT / "output" / "pdf" / "angjel-spasovski-cv.pdf"
 PROFILE_IMAGE = ROOT / "public" / "images" / "profile.jpg"
 TMP_AVATAR = ROOT / "output" / "pdf" / "profile-avatar.png"
+PORTFOLIO_DATA_FILE = ROOT / "src" / "data" / "portfolio-data.json"
 
 
 BLUE = colors.HexColor("#5b7cfa")
@@ -60,13 +62,14 @@ class ContactChips(Flowable):
         self.canv.setFont("Helvetica-Bold", 7.6)
         for row in self.rows:
             x = 0
-            for text, width in row:
+            for text, width, url in row:
                 self.canv.setFillColor(CHIP_BG)
                 self.canv.setStrokeColor(CHIP_LINE)
                 self.canv.setLineWidth(0.7)
                 self.canv.roundRect(x, y, width, self.row_height, 3.4 * mm, stroke=1, fill=1)
                 self.canv.setFillColor(BLUE)
                 self.canv.drawString(x + 2.8 * mm, y + 2.45 * mm, text)
+                self.canv.linkURL(url, (x, y, x + width, y + self.row_height), relative=1)
                 x += width + 2.4 * mm
             y -= self.row_height + self.row_gap
 
@@ -142,9 +145,9 @@ def hero_block():
         ContactChips(
             [
                 [
-                    ("angjel.spasovski@gmail.com", 49 * mm),
-                    ("github.com/AngjelSpasovski", 52 * mm),
-                    ("linkedin.com/in/angjel-spasovski", 56 * mm),
+                    ("angjel.spasovski@gmail.com", 49 * mm, "mailto:angjel.spasovski@gmail.com"),
+                    ("github.com/AngjelSpasovski", 52 * mm, "https://github.com/AngjelSpasovski"),
+                    ("linkedin.com/in/angjel-spasovski", 56 * mm, "https://www.linkedin.com/in/angjel-spasovski/"),
                 ],
             ]
         ),
@@ -197,7 +200,11 @@ def experience_card(item):
 
 
 def project_card(item):
-    link = f"<br/><font color='#5b7cfa'>{item['href']}</font>" if item.get("href") else ""
+    link = (
+        f"<br/><link href='{item['href']}' color='#5b7cfa'>{item['href']}</link>"
+        if item.get("href")
+        else ""
+    )
     content = [
         paragraph(f"<b>{item['title']}</b> - {item['type']}{link}", STYLES["body"]),
         Spacer(1, 1.5 * mm),
@@ -387,79 +394,46 @@ STYLES = {
 }
 
 
+with PORTFOLIO_DATA_FILE.open(encoding="utf-8") as data_file:
+    PORTFOLIO_DATA = json.load(data_file)
+
 EXPERIENCE = [
     {
-        "role": "Software Engineer",
-        "company": "CYBERTEC",
-        "period": "Jun 2024 - Present",
-        "location": "Hybrid",
-        "summary": "Continuing development of Opera MES after OPEN DATA was acquired by CYBERTEC, with broader engineering focus across frontend development, software design, system improvements, product maintenance, usability, performance, and reliability.",
-        "tags": ["Opera MES", "Software Design", "Frontend", "Maintainability", "Enterprise Product"],
-    },
-    {
-        "role": "Frontend Developer",
-        "company": "OPEN DATA Srl",
-        "period": "Jun 2018 - Jun 2024",
-        "location": "Skopje, Macedonia",
-        "summary": "Worked on Opera MES, building and maintaining web-based user interfaces for complex production workflows, with emphasis on usability, reliability, and long-term maintainability.",
-        "tags": ["JavaScript", "HTML5", "CSS", "Production Workflows", "Reusable UI"],
-    },
-    {
-        "role": "IT Administrator",
-        "company": "Winner - Vienna Insurance Group",
-        "period": "Mar 2017 - Jun 2018",
-        "location": "Macedonia",
-        "summary": "Maintained internal IT infrastructure, network reliability, data collection scripts, web platform operations, and day-to-day technical support for users.",
-        "tags": ["Networking", "IT Support", "Scripting", "Web Platform"],
-    },
-    {
-        "role": "Frontend Developer",
-        "company": "Armedia",
-        "period": "Jul 2016 - Mar 2017",
-        "location": "Macedonia",
-        "summary": "Worked on ArkCase, focusing on frontend maintenance, bug fixing, CSS issues, modals, forms, layout consistency, usability, and application stability.",
-        "tags": ["ArkCase", "JavaScript", "AngularJS", "Forms", "CSS"],
-    },
-    {
-        "role": "Frontend Developer",
-        "company": "Vorteks ED",
-        "period": "May 2015 - Apr 2016",
-        "location": "Skopje",
-        "summary": "Worked on Move One, a transport and relocation management product, contributing to frontend UI development and maintenance with Stylus, jQuery, and Backbone.js.",
-        "tags": ["Move One", "JavaScript", "CSS", "Stylus", "Backbone.js"],
-    },
+        "role": item["role"]["en"],
+        "company": item["company"],
+        "period": item["period"]["en"],
+        "location": item["location"]["en"],
+        "summary": item["summary"]["en"],
+        "tags": item["tags"],
+    }
+    for item in PORTFOLIO_DATA["experience"]
 ]
 
 SKILLS = [
-    ("Languages & Core", ["JavaScript", "TypeScript", "HTML5", "CSS3", "SASS / SCSS", "Web Design"]),
-    ("Frontend", ["AngularJS", "Angular 2+", "Bootstrap", "Responsive Design", "Forms & Modals"]),
-    ("Data & APIs", ["REST APIs", "JSON / XML", "Oracle SQL", "D3.js", "Plotly", "DevExpress"]),
-    ("Engineering", ["Software Design", "Maintainability", "Debugging", "Product Maintenance", "Performance"]),
-    ("Tools", ["Git / GitHub", "npm", "Webpack", "CLI", "Figma"]),
-    ("Systems", ["IT Administration", "Scripting", "Network Maintenance", "Windows Server", "CCNA Foundations"]),
+    (group["title"]["en"], group["items"]["en"])
+    for group in PORTFOLIO_DATA["skills"]
 ]
 
 PROJECTS = [
     {
-        "title": "DB Store",
-        "type": "Live project",
-        "href": "https://dbstore.online",
-        "description": "A live web project used as a public example of frontend delivery, product presentation, and practical implementation quality.",
-        "stack": ["Frontend", "Responsive UI", "Product Website"],
-    },
-    {
-        "title": "Opera MES",
-        "type": "Enterprise product",
-        "description": "Manufacturing Execution System used to support and optimize production processes through reliable frontend workflows and long-term product maintenance.",
-        "stack": ["JavaScript", "Enterprise UI", "REST API", "Manufacturing Workflows"],
-    },
+        "title": item["title"],
+        "type": item["type"]["en"],
+        "href": item.get("links", {}).get("live") or item.get("links", {}).get("repository"),
+        "description": item["summary"]["en"],
+        "stack": item["featuredTechnologies"],
+    }
+    for item in sorted(PORTFOLIO_DATA["projects"], key=lambda project: project["sortOrder"])
+    if item["status"] == "published" and item["featured"]
 ]
 
 CERTIFICATIONS = [
-    {"title": "ChatGPT & Generative AI - The Complete Guide", "issuer": "Udemy", "date": "Nov 2024"},
-    {"title": "Angular Front To Back", "issuer": "Udemy", "date": "Sep 2022"},
-    {"title": "JavaScript: Understanding the Weird Parts", "issuer": "Udemy", "date": "Aug 2017"},
-    {"title": "CCNA: Network Fundamentals", "issuer": "Cisco", "date": "Nov 2011"},
+    {
+        "title": item["title"],
+        "issuer": item["issuer"],
+        "date": item["date"]["en"].removeprefix("Issued "),
+    }
+    for item in PORTFOLIO_DATA["certifications"]
+    if item["featured"]
 ]
 
 

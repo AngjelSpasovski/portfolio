@@ -27,12 +27,14 @@ export function LanguageSwitch({ locale, activeHref }: LanguageSwitchProps) {
   const target = localeConfig[targetLocale].path;
   const targetSectionId = getTargetSectionId(locale, activeHref);
   const label = locale === "en" ? "MK" : "EN";
+  const accessibleLabel =
+    locale === "en" ? "Switch language to Macedonian" : "Промени го јазикот на англиски";
 
   return (
     <Link
       href={target}
       scroll={false}
-      aria-label={`Switch language to ${label}`}
+      aria-label={accessibleLabel}
       onClick={() => {
         if (targetSectionId) {
           sessionStorage.setItem(LANGUAGE_SWITCH_SECTION_KEY, targetSectionId);

@@ -11,6 +11,7 @@ import type { SiteContent } from "@/i18n/content";
 import { localeConfig } from "@/i18n/content";
 import { assetPath } from "@/lib/asset-path";
 import { SectionHeading } from "./section-heading";
+import { ProjectDetails } from "./project-details";
 
 export function Projects({ content }: { content: SiteContent }) {
   const id = localeConfig[content.locale].sectionIds.projects;
@@ -30,7 +31,7 @@ export function Projects({ content }: { content: SiteContent }) {
 
         <div className="grid gap-5 lg:grid-cols-2">
           {content.projects.items.map((project, index) => (
-            <Reveal key={project.title} delay={Math.min(index * 0.06, 0.16)}>
+            <Reveal key={project.id} delay={Math.min(index * 0.06, 0.16)}>
               <Card className="h-full overflow-hidden rounded-3xl border-border/80 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
                 <CardContent className="flex h-full flex-col p-0">
                   <ProjectPreview
@@ -41,7 +42,7 @@ export function Projects({ content }: { content: SiteContent }) {
                     <div className="flex items-start justify-between gap-4">
                       <div>
                         <Badge variant="outline" className="rounded-full">
-                          {project.type}
+                          {project.categoryLabel}
                         </Badge>
                         <h3 className="mt-5 text-2xl font-black tracking-tight">{project.title}</h3>
                       </div>
@@ -63,7 +64,8 @@ export function Projects({ content }: { content: SiteContent }) {
                         </span>
                       ))}
                     </div>
-                    <div className="mt-7">
+                    <div className="mt-7 flex flex-wrap gap-3">
+                      <ProjectDetails locale={content.locale} project={project} />
                       {project.href ? (
                         <a
                           href={project.href}
@@ -88,7 +90,6 @@ export function Projects({ content }: { content: SiteContent }) {
           ))}
         </div>
 
-        <p className="mt-8 max-w-2xl text-sm leading-7 text-muted-foreground">{content.projects.note}</p>
       </div>
     </section>
   );

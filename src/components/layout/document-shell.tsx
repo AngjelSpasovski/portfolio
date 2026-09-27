@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import Script from "next/script";
+import "@/app/globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -41,14 +42,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default function DocumentShell({
   children,
+  locale = "en",
 }: Readonly<{
   children: React.ReactNode;
+  locale?: "en" | "mk";
 }>) {
   return (
-    <html lang="en" className="dark" data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html lang={locale} className="dark" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+        {/* Shared document shell is rendered only by root layouts. */}
+        {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
+        <Script id="portfolio-theme" strategy="beforeInteractive">
+          {`try{if(localStorage.getItem("portfolio-theme")==="light"){document.documentElement.classList.remove("dark")}}catch{}`}
+        </Script>
         <ThemeProvider>
           <TooltipProvider>{children}</TooltipProvider>
         </ThemeProvider>

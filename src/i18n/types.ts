@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import type { ProjectVisualId } from "@/data/portfolio-data";
 
 export type Locale = "en" | "mk";
 
@@ -23,14 +24,24 @@ export type SkillGroup = {
 };
 
 export type ProjectItem = {
+  id: string;
+  categoryLabel: string;
   title: string;
   type: string;
   period: string;
   company: string;
   description: string;
   stack: string[];
+  technologies: string[];
+  caseStudy: {
+    context: string;
+    role: string;
+    challenge: string;
+    contribution: string;
+    outcome: string;
+  };
   href?: string;
-  visualId?: "dbstore" | "opera-mes" | "dentcare";
+  visualId?: ProjectVisualId;
 };
 
 export type CertificationItem = {
@@ -83,7 +94,6 @@ export type SiteContent = {
     title: string;
     subtitle: string;
     items: ProjectItem[];
-    note: string;
   };
   certifications: {
     tag: string;

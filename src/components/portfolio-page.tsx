@@ -1,4 +1,5 @@
 import { Footer } from "@/components/layout/footer";
+import { BackToTop } from "@/components/shared/back-to-top";
 import { Header } from "@/components/layout/header";
 import { DocumentLanguage } from "@/components/shared/document-language";
 import { About } from "@/components/sections/about";
@@ -39,6 +40,7 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
         <Contact content={pageContent} />
       </main>
       <Footer content={pageContent} />
+      <BackToTop locale={locale} />
     </>
   );
 }

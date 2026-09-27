@@ -1,59 +1,26 @@
 # Angjel Spasovski Portfolio
 
-Personal portfolio website for Angjel Spasovski, focused on frontend engineering, enterprise web applications, selected project work, and CV download.
+Personal portfolio for Angjel Spasovski, focused on frontend engineering, enterprise products, public project work, and a downloadable CV.
 
-## Getting Started
-
-Install dependencies:
+## Quick Start
 
 ```bash
 npm install
-```
-
-Run locally:
-
-```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
-
-## Routes
-
-- English: `/`
-- Macedonian: `/mk/`
+Open [http://localhost:3000/en/](http://localhost:3000/en/) or [http://localhost:3000/mk/](http://localhost:3000/mk/).
 
 ## Checks
 
 ```bash
 npm run lint
+npm run test:e2e
 npm run build
 ```
 
-## Generate CV PDF
+## Documentation
 
-```bash
-python scripts/generate-cv-pdf.py
-```
+Start with [docs/README.md](docs/README.md). It links to the product direction, architecture, content model, working guides, current status, and future Project Hub plan.
 
-## Project Notes
-
-See [docs/project-guide.md](docs/project-guide.md) for the project structure, project-entry workflow, visual preview setup, localization notes, and styling approach.
-
-See [docs/admin-editor-concept.md](docs/admin-editor-concept.md) for the future frontend-only project editor direction.
-
-## GitHub Pages Build
-
-The project is configured for static export and GitHub Pages.
-
-To test the GitHub Pages output locally:
-
-```bash
-$env:GITHUB_PAGES="true"
-npm run build
-Remove-Item Env:\GITHUB_PAGES
-```
-
-Live URL:
-
-[https://angjelspasovski.github.io/portfolio/](https://angjelspasovski.github.io/portfolio/)
+Live site: [angjelspasovski.github.io/portfolio](https://angjelspasovski.github.io/portfolio/)

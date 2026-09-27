@@ -22,15 +22,17 @@ export function Experience({ content }: { content: SiteContent }) {
           subtitle={content.experience.subtitle}
         />
 
-        <div className="relative space-y-5 before:absolute before:left-4 before:top-3 before:h-[calc(100%-1rem)] before:w-px before:bg-border sm:before:left-5">
+        <div data-timeline className="relative space-y-5 [--timeline-axis:1rem] before:absolute before:left-[var(--timeline-axis)] before:-translate-x-1/2 before:top-3 before:h-[calc(100%-1rem)] before:w-px before:bg-border sm:[--timeline-axis:1.25rem]">
           {content.experience.items.map((item, index) => (
             <Reveal key={`${item.company}-${item.period}`} delay={Math.min(index * 0.04, 0.2)}>
               <div className="relative pl-12 sm:pl-16">
                 <span
+                  data-timeline-marker
+                  aria-hidden="true"
                   className={
                     index === 0
-                      ? "absolute left-1.5 top-7 grid size-7 place-items-center rounded-full border border-blue-500/50 bg-background shadow-sm ring-4 ring-blue-500/10 sm:left-2.5"
-                      : "absolute left-1.5 top-7 grid size-7 place-items-center rounded-full border border-blue-500/30 bg-background shadow-sm sm:left-2.5"
+                      ? "absolute left-[var(--timeline-axis)] -translate-x-1/2 top-7 grid size-7 place-items-center rounded-full border border-blue-500/50 bg-background shadow-sm ring-4 ring-blue-500/10"
+                      : "absolute left-[var(--timeline-axis)] -translate-x-1/2 top-7 grid size-7 place-items-center rounded-full border border-blue-500/30 bg-background shadow-sm"
                   }
                 >
                   <span className={index === 0 ? "size-3 rounded-full bg-blue-600" : "size-2.5 rounded-full bg-blue-600"} />

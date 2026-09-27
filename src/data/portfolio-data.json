@@ -1,0 +1,339 @@
+{
+  "profile": {
+    "careerStartYear": 2015,
+    "companiesCount": 6,
+    "locationCode": "MK"
+  },
+  "experience": [
+    {
+      "id": "cybertec-software-engineer",
+      "role": { "en": "Software Engineer", "mk": "Software Engineer" },
+      "company": "CYBERTEC",
+      "period": { "en": "Jun 2024 - Present", "mk": "Јуни 2024 - Сега" },
+      "location": { "en": "Hybrid", "mk": "Хибридно" },
+      "summary": {
+        "en": "Continuing development of Opera MES after OPEN DATA was acquired by CYBERTEC, with broader engineering focus across frontend development, software design, system improvements, product maintenance, usability, performance, and reliability.",
+        "mk": "Продолжувам со развој на Opera MES по аквизицијата на OPEN DATA од CYBERTEC, со поширок engineering фокус на frontend development, software design, системски подобрувања, product maintenance, употребливост, перформанси и стабилност."
+      },
+      "tags": ["Web Engineering", "Software Design", "TypeScript", "Angular", "Enterprise Product"]
+    },
+    {
+      "id": "open-data-frontend-developer",
+      "role": { "en": "Frontend Developer", "mk": "Frontend Developer" },
+      "company": "OPEN DATA Srl",
+      "period": { "en": "Jun 2018 - Jun 2024", "mk": "Јуни 2018 - Јуни 2024" },
+      "location": { "en": "Skopje, Macedonia", "mk": "Скопје, Македонија" },
+      "summary": {
+        "en": "Worked on Opera MES, building and maintaining web-based user interfaces for complex production workflows, with emphasis on usability, reliability, and long-term maintainability.",
+        "mk": "Работа на Opera MES: градење и одржување web-based UI за сложени производствени процеси, со фокус на употребливост, стабилност и долгорочна maintainability."
+      },
+      "tags": ["JavaScript", "Angular", "AG Grid", "Plotly.js", "D3.js"]
+    },
+    {
+      "id": "winner-it-administrator",
+      "role": { "en": "IT Administrator", "mk": "IT Administrator" },
+      "company": "Winner - Vienna Insurance Group",
+      "period": { "en": "Mar 2017 - Jun 2018", "mk": "Март 2017 - Јуни 2018" },
+      "location": { "en": "Macedonia", "mk": "Македонија" },
+      "summary": {
+        "en": "Maintained internal IT infrastructure, network reliability, data collection scripts, web platform operations, and day-to-day technical support for users.",
+        "mk": "Одржување IT инфраструктура, сигурност на мрежа, scripts за собирање податоци, web platform operations и секојдневна техничка поддршка."
+      },
+      "tags": ["Networking", "IT Support", "Scripting", "Web Platform"]
+    },
+    {
+      "id": "armedia-frontend-developer",
+      "role": { "en": "Frontend Developer", "mk": "Frontend Developer" },
+      "company": "Armedia",
+      "period": { "en": "Jul 2016 - Mar 2017", "mk": "Јули 2016 - Март 2017" },
+      "location": { "en": "Macedonia", "mk": "Македонија" },
+      "summary": {
+        "en": "Worked on ArkCase, focusing on frontend maintenance, bug fixing, CSS issues, modals, forms, layout consistency, usability, and application stability.",
+        "mk": "Работа на ArkCase, со фокус на frontend maintenance, bug fixing, CSS issues, модали, форми, layout consistency, употребливост и стабилност на апликацијата."
+      },
+      "tags": ["ArkCase", "JavaScript", "AngularJS", "Forms", "CSS"]
+    },
+    {
+      "id": "vorteks-frontend-developer",
+      "role": { "en": "Frontend Developer", "mk": "Frontend Developer" },
+      "company": "Vorteks ED",
+      "period": { "en": "May 2015 - Apr 2016", "mk": "Мај 2015 - Април 2016" },
+      "location": { "en": "Skopje", "mk": "Скопје" },
+      "summary": {
+        "en": "Worked on Move One, a transport and relocation management product, contributing to frontend UI development and maintenance with Stylus, jQuery, and Backbone.js.",
+        "mk": "Работа на Move One, производ за transport and relocation management, со frontend UI development и maintenance со Stylus, jQuery и Backbone.js."
+      },
+      "tags": ["Move One", "JavaScript", "CSS", "Stylus", "Backbone.js"]
+    }
+  ],
+  "skills": [
+    {
+      "id": "languages-core",
+      "title": { "en": "Languages & Core", "mk": "Јазици и основа" },
+      "icon": "code",
+      "items": {
+        "en": ["JavaScript", "TypeScript", "HTML5", "CSS3", "SASS / SCSS", "Web Design"],
+        "mk": ["JavaScript", "TypeScript", "HTML5", "CSS3", "SASS / SCSS", "Web Design"]
+      }
+    },
+    {
+      "id": "frontend",
+      "title": { "en": "Frontend", "mk": "Frontend" },
+      "icon": "sparkles",
+      "items": {
+        "en": ["AngularJS", "Angular 2+", "Bootstrap", "Responsive Design", "Forms & Modals"],
+        "mk": ["AngularJS", "Angular 2+", "Bootstrap", "Responsive UI", "Форми и модали"]
+      }
+    },
+    {
+      "id": "data-apis",
+      "title": { "en": "Data & APIs", "mk": "Податоци и APIs" },
+      "icon": "database",
+      "items": {
+        "en": ["REST APIs", "JSON / XML", "Oracle SQL", "D3.js", "Plotly", "DevExpress"],
+        "mk": ["REST APIs", "JSON / XML", "Oracle SQL", "D3.js", "Plotly", "DevExpress"]
+      }
+    },
+    {
+      "id": "engineering",
+      "title": { "en": "Engineering", "mk": "Engineering" },
+      "icon": "cpu",
+      "items": {
+        "en": ["Software Design", "Maintainability", "Debugging", "Product Maintenance", "Performance"],
+        "mk": ["Software Design", "Maintainability", "Debugging", "Product Maintenance", "Performance"]
+      }
+    },
+    {
+      "id": "tools",
+      "title": { "en": "Tools", "mk": "Алатки" },
+      "icon": "wrench",
+      "items": {
+        "en": ["Git / GitHub", "npm", "Webpack", "CLI", "Figma"],
+        "mk": ["Git / GitHub", "npm", "Webpack", "CLI", "Figma"]
+      }
+    },
+    {
+      "id": "systems",
+      "title": { "en": "Systems", "mk": "Системи" },
+      "icon": "network",
+      "items": {
+        "en": ["IT Administration", "Scripting", "Network Maintenance", "Windows Server", "CCNA Foundations"],
+        "mk": ["IT Administration", "Scripting", "Network Maintenance", "Windows Server", "CCNA Foundations"]
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": "dbstore",
+      "status": "published",
+      "visibility": "public",
+      "category": "product",
+      "featured": true,
+      "sortOrder": 10,
+      "title": "DB Store",
+      "type": { "en": "Live project", "mk": "Проект во живо" },
+      "period": { "en": "2026", "mk": "2026" },
+      "company": { "en": "Personal / B2B Product", "mk": "Личен / B2B Проект" },
+      "summary": {
+        "en": "A live web project used as a public example of frontend delivery, product presentation, and practical implementation quality.",
+        "mk": "Live web project што служи како јавен пример за frontend delivery, product presentation и практичен квалитет на имплементација."
+      },
+      "caseStudy": {
+        "context": {
+          "en": "A public B2B product concept for connecting real-estate supply and demand through structured search and request workflows.",
+          "mk": "Јавен B2B product concept за поврзување на понудата и побарувачката на недвижности преку структурирани search и request workflows."
+        },
+        "role": {
+          "en": "Designed and implemented the frontend product experience and its public presentation.",
+          "mk": "Го дизајнирав и имплементирав frontend product experience и неговата јавна презентација."
+        },
+        "challenge": {
+          "en": "Present search, credit, billing, and administration workflows clearly while keeping a data-heavy interface responsive.",
+          "mk": "Јасно прикажување на search, credit, billing и administration workflows, со responsive однесување на data-heavy интерфејсот."
+        },
+        "contribution": {
+          "en": "Built the Angular standalone interface, data grids, charts, API integrations, Firebase delivery, EmailJS contact flow, and PDF reading workflow.",
+          "mk": "Изградив Angular standalone интерфејс, data grids, charts, API integrations, Firebase delivery, EmailJS contact flow и PDF reading workflow."
+        },
+        "outcome": {
+          "en": "A deployed product demonstrator covering the public site, authentication, dashboards, and operational workflows.",
+          "mk": "Објавен product demonstrator што ги опфаќа public site, authentication, dashboards и operational workflows."
+        }
+      },
+      "technologies": ["JavaScript", "TypeScript", "Angular", "Standalone Components", "Bootstrap", "HTML5", "SCSS", "Responsive Design", "AG Grid", "Plotly.js", "REST API", "EmailJS", "Firebase", "PdfReader"],
+      "featuredTechnologies": ["Angular", "TypeScript", "Standalone Components", "AG Grid", "Firebase", "REST API"],
+      "links": { "live": "https://dbstore.online" },
+      "visualId": "dbstore"
+    },
+    {
+      "id": "opera-mes",
+      "status": "published",
+      "visibility": "private",
+      "category": "enterprise",
+      "featured": true,
+      "sortOrder": 20,
+      "title": "Opera MES",
+      "type": { "en": "Enterprise product", "mk": "Enterprise производ" },
+      "period": { "en": "2018 - Present", "mk": "2018 - Сега" },
+      "company": { "en": "OPEN DATA / CYBERTEC", "mk": "OPEN DATA / CYBERTEC" },
+      "summary": {
+        "en": "Manufacturing Execution System used to support and optimize production processes through reliable frontend workflows and long-term product maintenance.",
+        "mk": "Manufacturing Execution System за поддршка и оптимизација на производствени процеси преку стабилни frontend workflows и долгорочен product maintenance."
+      },
+      "caseStudy": {
+        "context": {
+          "en": "A long-running Manufacturing Execution System supporting complex production and plant-management workflows.",
+          "mk": "Долгорочен Manufacturing Execution System за поддршка на сложени production и plant-management workflows."
+        },
+        "role": {
+          "en": "Frontend development, maintenance, and software design across the product's evolution at OPEN DATA and CYBERTEC.",
+          "mk": "Frontend development, maintenance и software design низ развојот на производот во OPEN DATA и CYBERTEC."
+        },
+        "challenge": {
+          "en": "Evolve a data-dense enterprise interface while preserving reliable workflows for established production operations.",
+          "mk": "Развој на data-dense enterprise интерфејс со зачувување на стабилни workflows за воспоставени производствени операции."
+        },
+        "contribution": {
+          "en": "Built and maintained production interfaces, reusable UI, grid and chart workflows, and improvements to usability, performance, and reliability.",
+          "mk": "Изградив и одржував production interfaces, reusable UI, grid и chart workflows и подобрувања во употребливост, перформанси и стабилност."
+        },
+        "outcome": {
+          "en": "Continued product evolution with an emphasis on stable, maintainable interfaces for complex operational work.",
+          "mk": "Континуиран развој на производот со фокус на стабилни и maintainable интерфејси за сложена оперативна работа."
+        }
+      },
+      "technologies": ["Web Engineering", "Software Design", "Software Infrastructure", "JavaScript", "JavaScriptMVC", "JavaScript Libraries", "TypeScript", "Angular", "Angular CLI", "CSS", "CSS Flexbox", "Bootstrap", "HTML5", "Plotly.js", "AG Grid", "JSON Web Token (JWT)", "Git", "D3.js"],
+      "featuredTechnologies": ["JavaScript", "TypeScript", "Angular", "AG Grid", "Plotly.js", "D3.js"],
+      "links": {},
+      "visualId": "opera-mes"
+    },
+    {
+      "id": "dentcare",
+      "status": "published",
+      "visibility": "public",
+      "category": "client",
+      "featured": true,
+      "sortOrder": 30,
+      "title": "DentCare Macedonia",
+      "type": { "en": "Live project", "mk": "Проект во живо" },
+      "period": { "en": "2026", "mk": "2026" },
+      "company": { "en": "Healthcare Website", "mk": "Healthcare веб-страница" },
+      "summary": {
+        "en": "A responsive dental tourism website for patients planning treatment in Macedonia, with multilingual content, consultation flows, travel guidance, and Firebase hosting.",
+        "mk": "Responsive dental tourism веб-страница за пациенти што планираат стоматолошки третман во Македонија, со повеќејазична содржина, consultation flows, travel guidance и Firebase hosting."
+      },
+      "caseStudy": {
+        "context": {
+          "en": "A multilingual dental-tourism website for patients planning treatment and travel to Macedonia.",
+          "mk": "Повеќејазична dental-tourism веб-страница за пациенти што планираат третман и патување во Македонија."
+        },
+        "role": {
+          "en": "Designed and implemented the responsive website and its consultation journey.",
+          "mk": "Ја дизајнирав и имплементирав responsive веб-страницата и нејзиниот consultation journey."
+        },
+        "challenge": {
+          "en": "Turn treatment, pricing, warranty, and travel information into a clear multilingual experience with a simple inquiry path.",
+          "mk": "Претворање на treatment, pricing, warranty и travel информации во јасно повеќејазично искуство со едноставен inquiry path."
+        },
+        "contribution": {
+          "en": "Built the Angular standalone component architecture, responsive SCSS and Bootstrap UI, EmailJS inquiry flow, and Firebase deployment.",
+          "mk": "Изградив Angular standalone component архитектура, responsive SCSS и Bootstrap UI, EmailJS inquiry flow и Firebase deployment."
+        },
+        "outcome": {
+          "en": "A deployed public website that brings treatment, clinic, travel, and consultation information into one coherent journey.",
+          "mk": "Објавена јавна веб-страница што ги обединува treatment, clinic, travel и consultation информациите во едно кохерентно корисничко патување."
+        }
+      },
+      "technologies": ["Angular", "Standalone Components", "Bootstrap", "HTML5", "SCSS", "EmailJS", "Firebase", "Responsive Design"],
+      "featuredTechnologies": ["Angular", "Standalone Components", "SCSS", "EmailJS", "Firebase", "Responsive Design"],
+      "links": { "live": "https://dentcare-macedonia.web.app/" },
+      "visualId": "dentcare"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "chatgpt-generative-ai",
+      "title": "ChatGPT & Generative AI - The Complete Guide",
+      "issuer": "Udemy",
+      "date": { "en": "Issued Nov 2024", "mk": "Издаден ноември 2024" },
+      "featured": true
+    },
+    {
+      "id": "angular-front-to-back",
+      "title": "Angular Front To Back",
+      "issuer": "Udemy",
+      "date": { "en": "Issued Sep 2022", "mk": "Издаден септември 2022" },
+      "featured": true
+    },
+    {
+      "id": "javascript-complete-guide",
+      "title": "JavaScript - The Complete Guide (Beginner + Advanced)",
+      "issuer": "Udemy",
+      "date": { "en": "Issued Feb 2022", "mk": "Издаден февруари 2022" },
+      "featured": false
+    },
+    {
+      "id": "learn-understand-angularjs",
+      "title": "Learn and Understand AngularJS",
+      "issuer": "Udemy",
+      "date": { "en": "Issued Oct 2017", "mk": "Издаден октомври 2017" },
+      "featured": false
+    },
+    {
+      "id": "javascript-weird-parts",
+      "title": "JavaScript: Understanding the Weird Parts",
+      "issuer": "Udemy",
+      "date": { "en": "Issued Aug 2017", "mk": "Издаден август 2017" },
+      "featured": true
+    },
+    {
+      "id": "angularjs-authentication-auth0",
+      "title": "AngularJS Authentication: Secure Your App with Auth0",
+      "issuer": "Udemy",
+      "date": { "en": "Issued May 2017", "mk": "Издаден мај 2017" },
+      "featured": false
+    },
+    {
+      "id": "microsoft-youthspark",
+      "title": "Microsoft YouthSpark",
+      "issuer": "Microsoft",
+      "date": { "en": "Issued May 2014", "mk": "Издаден мај 2014" },
+      "featured": false
+    },
+    {
+      "id": "ccna-network-fundamentals",
+      "title": "CCNA Exploration: Network Fundamentals",
+      "issuer": "Cisco",
+      "date": { "en": "Issued Nov 2011", "mk": "Издаден ноември 2011" },
+      "featured": true
+    },
+    {
+      "id": "ccna-routing-protocols-concepts",
+      "title": "CCNA Exploration: Routing Protocols and Concepts",
+      "issuer": "Cisco",
+      "date": { "en": "Issued Sep 2011", "mk": "Издаден септември 2011" },
+      "featured": false
+    },
+    {
+      "id": "ccna-lan-switching-wireless",
+      "title": "CCNA Exploration: LAN Switching and Wireless",
+      "issuer": "Cisco",
+      "date": { "en": "Issued Mar 2011", "mk": "Издаден март 2011" },
+      "featured": false
+    },
+    {
+      "id": "ccna-accessing-wan",
+      "title": "CCNA Exploration: Accessing the WAN",
+      "issuer": "Cisco",
+      "date": { "en": "Issued Jan 2011", "mk": "Издаден јануари 2011" },
+      "featured": false
+    },
+    {
+      "id": "fundamentals-wireless-lans",
+      "title": "Fundamentals of Wireless LANS",
+      "issuer": "Cisco",
+      "date": { "en": "Issued Oct 2010; expired Jan 2011", "mk": "Издаден октомври 2010; истечен јануари 2011" },
+      "featured": false
+    }
+  ]
+}
