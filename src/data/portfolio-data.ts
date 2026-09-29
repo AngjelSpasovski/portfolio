@@ -1,6 +1,6 @@
 import rawPortfolioData from "./portfolio-data.json";
 
-export const projectVisualIds = ["dbstore", "opera-mes", "dentcare"] as const;
+export const projectVisualIds = ["dbstore", "portfolio", "opera-mes", "dentcare"] as const;
 export type ProjectVisualId = (typeof projectVisualIds)[number];
 
 export type DataLocale = "en" | "mk";
@@ -56,8 +56,9 @@ type CertificationRecord = {
   id: string;
   title: string;
   issuer: string;
+  issuedYear: number;
   date: LocalizedText;
-  featured: boolean;
+  courseUrl?: string;
   credentialUrl?: string;
 };
 
@@ -83,6 +84,15 @@ function hasLocalizedText(value: unknown): value is LocalizedText {
 function assertUnique(values: string[], label: string) {
   if (new Set(values).size !== values.length) {
     throw new Error(`Portfolio data contains duplicate ${label}.`);
+  }
+}
+
+function isAbsoluteHttpUrl(value: string) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
   }
 }
 
@@ -137,11 +147,19 @@ function validatePortfolioData(data: PortfolioData) {
     if (!hasLocalizedText(certification.date)) {
       throw new Error(`Certification '${certification.id}' is missing a localized date.`);
     }
+    if (!Number.isInteger(certification.issuedYear) || certification.issuedYear < 1900) {
+      throw new Error(`Certification '${certification.id}' has an invalid issued year.`);
+    }
+    for (const [label, value] of [
+      ["course", certification.courseUrl],
+      ["credential", certification.credentialUrl],
+    ] as const) {
+      if (value && !isAbsoluteHttpUrl(value)) {
+        throw new Error(`Certification '${certification.id}' has an invalid ${label} URL.`);
+      }
+    }
   }
 
-  if (!data.certifications.some((certification) => certification.featured)) {
-    throw new Error("Portfolio data requires at least one featured certification.");
-  }
 }
 
 export const portfolioData = rawPortfolioData as unknown as PortfolioData;

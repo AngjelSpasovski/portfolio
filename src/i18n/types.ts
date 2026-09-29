@@ -50,6 +50,8 @@ export type CertificationItem = {
   title: string;
   issuer: string;
   date: string;
+  courseUrl?: string;
+  credentialUrl?: string;
 };
 
 export type SiteContent = {
@@ -102,6 +104,10 @@ export type SiteContent = {
     tag: string;
     title: string;
     subtitle: string;
+    courseLabel: string;
+    credentialLabel: string;
+    showAllLabel: string;
+    showFewerLabel: string;
     items: CertificationItem[];
   };
   contact: {

@@ -35,7 +35,17 @@ The Opera MES portfolio previews are synthetic and can be regenerated with:
 npm run generate:opera-previews
 ```
 
-The script writes:
+The portfolio project previews are captured from a running local site:
+
+```powershell
+$env:PORTFOLIO_PREVIEW_URL="http://127.0.0.1:3000/en/"
+npm run generate:portfolio-previews
+Remove-Item Env:\PORTFOLIO_PREVIEW_URL
+```
+
+This writes the optimized hero, Work History, and Certifications previews under `public/images/projects/portfolio/`.
+
+The CV generator writes:
 
 - `public/cv/angjel-spasovski-cv.pdf`
 - `output/pdf/angjel-spasovski-cv.pdf`

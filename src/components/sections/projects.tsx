@@ -128,13 +128,13 @@ function ProjectVisualPreview({ visual }: { visual: ProjectVisual }) {
         </div>
         <div className="grid gap-4 p-4 sm:grid-cols-[0.9fr_1.1fr]">
           <div className="flex min-h-40 flex-col justify-between gap-4">
-            <div className="grid min-h-28 place-items-center rounded-2xl border border-white/10 bg-white p-4">
+            <div className="grid min-h-28 place-items-center rounded-2xl border border-white/10 bg-white/[0.04] p-4">
               <Image
                 src={assetPath(visual.logo.src)}
                 alt={visual.logo.alt}
                 width={500}
                 height={400}
-                className="mx-auto h-28 w-full object-contain"
+                className="mx-auto h-28 w-full object-contain drop-shadow-[0_2px_10px_rgba(0,0,0,0.2)]"
               />
             </div>
             <div>

@@ -52,10 +52,37 @@ export function getProjectVisuals(locale: Locale): Record<ProjectVisualId, Proje
       ],
       tone: "blue",
     },
+    portfolio: {
+      chromeLabel: "angjelspasovski.github.io/portfolio",
+      logo: {
+        src: "/favicon.svg",
+        alt: locale === "mk" ? "Монограм AS" : "AS monogram",
+      },
+      title: "Angjel Spasovski Portfolio",
+      type: locale === "mk" ? "Лично software-engineering портфолио" : "Personal software-engineering portfolio",
+      main: {
+        src: "/images/projects/portfolio/home.webp",
+        alt: locale === "mk" ? "Почетна секција на портфолиото" : "Portfolio home section",
+        label: locale === "mk" ? "Почетна секција" : "Home section",
+      },
+      thumbnails: [
+        {
+          src: "/images/projects/portfolio/experience.webp",
+          alt: locale === "mk" ? "Work History секција на портфолиото" : "Portfolio work history section",
+          label: locale === "mk" ? "Работно искуство" : "Work history",
+        },
+        {
+          src: "/images/projects/portfolio/certifications.webp",
+          alt: locale === "mk" ? "Секција со сертификати на портфолиото" : "Portfolio certifications section",
+          label: locale === "mk" ? "Сертификати" : "Certifications",
+        },
+      ],
+      tone: "blue",
+    },
     "opera-mes": {
       chromeLabel: "Enterprise UI",
       logo: {
-        src: "/images/projects/opera-mes/logo.png",
+        src: "/images/projects/opera-mes/logo-transparent.png",
         alt: locale === "mk" ? "Лого на Opera MES" : "Opera MES logo",
       },
       title: "Opera MES",
@@ -85,7 +112,7 @@ export function getProjectVisuals(locale: Locale): Record<ProjectVisualId, Proje
     dentcare: {
       chromeLabel: "dentcare-macedonia.web.app",
       logo: {
-        src: "/images/projects/dentcare/logo.svg",
+        src: "/images/projects/dentcare/logo-on-dark.svg",
         alt: locale === "mk" ? "Лого на DentCare Macedonia" : "DentCare Macedonia logo",
       },
       title: "DentCare Macedonia",

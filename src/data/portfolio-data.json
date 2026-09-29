@@ -184,6 +184,51 @@
       "visualId": "dbstore"
     },
     {
+      "id": "portfolio",
+      "status": "published",
+      "visibility": "public",
+      "category": "product",
+      "featured": true,
+      "sortOrder": 15,
+      "title": "Angjel Spasovski Portfolio",
+      "type": { "en": "Live project", "mk": "Проект во живо" },
+      "period": { "en": "2026", "mk": "2026" },
+      "company": { "en": "Personal Portfolio", "mk": "Лично портфолио" },
+      "summary": {
+        "en": "A bilingual software-engineering portfolio built as a maintainable product, with canonical content, accessible navigation, project case studies, automated tests, and static deployment.",
+        "mk": "Двојазично software-engineering портфолио изградено како maintainable производ, со канонска содржина, пристапна навигација, project case studies, автоматски тестови и static deployment."
+      },
+      "caseStudy": {
+        "context": {
+          "en": "A professional evidence base for job applications that brings experience, skills, projects, certifications, and CV documents into one focused product.",
+          "mk": "Професионална база на докази за аплицирање, што ги обединува искуството, вештините, проектите, сертификатите и CV документите во еден фокусиран производ."
+        },
+        "role": {
+          "en": "Defined the product direction and built the bilingual portfolio, content model, project presentations, and release workflow.",
+          "mk": "Ја дефинирав насоката на производот и ги изградив двојазичното портфолио, content model-от, project презентациите и release workflow-от."
+        },
+        "challenge": {
+          "en": "Present more than a decade of work clearly without turning the site into a long static CV or duplicating facts across languages and outputs.",
+          "mk": "Јасно прикажување на повеќе од една деценија работа без страницата да стане долго статично CV и без дуплирање факти низ јазиците и output форматите."
+        },
+        "contribution": {
+          "en": "Implemented localized routes, section-aware navigation, canonical typed data, responsive project case studies, accessible dialogs, CV generation, Playwright coverage, and GitHub Pages delivery.",
+          "mk": "Имплементирав localized routes, section-aware навигација, канонски typed data, responsive project case studies, пристапни дијалози, CV генерирање, Playwright покриеност и GitHub Pages delivery."
+        },
+        "outcome": {
+          "en": "A tested, statically deployed portfolio that can evolve through documented content and design decisions instead of isolated page edits.",
+          "mk": "Тестирано, статички објавено портфолио што може да се развива преку документирани content и design одлуки наместо преку изолирани измени на страницата."
+        }
+      },
+      "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Playwright", "GitHub Actions", "Static Export", "Responsive Design", "Accessibility"],
+      "featuredTechnologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Playwright", "GitHub Actions"],
+      "links": {
+        "live": "https://angjelspasovski.github.io/portfolio/",
+        "repository": "https://github.com/AngjelSpasovski/portfolio"
+      },
+      "visualId": "portfolio"
+    },
+    {
       "id": "opera-mes",
       "status": "published",
       "visibility": "private",
@@ -273,85 +318,124 @@
       "id": "chatgpt-generative-ai",
       "title": "ChatGPT & Generative AI - The Complete Guide",
       "issuer": "Udemy",
+      "issuedYear": 2024,
       "date": { "en": "Issued Nov 2024", "mk": "Издаден ноември 2024" },
-      "featured": true
+      "courseUrl": "https://www.udemy.com/course/chatgpt-bard-bing-complete-guide-to-chatgpt-openai-apis/",
+      "credentialUrl": "https://www.udemy.com/certificate/UC-6f5305ed-5b45-490c-843c-5b736101c6b9/"
     },
     {
       "id": "angular-front-to-back",
       "title": "Angular Front To Back",
       "issuer": "Udemy",
+      "issuedYear": 2022,
       "date": { "en": "Issued Sep 2022", "mk": "Издаден септември 2022" },
-      "featured": true
+      "courseUrl": "https://www.udemy.com/course/angular-4-front-to-back/",
+      "credentialUrl": "https://www.udemy.com/certificate/UC-bd6170e8-56df-4d96-bb37-5d1dff080af6/"
     },
     {
       "id": "javascript-complete-guide",
       "title": "JavaScript - The Complete Guide (Beginner + Advanced)",
       "issuer": "Udemy",
+      "issuedYear": 2022,
       "date": { "en": "Issued Feb 2022", "mk": "Издаден февруари 2022" },
-      "featured": false
+      "courseUrl": "https://www.udemy.com/course/javascript-the-complete-guide-2020-beginner-advanced/",
+      "credentialUrl": "https://www.udemy.com/certificate/UC-0ea9e58a-cd60-4dad-bdd9-9bf028204239/"
+    },
+    {
+      "id": "docker-containers-essentials",
+      "title": "Docker and Containers: The Essentials",
+      "issuer": "Udemy",
+      "issuedYear": 2018,
+      "date": { "en": "Issued Jun 2018", "mk": "Издаден јуни 2018" },
+      "courseUrl": "https://www.udemy.com/course/docker-and-containers-the-essentials/",
+      "credentialUrl": "https://www.udemy.com/certificate/UC-ZQS98R78/"
+    },
+    {
+      "id": "software-containerization-docker",
+      "title": "Beginners' guide to software containerization and Docker",
+      "issuer": "Udemy",
+      "issuedYear": 2018,
+      "date": { "en": "Issued May 2018", "mk": "Издаден мај 2018" },
+      "courseUrl": "https://www.udemy.com/course/draft/1094674/",
+      "credentialUrl": "https://www.udemy.com/certificate/UC-TX7G9K1Y/"
+    },
+    {
+      "id": "getting-started-angular-2",
+      "title": "Getting Started with Angular 2+",
+      "issuer": "Udemy",
+      "issuedYear": 2018,
+      "date": { "en": "Issued Jan 2018", "mk": "Издаден јануари 2018" },
+      "courseUrl": "https://www.udemy.com/course/getting-started-with-angular-2/",
+      "credentialUrl": "https://www.udemy.com/certificate/UC-VA2JL80P/"
     },
     {
       "id": "learn-understand-angularjs",
       "title": "Learn and Understand AngularJS",
       "issuer": "Udemy",
+      "issuedYear": 2017,
       "date": { "en": "Issued Oct 2017", "mk": "Издаден октомври 2017" },
-      "featured": false
+      "courseUrl": "https://www.udemy.com/course/learn-angularjs/",
+      "credentialUrl": "https://www.udemy.com/certificate/UC-ZI1987X1/"
     },
     {
       "id": "javascript-weird-parts",
       "title": "JavaScript: Understanding the Weird Parts",
       "issuer": "Udemy",
+      "issuedYear": 2017,
       "date": { "en": "Issued Aug 2017", "mk": "Издаден август 2017" },
-      "featured": true
+      "courseUrl": "https://www.udemy.com/course/understand-javascript/",
+      "credentialUrl": "https://www.udemy.com/certificate/UC-MAEVF7RN/"
     },
     {
       "id": "angularjs-authentication-auth0",
       "title": "AngularJS Authentication: Secure Your App with Auth0",
       "issuer": "Udemy",
+      "issuedYear": 2017,
       "date": { "en": "Issued May 2017", "mk": "Издаден мај 2017" },
-      "featured": false
+      "courseUrl": "https://www.udemy.com/course/angularjs-authentication-with-auth0/",
+      "credentialUrl": "https://www.udemy.com/certificate/UC-D46S7WOE/"
     },
     {
       "id": "microsoft-youthspark",
       "title": "Microsoft YouthSpark",
       "issuer": "Microsoft",
-      "date": { "en": "Issued May 2014", "mk": "Издаден мај 2014" },
-      "featured": false
+      "issuedYear": 2014,
+      "date": { "en": "Issued May 2014", "mk": "Издаден мај 2014" }
     },
     {
       "id": "ccna-network-fundamentals",
       "title": "CCNA Exploration: Network Fundamentals",
       "issuer": "Cisco",
-      "date": { "en": "Issued Nov 2011", "mk": "Издаден ноември 2011" },
-      "featured": true
+      "issuedYear": 2011,
+      "date": { "en": "Issued Nov 2011", "mk": "Издаден ноември 2011" }
     },
     {
       "id": "ccna-routing-protocols-concepts",
       "title": "CCNA Exploration: Routing Protocols and Concepts",
       "issuer": "Cisco",
-      "date": { "en": "Issued Sep 2011", "mk": "Издаден септември 2011" },
-      "featured": false
+      "issuedYear": 2011,
+      "date": { "en": "Issued Sep 2011", "mk": "Издаден септември 2011" }
     },
     {
       "id": "ccna-lan-switching-wireless",
       "title": "CCNA Exploration: LAN Switching and Wireless",
       "issuer": "Cisco",
-      "date": { "en": "Issued Mar 2011", "mk": "Издаден март 2011" },
-      "featured": false
+      "issuedYear": 2011,
+      "date": { "en": "Issued Mar 2011", "mk": "Издаден март 2011" }
     },
     {
       "id": "ccna-accessing-wan",
       "title": "CCNA Exploration: Accessing the WAN",
       "issuer": "Cisco",
-      "date": { "en": "Issued Jan 2011", "mk": "Издаден јануари 2011" },
-      "featured": false
+      "issuedYear": 2011,
+      "date": { "en": "Issued Jan 2011", "mk": "Издаден јануари 2011" }
     },
     {
       "id": "fundamentals-wireless-lans",
       "title": "Fundamentals of Wireless LANS",
       "issuer": "Cisco",
-      "date": { "en": "Issued Oct 2010; expired Jan 2011", "mk": "Издаден октомври 2010; истечен јануари 2011" },
-      "featured": false
+      "issuedYear": 2010,
+      "date": { "en": "Issued Oct 2010; expired Jan 2011", "mk": "Издаден октомври 2010; истечен јануари 2011" }
     }
   ]
 }

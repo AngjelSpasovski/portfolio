@@ -83,8 +83,9 @@ type PortfolioCertification = {
   id: string;
   title: string;
   issuer: string;
+  issuedYear: number;
   date: LocalizedText;
-  featured: boolean;
+  courseUrl?: string;
   credentialUrl?: string;
 };
 ```
@@ -100,18 +101,21 @@ type PortfolioCertification = {
 - Sensitive images use curated or synthetic data; blur alone is not treated as a privacy guarantee.
 - Technology labels use one canonical spelling and have no duplicates.
 - Featured technologies are a subset of the full technology list.
+- Certification course and credential links use absolute HTTP(S) URLs.
+- Certifications are sorted by canonical `issuedYear`, newest first; the first five form the compact grid and the section toggle exposes the remaining inventory.
 - Every published project has all five localized case-study fields.
 - Featured technology lists contain five to seven entries.
 - Periods describe the same dates in both languages.
 - Statistics that can be derived from canonical records are not stored manually.
 - Company statistics are derived from unique Work History company names.
-- The complete certification inventory stays canonical; `featured` controls the compact website and CV selection.
+- The complete certification inventory stays canonical; the website initially shows the five newest records.
 
 ## Presentation Rules
 
 - Project cards show five to seven technologies at most.
 - Full technology lists and case-study content belong in a details view.
 - Ownership language must accurately describe personal, client, and team work.
+- The portfolio itself is presented as a public product with real screenshots and a documented delivery workflow.
 - Learning projects are grouped under Project Hub and do not compete visually with flagship work.
 
 ## Current Mapping

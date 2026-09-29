@@ -9,7 +9,8 @@
     "lint": "eslint",
     "test:e2e": "node scripts/run-e2e.mjs",
     "generate:og": "node scripts/generate-og-image.mjs",
-    "generate:opera-previews": "node scripts/generate-opera-previews.mjs"
+    "generate:opera-previews": "node scripts/generate-opera-previews.mjs",
+    "generate:portfolio-previews": "node scripts/generate-portfolio-previews.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",

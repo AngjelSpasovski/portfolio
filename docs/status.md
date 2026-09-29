@@ -10,7 +10,7 @@ This is the authoritative work list. Update it as part of every implementation p
 - [x] responsive header and section navigation
 - [x] profile, experience, skills, projects, certifications, and contact sections
 - [x] downloadable two-page CV
-- [x] DBStore, Opera MES, and DentCare project presentations
+- [x] DBStore, Portfolio, Opera MES, and DentCare project presentations
 - [x] shared project preview structure with external visual configuration
 - [x] centralized public site constants
 - [x] responsive visual QA at mobile, tablet, and desktop sizes
@@ -18,7 +18,7 @@ This is the authoritative work list. Update it as part of every implementation p
 - [x] consolidated project documentation and roadmap
 - [x] automated route, locale, navigation, case-study, and data-contract tests
 - [x] dependency security audit with zero known vulnerabilities
-- [x] canonical inventory of 12 certifications with a four-item featured selection
+- [x] canonical inventory of 15 certifications with a five-item chronological preview
 
 ## Phase 1 - Content Correctness
 
@@ -56,13 +56,17 @@ This is the authoritative work list. Update it as part of every implementation p
 - [x] Add an accessible project details drawer or equivalent detail view.
 - [x] Clearly label personal, enterprise, client, and learning work using canonical categories.
 - [x] Replace Opera MES screenshots with synthetic UI previews; remove the unused login capture.
+- [x] Use transparent project logos without solid white backing panels.
+- [x] Keep a compact five-item certification grid with an accessible full-inventory toggle.
+- [x] Present the portfolio itself as a public project with a bilingual case study and real interface previews.
 - [ ] Decide whether to rewrite Git history to remove the previously committed Opera MES captures.
-- [ ] Add credential links for certifications where available.
+- [ ] Add course and credential links for certifications where available (9 of 15 verified).
 
 ## Phase 5 - UX, Accessibility, And Quality
 
 - [x] Add a localized floating back-to-top button with reduced-motion support and keyboard focus return.
 - [x] Align Work History markers and the vertical line on a shared responsive axis.
+- [x] Align certification titles and metadata on consistent card rows.
 
 - [x] Localize control labels and use the correct `aria-current` semantics.
 - [x] Add Escape, focus management, and return focus to the mobile menu.
@@ -78,7 +82,8 @@ This is the authoritative work list. Update it as part of every implementation p
 - [ ] Add project filters only when the number of entries justifies them.
 - [ ] Add copy-email feedback if it improves the contact workflow.
 - [ ] Consider a compact career overview only if it does not duplicate Experience.
-- [ ] Review the profile photo for authenticity and suitability for international applications.
+- [x] Use the newer, more natural portrait as the temporary profile image.
+- [ ] Replace the temporary AI portrait with an authentic photo when one is available.
 
 ## Phase 7 - Project Hub Checkpoint
 

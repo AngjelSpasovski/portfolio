@@ -115,12 +115,14 @@ function getProjects(locale: Locale) {
 }
 
 function getCertifications(locale: Locale) {
-  return portfolioData.certifications
-    .filter((certification) => certification.featured)
+  return [...portfolioData.certifications]
+    .sort((a, b) => b.issuedYear - a.issuedYear)
     .map((certification) => ({
       title: certification.title,
       issuer: certification.issuer,
       date: localized(certification.date, locale),
+      courseUrl: certification.courseUrl,
+      credentialUrl: certification.credentialUrl,
     }));
 }
 
@@ -192,6 +194,10 @@ export const content: Record<Locale, SiteContent> = {
       tag: "05 / Credentials",
       title: "Certifications",
       subtitle: "Selected certifications from frontend development, AI tooling, and networking foundations.",
+      courseLabel: "View course",
+      credentialLabel: "View credential",
+      showAllLabel: "View all certificates",
+      showFewerLabel: "Show fewer certificates",
       items: getCertifications("en"),
     },
     contact: {
@@ -272,6 +278,10 @@ export const content: Record<Locale, SiteContent> = {
       tag: "05 / Сертификати",
       title: "Сертификати",
       subtitle: "Избрани сертификати од frontend development, AI tooling и основи на networking.",
+      courseLabel: "Види курс",
+      credentialLabel: "Види сертификат",
+      showAllLabel: "Види ги сите сертификати",
+      showFewerLabel: "Прикажи помалку сертификати",
       items: getCertifications("mk"),
     },
     contact: {

@@ -75,7 +75,8 @@ test("case-study dialog traps and restores focus", async ({ page }) => {
 test("canonical projects satisfy the presentation contract", () => {
   const publishedProjects = portfolioData.projects.filter((project) => project.status === "published");
 
-  expect(publishedProjects).toHaveLength(3);
+  expect(publishedProjects).toHaveLength(4);
+  expect(publishedProjects.map((project) => project.id)).toContain("portfolio");
   for (const project of publishedProjects) {
     expect(project.featuredTechnologies.length).toBeGreaterThanOrEqual(5);
     expect(project.featuredTechnologies.length).toBeLessThanOrEqual(7);
@@ -83,9 +84,190 @@ test("canonical projects satisfy the presentation contract", () => {
   }
 });
 
-test("canonical certifications keep the complete inventory and a compact public selection", () => {
-  expect(portfolioData.certifications).toHaveLength(12);
-  expect(portfolioData.certifications.filter((certification) => certification.featured)).toHaveLength(4);
+test("canonical certifications keep the complete chronological inventory", () => {
+  expect(portfolioData.certifications).toHaveLength(15);
+
+  const chatGptCredential = portfolioData.certifications.find(
+    (certification) => certification.id === "chatgpt-generative-ai",
+  );
+  expect(chatGptCredential).toMatchObject({
+    courseUrl:
+      "https://www.udemy.com/course/chatgpt-bard-bing-complete-guide-to-chatgpt-openai-apis/",
+    credentialUrl:
+      "https://www.udemy.com/certificate/UC-6f5305ed-5b45-490c-843c-5b736101c6b9/",
+  });
+
+  const angularCredential = portfolioData.certifications.find(
+    (certification) => certification.id === "angular-front-to-back",
+  );
+  expect(angularCredential).toMatchObject({
+    courseUrl: "https://www.udemy.com/course/angular-4-front-to-back/",
+    credentialUrl:
+      "https://www.udemy.com/certificate/UC-bd6170e8-56df-4d96-bb37-5d1dff080af6/",
+  });
+
+  const javascriptCredential = portfolioData.certifications.find(
+    (certification) => certification.id === "javascript-complete-guide",
+  );
+  expect(javascriptCredential).toMatchObject({
+    courseUrl:
+      "https://www.udemy.com/course/javascript-the-complete-guide-2020-beginner-advanced/",
+    credentialUrl:
+      "https://www.udemy.com/certificate/UC-0ea9e58a-cd60-4dad-bdd9-9bf028204239/",
+  });
+
+  const weirdPartsCredential = portfolioData.certifications.find(
+    (certification) => certification.id === "javascript-weird-parts",
+  );
+  expect(weirdPartsCredential).toMatchObject({
+    courseUrl: "https://www.udemy.com/course/understand-javascript/",
+    credentialUrl: "https://www.udemy.com/certificate/UC-MAEVF7RN/",
+  });
+
+  const angularJsCredential = portfolioData.certifications.find(
+    (certification) => certification.id === "learn-understand-angularjs",
+  );
+  expect(angularJsCredential).toMatchObject({
+    courseUrl: "https://www.udemy.com/course/learn-angularjs/",
+    credentialUrl: "https://www.udemy.com/certificate/UC-ZI1987X1/",
+  });
+
+  const auth0Credential = portfolioData.certifications.find(
+    (certification) => certification.id === "angularjs-authentication-auth0",
+  );
+  expect(auth0Credential).toMatchObject({
+    courseUrl: "https://www.udemy.com/course/angularjs-authentication-with-auth0/",
+    credentialUrl: "https://www.udemy.com/certificate/UC-D46S7WOE/",
+  });
+
+  const newCredentials = portfolioData.certifications.filter((certification) =>
+    [
+      "docker-containers-essentials",
+      "software-containerization-docker",
+      "getting-started-angular-2",
+    ].includes(certification.id),
+  );
+  expect(newCredentials).toEqual([
+    expect.objectContaining({
+      id: "docker-containers-essentials",
+      issuedYear: 2018,
+      courseUrl: "https://www.udemy.com/course/docker-and-containers-the-essentials/",
+      credentialUrl: "https://www.udemy.com/certificate/UC-ZQS98R78/",
+    }),
+    expect.objectContaining({
+      id: "software-containerization-docker",
+      issuedYear: 2018,
+      courseUrl: "https://www.udemy.com/course/draft/1094674/",
+      credentialUrl: "https://www.udemy.com/certificate/UC-TX7G9K1Y/",
+    }),
+    expect.objectContaining({
+      id: "getting-started-angular-2",
+      issuedYear: 2018,
+      courseUrl: "https://www.udemy.com/course/getting-started-with-angular-2/",
+      credentialUrl: "https://www.udemy.com/certificate/UC-VA2JL80P/",
+    }),
+  ]);
+
+  const years = portfolioData.certifications
+    .map((certification) => certification.issuedYear)
+    .sort((a, b) => b - a);
+  expect(years).toEqual([
+    2024, 2022, 2022, 2018, 2018, 2018, 2017, 2017, 2017, 2014, 2011, 2011, 2011, 2011, 2010,
+  ]);
+});
+
+test("certifications show five recent items before expanding the full inventory", async ({ page }) => {
+  await page.goto("/en/");
+  await page.locator("#certifications").scrollIntoViewIfNeeded();
+
+  await expect(
+    page.getByRole("link", { name: "View course: ChatGPT & Generative AI - The Complete Guide" }),
+  ).toHaveAttribute("href", /chatgpt-bard-bing-complete-guide-to-chatgpt-openai-apis/);
+  await expect(
+    page.getByRole("link", { name: "View course: Angular Front To Back" }),
+  ).toHaveAttribute("href", /angular-4-front-to-back/);
+  await expect(
+    page.getByRole("link", { name: "View course: Docker and Containers: The Essentials" }),
+  ).toHaveAttribute("href", /docker-and-containers-the-essentials/);
+
+  const credentialLinks = page.getByRole("link", { name: "View credential" });
+  await expect(page.locator("#certifications-list h3")).toHaveText([
+    "ChatGPT & Generative AI - The Complete Guide",
+    "Angular Front To Back",
+    "JavaScript - The Complete Guide (Beginner + Advanced)",
+    "Docker and Containers: The Essentials",
+    "Beginners' guide to software containerization and Docker",
+  ]);
+  await expect(credentialLinks).toHaveCount(5);
+  await expect(credentialLinks.nth(0)).toHaveAttribute(
+    "href",
+    /UC-6f5305ed-5b45-490c-843c-5b736101c6b9/,
+  );
+  await expect(credentialLinks.nth(1)).toHaveAttribute(
+    "href",
+    /UC-bd6170e8-56df-4d96-bb37-5d1dff080af6/,
+  );
+  await expect(credentialLinks.nth(2)).toHaveAttribute(
+    "href",
+    /UC-0ea9e58a-cd60-4dad-bdd9-9bf028204239/,
+  );
+  await expect(credentialLinks.nth(3)).toHaveAttribute("href", /UC-ZQS98R78/);
+  await expect(credentialLinks.nth(4)).toHaveAttribute("href", /UC-TX7G9K1Y/);
+
+  const showAllButton = page.getByRole("button", { name: "View all certificates" });
+  await expect(showAllButton).toHaveAttribute("aria-expanded", "false");
+  await showAllButton.click();
+
+  await expect(page.getByRole("button", { name: "Show fewer certificates" })).toHaveAttribute(
+    "aria-expanded",
+    "true",
+  );
+  await expect(page.locator("#certifications-list h3")).toHaveText([
+    "ChatGPT & Generative AI - The Complete Guide",
+    "Angular Front To Back",
+    "JavaScript - The Complete Guide (Beginner + Advanced)",
+    "Docker and Containers: The Essentials",
+    "Beginners' guide to software containerization and Docker",
+    "Getting Started with Angular 2+",
+    "Learn and Understand AngularJS",
+    "JavaScript: Understanding the Weird Parts",
+    "AngularJS Authentication: Secure Your App with Auth0",
+    "Microsoft YouthSpark",
+    "CCNA Exploration: Network Fundamentals",
+    "CCNA Exploration: Routing Protocols and Concepts",
+    "CCNA Exploration: LAN Switching and Wireless",
+    "CCNA Exploration: Accessing the WAN",
+    "Fundamentals of Wireless LANS",
+  ]);
+  await expect(
+    page.getByRole("link", {
+      name: "View course: JavaScript - The Complete Guide (Beginner + Advanced)",
+    }),
+  ).toHaveAttribute("href", /javascript-the-complete-guide-2020-beginner-advanced/);
+  await expect(
+    page.getByRole("link", {
+      name: "View course: AngularJS Authentication: Secure Your App with Auth0",
+    }),
+  ).toHaveAttribute("href", /angularjs-authentication-with-auth0/);
+  await expect(credentialLinks).toHaveCount(9);
+  await expect(credentialLinks.nth(5)).toHaveAttribute("href", /UC-VA2JL80P/);
+  await expect(credentialLinks.nth(8)).toHaveAttribute("href", /UC-D46S7WOE/);
+});
+
+test("certification card titles and metadata share consistent row positions", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/en/");
+  await page.locator("#certifications").scrollIntoViewIfNeeded();
+
+  const titleOffsets = await page.locator("[data-certification-title]").evaluateAll((titles) =>
+    titles.map((title) => title.getBoundingClientRect().top),
+  );
+  const metadataOffsets = await page.locator("[data-certification-meta]").evaluateAll((items) =>
+    items.map((item) => item.getBoundingClientRect().top),
+  );
+
+  expect(Math.max(...titleOffsets) - Math.min(...titleOffsets)).toBeLessThan(1);
+  expect(Math.max(...metadataOffsets) - Math.min(...metadataOffsets)).toBeLessThan(1);
 });
 
 test("canonical experience derives six companies and includes the DB Store part-time role", () => {
@@ -133,7 +315,9 @@ for (const width of [390, 1440]) {
     await expect(page).toHaveURL(/\/en\/$/);
     await page.getByRole("link", { name: "Switch language to Macedonian" }).click();
     await page.locator("#proekti").scrollIntoViewIfNeeded();
-    await expect(page.locator("#proekti").getByText("Личен проект", { exact: true })).toBeVisible();
+    await expect(
+      page.locator("#proekti").getByText("Личен проект", { exact: true }).first(),
+    ).toBeVisible();
     await expect(page.locator("#proekti").getByText("Клиентски проект", { exact: true })).toBeAttached();
     await page.getByRole("button", { name: "Врати се на почеток", exact: true }).click();
     await expect(page.locator("#pochetok")).toBeInViewport();
