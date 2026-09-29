@@ -67,6 +67,7 @@ This is the authoritative work list. Update it as part of every implementation p
 - [x] Add a localized floating back-to-top button with reduced-motion support and keyboard focus return.
 - [x] Align Work History markers and the vertical line on a shared responsive axis.
 - [x] Align certification titles and metadata on consistent card rows.
+- [x] Normalize project-card padding, content rows, preview proportions, and action alignment across themes and viewports.
 
 - [x] Localize control labels and use the correct `aria-current` semantics.
 - [x] Add Escape, focus management, and return focus to the mobile menu.

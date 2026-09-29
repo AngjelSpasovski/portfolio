@@ -84,6 +84,41 @@ test("canonical projects satisfy the presentation contract", () => {
   }
 });
 
+test("desktop project cards keep their visual and content rows aligned", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto("/en/");
+
+  const cards = page.locator("[data-project-card]");
+  await expect(cards).toHaveCount(4);
+  await cards.first().scrollIntoViewIfNeeded();
+
+  const firstRowMetrics = await cards.evaluateAll((items) =>
+    items.slice(0, 2).map((card) => {
+      const cardRect = card.getBoundingClientRect();
+      const offset = (selector: string) => {
+        const element = card.querySelector(selector);
+        if (!element) throw new Error(`Missing project-card element: ${selector}`);
+        return element.getBoundingClientRect().top - cardRect.top;
+      };
+
+      return {
+        height: cardRect.height,
+        previewHeight: card.querySelector("[data-project-preview]")?.getBoundingClientRect().height,
+        heading: offset("[data-project-heading]"),
+        stack: offset("[data-project-stack]"),
+        actions: offset("[data-project-actions]"),
+      };
+    }),
+  );
+
+  const [first, second] = firstRowMetrics;
+  expect(Math.abs(first.height - second.height)).toBeLessThan(1);
+  expect(Math.abs((first.previewHeight ?? 0) - (second.previewHeight ?? 0))).toBeLessThan(1);
+  expect(Math.abs(first.heading - second.heading)).toBeLessThan(1);
+  expect(Math.abs(first.stack - second.stack)).toBeLessThan(1);
+  expect(Math.abs(first.actions - second.actions)).toBeLessThan(1);
+});
+
 test("canonical certifications keep the complete chronological inventory", () => {
   expect(portfolioData.certifications).toHaveLength(15);
 
@@ -256,6 +291,7 @@ test("certifications show five recent items before expanding the full inventory"
 
 test("certification card titles and metadata share consistent row positions", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/en/");
   await page.locator("#certifications").scrollIntoViewIfNeeded();
 

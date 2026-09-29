@@ -32,29 +32,39 @@ export function Projects({ content }: { content: SiteContent }) {
         <div className="grid gap-5 lg:grid-cols-2">
           {content.projects.items.map((project, index) => (
             <Reveal key={project.id} delay={Math.min(index * 0.06, 0.16)}>
-              <Card className="h-full overflow-hidden rounded-3xl border-border/80 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+              <Card
+                data-project-card
+                className="h-full overflow-hidden rounded-3xl border-border/80 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+              >
                 <CardContent className="flex h-full flex-col p-0">
                   <ProjectPreview
                     locale={content.locale}
                     visualId={project.visualId ?? (project.href ? "dbstore" : "opera-mes")}
                   />
-                  <div className="flex h-full flex-col p-6">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <Badge variant="outline" className="rounded-full">
-                          {project.categoryLabel}
-                        </Badge>
-                        <h3 className="mt-5 text-2xl font-black tracking-tight">{project.title}</h3>
-                      </div>
-                      <div className="text-right text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                        <p>{project.period}</p>
-                        <p className="mt-1 text-blue-600 dark:text-blue-400">{project.company}</p>
-                      </div>
+                  <div className="flex h-full flex-col p-6 sm:p-7">
+                    <div className="flex items-center justify-between gap-4">
+                      <Badge variant="outline" className="rounded-full">
+                        {project.categoryLabel}
+                      </Badge>
+                      <p className="shrink-0 text-right text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                        {project.period}
+                      </p>
                     </div>
-                    <p className="mt-5 flex-1 text-pretty leading-7 text-muted-foreground">
+
+                    <div className="mt-5 lg:min-h-[5.25rem]" data-project-heading>
+                      <h3 className="text-2xl font-black leading-tight tracking-tight">{project.title}</h3>
+                      <p className="mt-2 text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                        {project.company}
+                      </p>
+                    </div>
+
+                    <p
+                      className="mt-4 flex-1 text-pretty leading-7 text-muted-foreground"
+                      data-project-summary
+                    >
                       {project.description}
                     </p>
-                    <div className="mt-6 flex flex-wrap gap-2">
+                    <div className="mt-6 flex content-start flex-wrap gap-2 lg:min-h-16" data-project-stack>
                       {project.stack.map((item) => (
                         <span
                           key={item}
@@ -64,7 +74,7 @@ export function Projects({ content }: { content: SiteContent }) {
                         </span>
                       ))}
                     </div>
-                    <div className="mt-7 flex flex-wrap gap-3">
+                    <div className="mt-6 flex flex-wrap gap-3" data-project-actions>
                       <ProjectDetails locale={content.locale} project={project} />
                       {project.href ? (
                         <a
@@ -114,7 +124,10 @@ function ProjectVisualPreview({ visual }: { visual: ProjectVisual }) {
       : "from-slate-950 via-blue-950 to-zinc-950 shadow-blue-950/30";
 
   return (
-    <div className={`border-b border-border/80 bg-gradient-to-br ${shellTone} p-4 text-white`}>
+    <div
+      className={`border-b border-border/80 bg-gradient-to-br ${shellTone} p-4 text-white sm:p-5`}
+      data-project-preview
+    >
       <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] shadow-2xl">
         <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
           <div className="flex gap-1.5">
@@ -122,24 +135,26 @@ function ProjectVisualPreview({ visual }: { visual: ProjectVisual }) {
             <span className="size-2.5 rounded-full bg-amber-300" />
             <span className="size-2.5 rounded-full bg-emerald-300" />
           </div>
-          <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white/60">
+          <span className="max-w-[68%] truncate rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/60 sm:text-xs">
             {visual.chromeLabel}
           </span>
         </div>
-        <div className="grid gap-4 p-4 sm:grid-cols-[0.9fr_1.1fr]">
-          <div className="flex min-h-40 flex-col justify-between gap-4">
-            <div className="grid min-h-28 place-items-center rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+        <div className="grid grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] gap-3 p-3 sm:gap-4 sm:p-4">
+          <div className="flex min-w-0 flex-col justify-between gap-3 sm:gap-4">
+            <div className="grid h-24 place-items-center rounded-2xl border border-white/10 bg-white/[0.04] p-3 sm:h-32 sm:p-4">
               <Image
                 src={assetPath(visual.logo.src)}
                 alt={visual.logo.alt}
                 width={500}
                 height={400}
-                className="mx-auto h-28 w-full object-contain drop-shadow-[0_2px_10px_rgba(0,0,0,0.2)]"
+                className="mx-auto h-20 w-full object-contain drop-shadow-[0_2px_10px_rgba(0,0,0,0.2)] sm:h-24"
               />
             </div>
-            <div>
-              <p className="text-sm font-black">{visual.title}</p>
-              <p className="text-xs font-bold text-white/45">{visual.type}</p>
+            <div className="min-h-10 min-w-0">
+              <p className="truncate text-xs font-black sm:text-sm">{visual.title}</p>
+              <p className="line-clamp-2 text-[10px] font-bold leading-4 text-white/45 sm:text-xs">
+                {visual.type}
+              </p>
             </div>
           </div>
           <div className="grid gap-3">
@@ -158,9 +173,9 @@ function ProjectVisualPreview({ visual }: { visual: ProjectVisual }) {
 
 function PreviewImage({ image, large = false }: { image: ProjectVisualImage; large?: boolean }) {
   const frameClass = large
-    ? "relative min-h-36 overflow-hidden rounded-2xl border border-white/10 bg-black"
-    : "relative min-h-16 overflow-hidden rounded-xl border border-white/10 bg-black";
-  const imageClass = large ? "h-full min-h-36 w-full" : "h-full min-h-16 w-full";
+    ? "relative aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black"
+    : "relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-black";
+  const imageClass = "h-full w-full";
   const labelClass = large
     ? "absolute bottom-3 left-3 rounded-full bg-black/55 px-3 py-1 text-xs font-bold text-white/75 backdrop-blur"
     : "absolute bottom-2 left-2 rounded-full bg-black/55 px-2 py-1 text-[10px] font-bold text-white/75 backdrop-blur";
