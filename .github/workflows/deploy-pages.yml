@@ -39,6 +39,8 @@ jobs:
 
       - name: Build test site
         run: npm run build
+        env:
+          GITHUB_PAGES: "false"
 
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium

@@ -65,7 +65,7 @@ The workflow:
 
 1. installs dependencies with `npm ci`
 2. runs lint
-3. creates a static test build and serves it from `out/`
+3. creates a base-path-neutral static test build and serves it from `out/`
 4. installs Playwright Chromium and runs end-to-end tests
 5. rebuilds with `GITHUB_PAGES=true`
 6. uploads `out/`
