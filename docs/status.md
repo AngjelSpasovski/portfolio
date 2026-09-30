@@ -62,8 +62,7 @@ This is the authoritative work list. Update it as part of every implementation p
 - [x] Provide theme-aware DentCare and portfolio logo variants with transparent backgrounds.
 - [x] Keep a compact five-item certification grid with an accessible full-inventory toggle.
 - [x] Present the portfolio itself as a public project with a bilingual case study and real interface previews.
-- [ ] Decide whether to rewrite Git history to remove the previously committed Opera MES captures.
-- [ ] Add course and credential links for certifications where available (9 of 15 verified).
+- [x] Add course and credential links for certifications where available (9 of 15 verified).
 
 ## Phase 5 - UX, Accessibility, And Quality
 
