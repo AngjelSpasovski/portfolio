@@ -5,11 +5,15 @@ import path from "node:path";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const nextCli = path.join(root, "node_modules", "next", "dist", "bin", "next");
 const playwrightCli = path.join(root, "node_modules", "@playwright", "test", "cli.js");
+const staticServer = path.join(root, "scripts", "serve-static.mjs");
 const testUrl = "http://127.0.0.1:3100/en/";
+const staticDirectory = process.env.E2E_STATIC_DIR;
 
 const server = process.env.E2E_BASE_URL ? null : spawn(
   process.execPath,
-  [nextCli, "dev", "--hostname", "127.0.0.1", "--port", "3100"],
+  staticDirectory
+    ? [staticServer, staticDirectory, "3100"]
+    : [nextCli, "dev", "--hostname", "127.0.0.1", "--port", "3100"],
   {
     cwd: root,
     env: process.env,

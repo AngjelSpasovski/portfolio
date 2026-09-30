@@ -65,10 +65,11 @@ The workflow:
 
 1. installs dependencies with `npm ci`
 2. runs lint
-3. runs end-to-end tests with the Chrome browser available on the GitHub runner
-4. builds with `GITHUB_PAGES=true`
-5. uploads `out/`
-6. deploys the static artifact to GitHub Pages
+3. creates a static test build and serves it from `out/`
+4. runs end-to-end tests with the Chrome browser available on the GitHub runner
+5. rebuilds with `GITHUB_PAGES=true`
+6. uploads `out/`
+7. deploys the static artifact to GitHub Pages
 
 Live URL: `https://angjelspasovski.github.io/portfolio/`
 
