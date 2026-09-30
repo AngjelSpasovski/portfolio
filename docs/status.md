@@ -77,7 +77,7 @@ This is the authoritative work list. Update it as part of every implementation p
 - [x] Load the declared fonts consistently or use an intentional system stack.
 - [x] Add focused tests for routes, locale switching, data validation, and navigation state.
 - [x] Run lint and tests explicitly in CI before the production build.
-- [x] Use the same Chrome channel for local and CI end-to-end tests and verify the static export before deployment.
+- [x] Verify the static export with Playwright before deployment.
 - [x] Add clickable links to the CV and use the remaining second-page space deliberately.
 - [x] Add an ATS-first CV variant without a photo while retaining the designed CV.
 - [x] Generate designed and ATS CV variants in English and Macedonian with explicit locale filenames.

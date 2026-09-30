@@ -66,7 +66,7 @@ The workflow:
 1. installs dependencies with `npm ci`
 2. runs lint
 3. creates a static test build and serves it from `out/`
-4. runs end-to-end tests with the Chrome browser available on the GitHub runner
+4. installs Playwright Chromium and runs end-to-end tests
 5. rebuilds with `GITHUB_PAGES=true`
 6. uploads `out/`
 7. deploys the static artifact to GitHub Pages
