@@ -47,12 +47,13 @@ This writes the optimized hero, Work History, and Certifications previews under 
 
 The CV generator writes:
 
-- `public/cv/angjel-spasovski-cv.pdf`
-- `output/pdf/angjel-spasovski-cv.pdf`
-- `public/cv/angjel-spasovski-ats-cv.pdf`
-- `output/pdf/angjel-spasovski-ats-cv.pdf`
+- `public/cv/angjel-spasovski-cv-en.pdf`
+- `public/cv/angjel-spasovski-cv-mk.pdf`
+- `public/cv/angjel-spasovski-ats-cv-en.pdf`
+- `public/cv/angjel-spasovski-ats-cv-mk.pdf`
+- matching review copies under `output/pdf/`
 
-The designed CV is intended for direct reading and portfolio presentation. The ATS CV uses a single-column, photo-free layout with standard headings and selectable text for application systems.
+The designed CV is intended for direct reading and portfolio presentation. The ATS CV uses a single-column, photo-free layout with standard headings and selectable text for application systems. Both variants are generated in English and Macedonian, and the locale suffix is part of the download filename.
 
 Visually inspect every page after generation and confirm that all expected link annotations are present.
 

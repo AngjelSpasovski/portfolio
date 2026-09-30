@@ -32,6 +32,7 @@ type ProjectRecord = {
   status: "draft" | "published" | "archived";
   visibility: "public" | "private";
   category: "product" | "enterprise" | "client" | "learning" | "project-hub";
+  current: boolean;
   featured: boolean;
   sortOrder: number;
   title: string;
@@ -48,6 +49,7 @@ type ProjectRecord = {
   };
   technologies: string[];
   featuredTechnologies: string[];
+  cvTechnologies?: string[];
   links: { live?: string; repository?: string };
   visualId?: ProjectVisualId;
 };
@@ -66,6 +68,7 @@ export type PortfolioData = {
   profile: {
     careerStartYear: number;
     locationCode: string;
+    summary: LocalizedList;
   };
   experience: ExperienceRecord[];
   skills: SkillRecord[];
@@ -97,6 +100,10 @@ function isAbsoluteHttpUrl(value: string) {
 }
 
 function validatePortfolioData(data: PortfolioData) {
+  if (!data.profile.summary.en.length || !data.profile.summary.mk.length) {
+    throw new Error("Portfolio profile summary is incomplete.");
+  }
+
   assertUnique(data.experience.map((item) => item.id), "experience IDs");
   assertUnique(data.skills.map((item) => item.id), "skill IDs");
   assertUnique(data.projects.map((item) => item.id), "project IDs");
@@ -119,6 +126,9 @@ function validatePortfolioData(data: PortfolioData) {
   }
 
   for (const project of data.projects) {
+    if (typeof project.current !== "boolean") {
+      throw new Error(`Project '${project.id}' is missing its current status.`);
+    }
     if (![project.type, project.period, project.company, project.summary].every(hasLocalizedText)) {
       throw new Error(`Project '${project.id}' is missing localized content.`);
     }
@@ -126,6 +136,9 @@ function validatePortfolioData(data: PortfolioData) {
       throw new Error(`Project '${project.id}' has an incomplete localized case study.`);
     }
     assertUnique(project.technologies, `technologies for project '${project.id}'`);
+    if (project.cvTechnologies) {
+      assertUnique(project.cvTechnologies, `CV technologies for project '${project.id}'`);
+    }
     if (project.featuredTechnologies.length < 5 || project.featuredTechnologies.length > 7) {
       throw new Error(`Project '${project.id}' must feature between five and seven technologies.`);
     }

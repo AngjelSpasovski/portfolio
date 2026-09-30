@@ -22,7 +22,7 @@ Domain content is stored once in `src/data/portfolio-data.json`. The website and
 
 Core project fields are:
 
-- `id`, `status`, `visibility`, `category`, and `sortOrder`
+- `id`, `status`, `visibility`, `category`, `current`, and `sortOrder`
 - `title`, localized `type`, `period`, `company`, and `summary`
 - full and featured technology lists
 - optional public links
@@ -47,6 +47,13 @@ Do not create a custom card layout for each project. Extend the shared visual co
 - Use canonical spelling, for example `Plotly.js`, `AG Grid`, and `Standalone Components`.
 - Add only technologies actually used in the project.
 - Keep the visible card list concise; the future details view will contain the full list.
+
+## CV Localization
+
+- English pages download files ending in `-en.pdf`.
+- Macedonian pages download files ending in `-mk.pdf`.
+- Designed and ATS variants are generated for both languages from the same canonical content.
+- Update `profile.summary` in both languages whenever the professional profile changes.
 
 ## Before Publishing
 

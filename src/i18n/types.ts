@@ -27,6 +27,7 @@ export type SkillGroup = {
 
 export type ProjectItem = {
   id: string;
+  current: boolean;
   categoryLabel: string;
   title: string;
   type: string;
@@ -74,6 +75,8 @@ export type SiteContent = {
     secondaryCta: string;
     cvCta: string;
     atsCvCta: string;
+    cvDownloadName: string;
+    atsCvDownloadName: string;
     stats: { value: string; label: string }[];
   };
   about: {

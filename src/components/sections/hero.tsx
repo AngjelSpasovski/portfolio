@@ -74,8 +74,8 @@ export function Hero({ content }: { content: SiteContent }) {
               {content.hero.secondaryCta}
             </ScrollLink>
             <a
-              href={assetPath(siteConfig.paths.atsCv)}
-              download
+              href={assetPath(siteConfig.paths.atsCv[content.locale])}
+              download={content.hero.atsCvDownloadName}
               className={buttonVariants({
                 size: "lg",
                 variant: "outline",
@@ -87,8 +87,8 @@ export function Hero({ content }: { content: SiteContent }) {
               <Download className="ml-2 size-4" />
             </a>
             <a
-              href={assetPath(siteConfig.paths.cv)}
-              download
+              href={assetPath(siteConfig.paths.cv[content.locale])}
+              download={content.hero.cvDownloadName}
               className={buttonVariants({
                 size: "lg",
                 variant: "outline",

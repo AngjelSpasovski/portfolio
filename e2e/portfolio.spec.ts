@@ -78,10 +78,45 @@ test("canonical projects satisfy the presentation contract", () => {
   expect(publishedProjects).toHaveLength(4);
   expect(publishedProjects.map((project) => project.id)).toContain("portfolio");
   for (const project of publishedProjects) {
+    expect(typeof project.current).toBe("boolean");
     expect(project.featuredTechnologies.length).toBeGreaterThanOrEqual(5);
     expect(project.featuredTechnologies.length).toBeLessThanOrEqual(7);
     expect(Object.values(project.caseStudy).every((field) => field.en && field.mk)).toBe(true);
   }
+});
+
+test("current projects are presented before completed projects", async ({ page }) => {
+  await page.goto("/en/");
+  await page.locator("#projects").scrollIntoViewIfNeeded();
+
+  await expect(page.locator("[data-project-heading] h3")).toHaveText([
+    "DB Store",
+    "Opera MES",
+    "Angjel Spasovski Portfolio",
+    "DentCare Macedonia",
+  ]);
+});
+
+test("CV downloads clearly match the active language", async ({ page }) => {
+  await page.goto("/en/");
+  await expect(page.getByRole("link", { name: "CV in English", exact: true })).toHaveAttribute(
+    "href",
+    /angjel-spasovski-cv-en\.pdf$/,
+  );
+  await expect(page.getByRole("link", { name: "ATS CV in English", exact: true })).toHaveAttribute(
+    "href",
+    /angjel-spasovski-ats-cv-en\.pdf$/,
+  );
+
+  await page.goto("/mk/");
+  await expect(page.getByRole("link", { name: "CV на македонски", exact: true })).toHaveAttribute(
+    "download",
+    "angjel-spasovski-cv-mk.pdf",
+  );
+  await expect(page.getByRole("link", { name: "ATS CV на македонски", exact: true })).toHaveAttribute(
+    "download",
+    "angjel-spasovski-ats-cv-mk.pdf",
+  );
 });
 
 test("desktop project cards keep their visual and content rows aligned", async ({ page }) => {

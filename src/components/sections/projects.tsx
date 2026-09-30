@@ -41,7 +41,7 @@ export function Projects({ content }: { content: SiteContent }) {
                     locale={content.locale}
                     visualId={project.visualId ?? (project.href ? "dbstore" : "opera-mes")}
                   />
-                  <div className="flex h-full flex-col p-6 sm:p-7">
+                  <div className="flex h-full flex-col p-5 sm:p-6">
                     <div className="flex items-center justify-between gap-4">
                       <Badge variant="outline" className="rounded-full">
                         {project.categoryLabel}
@@ -120,39 +120,33 @@ function ProjectPreview({
 function ProjectVisualPreview({ visual }: { visual: ProjectVisual }) {
   const shellTone =
     visual.tone === "cyan"
-      ? "from-zinc-950 via-cyan-950/70 to-zinc-950 shadow-cyan-950/30"
-      : "from-slate-950 via-blue-950 to-zinc-950 shadow-blue-950/30";
+      ? "from-white via-cyan-50 to-slate-100 shadow-cyan-200/40 dark:from-zinc-950 dark:via-cyan-950/70 dark:to-zinc-950 dark:shadow-cyan-950/30"
+      : "from-white via-blue-50 to-slate-100 shadow-blue-200/40 dark:from-slate-950 dark:via-blue-950 dark:to-zinc-950 dark:shadow-blue-950/30";
 
   return (
     <div
-      className={`border-b border-border/80 bg-gradient-to-br ${shellTone} p-4 text-white sm:p-5`}
+      className={`m-4 mb-0 rounded-2xl border border-slate-200 bg-gradient-to-br ${shellTone} p-4 text-slate-950 dark:border-white/10 dark:text-white sm:m-5 sm:mb-0 sm:rounded-3xl sm:p-5`}
       data-project-preview
     >
-      <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] shadow-2xl">
-        <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
+      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white/80 shadow-xl dark:border-white/10 dark:bg-white/[0.06] dark:shadow-2xl">
+        <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3 dark:border-white/10">
           <div className="flex gap-1.5">
             <span className="size-2.5 rounded-full bg-red-300" />
             <span className="size-2.5 rounded-full bg-amber-300" />
             <span className="size-2.5 rounded-full bg-emerald-300" />
           </div>
-          <span className="max-w-[68%] truncate rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold text-white/60 sm:text-xs">
+          <span className="max-w-[68%] truncate rounded-full bg-slate-100 px-3 py-1 text-[10px] font-bold text-slate-500 dark:bg-white/10 dark:text-white/60 sm:text-xs">
             {visual.chromeLabel}
           </span>
         </div>
         <div className="grid grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] gap-3 p-3 sm:gap-4 sm:p-4">
           <div className="flex min-w-0 flex-col justify-between gap-3 sm:gap-4">
-            <div className="grid h-24 place-items-center rounded-2xl border border-white/10 bg-white/[0.04] p-3 sm:h-32 sm:p-4">
-              <Image
-                src={assetPath(visual.logo.src)}
-                alt={visual.logo.alt}
-                width={500}
-                height={400}
-                className="mx-auto h-20 w-full object-contain drop-shadow-[0_2px_10px_rgba(0,0,0,0.2)] sm:h-24"
-              />
+            <div className="grid h-24 place-items-center rounded-2xl border border-slate-200 bg-white p-3 dark:border-white/10 dark:bg-white/[0.04] sm:h-32 sm:p-4">
+              <ProjectLogo logo={visual.logo} />
             </div>
             <div className="min-h-10 min-w-0">
               <p className="truncate text-xs font-black sm:text-sm">{visual.title}</p>
-              <p className="line-clamp-2 text-[10px] font-bold leading-4 text-white/45 sm:text-xs">
+              <p className="line-clamp-2 text-[10px] font-bold leading-4 text-slate-500 dark:text-white/45 sm:text-xs">
                 {visual.type}
               </p>
             </div>
@@ -168,6 +162,33 @@ function ProjectVisualPreview({ visual }: { visual: ProjectVisual }) {
         </div>
       </div>
     </div>
+  );
+}
+
+function ProjectLogo({ logo }: { logo: ProjectVisual["logo"] }) {
+  const className =
+    "mx-auto h-20 w-full object-contain drop-shadow-[0_2px_10px_rgba(0,0,0,0.2)] sm:h-24";
+
+  return (
+    <>
+      <Image
+        src={assetPath(logo.src)}
+        alt={logo.alt}
+        width={500}
+        height={400}
+        className={`${className} ${logo.darkSrc ? "dark:hidden" : ""}`}
+      />
+      {logo.darkSrc ? (
+        <Image
+          src={assetPath(logo.darkSrc)}
+          alt=""
+          aria-hidden="true"
+          width={500}
+          height={400}
+          className={`${className} hidden dark:block`}
+        />
+      ) : null}
+    </>
   );
 }
 

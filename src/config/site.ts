@@ -9,8 +9,14 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/angjel-spasovski/",
   },
   paths: {
-    cv: "/cv/angjel-spasovski-cv.pdf",
-    atsCv: "/cv/angjel-spasovski-ats-cv.pdf",
+    cv: {
+      en: "/cv/angjel-spasovski-cv-en.pdf",
+      mk: "/cv/angjel-spasovski-cv-mk.pdf",
+    },
+    atsCv: {
+      en: "/cv/angjel-spasovski-ats-cv-en.pdf",
+      mk: "/cv/angjel-spasovski-ats-cv-mk.pdf",
+    },
     ogImage: "/og-image.png",
     favicon: "/favicon.svg",
   },

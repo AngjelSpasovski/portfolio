@@ -23,6 +23,7 @@ This is the authoritative work list. Update it as part of every implementation p
 ## Phase 1 - Content Correctness
 
 - [x] Add `PdfReader` to the DBStore technology list in EN and MK.
+- [x] Replace the provisional DBStore stack with the verified Angular 20, Firebase, PDF, Stripe, testing, and tooling inventory.
 - [x] Make DBStore and DentCare periods consistent across languages.
 - [x] Verify the exact Opera MES stack before publishing additional technology claims.
 - [x] Translate the remaining DentCare visual labels in Macedonian.
@@ -47,6 +48,7 @@ This is the authoritative work list. Update it as part of every implementation p
 - [x] Add build-time content validation.
 - [x] Derive statistics from canonical data.
 - [x] Make the CV generator consume the same facts as the website.
+- [x] Keep the CV certification selection aligned with the website's five newest canonical records.
 - [x] Add localized asset alt text and consistent technology naming.
 
 ## Phase 4 - Professional Project Presentation
@@ -57,6 +59,7 @@ This is the authoritative work list. Update it as part of every implementation p
 - [x] Clearly label personal, enterprise, client, and learning work using canonical categories.
 - [x] Replace Opera MES screenshots with synthetic UI previews; remove the unused login capture.
 - [x] Use transparent project logos without solid white backing panels.
+- [x] Provide theme-aware DentCare and portfolio logo variants with transparent backgrounds.
 - [x] Keep a compact five-item certification grid with an accessible full-inventory toggle.
 - [x] Present the portfolio itself as a public project with a bilingual case study and real interface previews.
 - [ ] Decide whether to rewrite Git history to remove the previously committed Opera MES captures.
@@ -67,7 +70,7 @@ This is the authoritative work list. Update it as part of every implementation p
 - [x] Add a localized floating back-to-top button with reduced-motion support and keyboard focus return.
 - [x] Align Work History markers and the vertical line on a shared responsive axis.
 - [x] Align certification titles and metadata on consistent card rows.
-- [x] Normalize project-card padding, content rows, preview proportions, and action alignment across themes and viewports.
+- [x] Normalize project-card padding, inset preview framing, theme-aware preview surfaces, content rows, proportions, and action alignment across themes and viewports.
 
 - [x] Localize control labels and use the correct `aria-current` semantics.
 - [x] Add Escape, focus management, and return focus to the mobile menu.
@@ -77,6 +80,9 @@ This is the authoritative work list. Update it as part of every implementation p
 - [x] Run lint and tests explicitly in CI before the production build.
 - [x] Add clickable links to the CV and use the remaining second-page space deliberately.
 - [x] Add an ATS-first CV variant without a photo while retaining the designed CV.
+- [x] Generate designed and ATS CV variants in English and Macedonian with explicit locale filenames.
+- [x] Share the localized professional profile between the website and CV generator.
+- [x] Present current projects first, with Opera MES and DB Store marked as active work.
 
 ## Phase 6 - Optional Enhancements
 

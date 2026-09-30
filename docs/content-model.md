@@ -29,6 +29,7 @@ type PortfolioProject = {
   status: "draft" | "published" | "archived";
   visibility: "public" | "private";
   category: "product" | "enterprise" | "client" | "learning" | "project-hub";
+  current: boolean;
   featured: boolean;
   sortOrder: number;
   title: string;
@@ -45,6 +46,7 @@ type PortfolioProject = {
   };
   technologies: string[];
   featuredTechnologies: string[];
+  cvTechnologies?: string[];
   links?: {
     live?: string;
     repository?: string;
@@ -103,6 +105,7 @@ type PortfolioCertification = {
 - Featured technologies are a subset of the full technology list.
 - Certification course and credential links use absolute HTTP(S) URLs.
 - Certifications are sorted by canonical `issuedYear`, newest first; the first five form the compact grid and the section toggle exposes the remaining inventory.
+- Current projects are sorted before completed projects; `sortOrder` controls order within each group.
 - Every published project has all five localized case-study fields.
 - Featured technology lists contain five to seven entries.
 - Periods describe the same dates in both languages.
@@ -114,6 +117,8 @@ type PortfolioCertification = {
 
 - Project cards show five to seven technologies at most.
 - Full technology lists and case-study content belong in a details view.
+- Designed CV project cards reuse the featured technology list; `cvTechnologies` provides the expanded ATS keyword list when needed.
+- The localized profile summary is shared by the About section and both CV variants.
 - Ownership language must accurately describe personal, client, and team work.
 - The portfolio itself is presented as a public product with real screenshots and a documented delivery workflow.
 - Learning projects are grouped under Project Hub and do not compete visually with flagship work.

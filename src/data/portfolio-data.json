@@ -1,7 +1,17 @@
 {
   "profile": {
     "careerStartYear": 2015,
-    "locationCode": "MK"
+    "locationCode": "MK",
+    "summary": {
+      "en": [
+        "Current work spans two active products: Opera MES, a Manufacturing Execution System for manufacturing operations, and DB Store, a part-time B2B web product. Across both, I contribute to frontend development, software design, product maintenance, data-heavy workflows, API integrations, usability, performance, reliability, and production support.",
+        "Previous product work includes ArkCase and Move One, with hands-on experience in JavaScript interfaces, CSS, forms, modals, UI maintenance, bug fixing, and long-running enterprise applications."
+      ],
+      "mk": [
+        "Мојата тековна работа опфаќа два активни производи: Opera MES, Manufacturing Execution System за производствени операции, и DB Store, part-time B2B веб-производ. Во двата придонесувам во frontend development, software design, product maintenance, data-heavy workflows, API integrations, употребливост, перформанси, стабилност и production support.",
+        "Претходната работа на производи ги опфаќа ArkCase и Move One, со практично искуство во JavaScript интерфејси, CSS, форми, модали, UI maintenance, bug fixing и долгорочни enterprise апликации."
+      ]
+    }
   },
   "experience": [
     {
@@ -15,7 +25,7 @@
         "en": "Continuing development of Opera MES after OPEN DATA was acquired by CYBERTEC, with broader engineering focus across frontend development, software design, system improvements, product maintenance, usability, performance, and reliability.",
         "mk": "Продолжувам со развој на Opera MES по аквизицијата на OPEN DATA од CYBERTEC, со поширок engineering фокус на frontend development, software design, системски подобрувања, product maintenance, употребливост, перформанси и стабилност."
       },
-      "tags": ["Web Engineering", "Software Design", "TypeScript", "Angular", "Enterprise Product"]
+      "tags": ["Web Engineering", "Software Design", "Enterprise Product", "Maintainability", "TypeScript", "Angular 11", "Angular 17", "AG Grid", "DevExpress", "Plotly.js", "D3.js", "REST APIs"]
     },
     {
       "id": "dbstore-software-engineer",
@@ -29,7 +39,7 @@
         "en": "Part-time development and ongoing maintenance of DB Store, including frontend improvements, dashboards, data grids, API integrations, bug fixing, performance, reliability, and production support.",
         "mk": "Part-time развој и континуирано одржување на DB Store, вклучувајќи frontend подобрувања, dashboards, data grids, API integrations, bug fixing, перформанси, стабилност и production support."
       },
-      "tags": ["Angular", "TypeScript", "Product Maintenance", "Firebase", "AG Grid"]
+      "tags": ["Angular 20", "TypeScript 5", "RxJS", "Firebase", "AG Grid", "Plotly.js", "REST APIs", "EmailJS", "jsPDF", "PDF.js", "Stripe Checkout integration"]
     },
     {
       "id": "open-data-frontend-developer",
@@ -42,7 +52,7 @@
         "en": "Worked on Opera MES, building and maintaining web-based user interfaces for complex production workflows, with emphasis on usability, reliability, and long-term maintainability.",
         "mk": "Работа на Opera MES: градење и одржување web-based UI за сложени производствени процеси, со фокус на употребливост, стабилност и долгорочна maintainability."
       },
-      "tags": ["JavaScript", "Angular", "AG Grid", "Plotly.js", "D3.js"]
+      "tags": ["JavaScript", "Angular 7", "Angular 11", "Tabulator", "Plotly.js", "D3.js", "REST APIs", "Enterprise Product", "Software Design"]
     },
     {
       "id": "winner-it-administrator",
@@ -146,6 +156,7 @@
       "status": "published",
       "visibility": "public",
       "category": "product",
+      "current": true,
       "featured": true,
       "sortOrder": 10,
       "title": "DB Store",
@@ -170,16 +181,17 @@
           "mk": "Јасно прикажување на search, credit, billing и administration workflows, со responsive однесување на data-heavy интерфејсот."
         },
         "contribution": {
-          "en": "Built the Angular standalone interface, data grids, charts, API integrations, Firebase delivery, EmailJS contact flow, and PDF reading workflow.",
-          "mk": "Изградив Angular standalone интерфејс, data grids, charts, API integrations, Firebase delivery, EmailJS contact flow и PDF reading workflow."
+          "en": "Built and maintain the Angular 20 frontend, RxJS flows, AG Grid dashboards, HttpClient REST integrations, Firebase Hosting and Storage workflows, EmailJS messaging, PDF generation and viewing, and Stripe Checkout integration through the backend API.",
+          "mk": "Го изградив и го одржувам Angular 20 frontend-от, RxJS flows, AG Grid dashboards, HttpClient REST integrations, Firebase Hosting и Storage workflows, EmailJS messaging, PDF generation и viewing, како и Stripe Checkout интеграцијата преку backend API."
         },
         "outcome": {
           "en": "A deployed product demonstrator covering the public site, authentication, dashboards, and operational workflows.",
           "mk": "Објавен product demonstrator што ги опфаќа public site, authentication, dashboards и operational workflows."
         }
       },
-      "technologies": ["JavaScript", "TypeScript", "Angular", "Standalone Components", "Bootstrap", "HTML5", "SCSS", "Responsive Design", "AG Grid", "Plotly.js", "REST API", "EmailJS", "Firebase", "PdfReader"],
-      "featuredTechnologies": ["Angular", "TypeScript", "Standalone Components", "AG Grid", "Firebase", "REST API"],
+      "technologies": ["Angular 20", "TypeScript 5", "RxJS", "HTML5", "SCSS/CSS", "Angular HttpClient", "REST APIs", "Firebase", "Firebase JavaScript SDK", "Firebase Hosting", "Firebase Storage", "AG Grid", "Bootstrap 5", "Bootstrap Icons", "Font Awesome", "@ngx-translate", "EmailJS", "jsPDF", "jsPDF AutoTable", "ng2-pdf-viewer", "PDF.js", "Stripe Checkout integration", "Angular CLI", "npm", "ESLint", "Angular ESLint", "Jasmine", "Karma", "Playwright"],
+      "featuredTechnologies": ["Angular 20", "TypeScript 5", "RxJS", "Firebase", "AG Grid", "REST APIs"],
+      "cvTechnologies": ["Angular 20", "TypeScript", "RxJS", "HTML5", "SCSS", "Firebase (Hosting, Storage)", "REST APIs", "AG Grid", "Bootstrap", "Stripe Checkout integration", "EmailJS", "jsPDF", "PDF.js", "Jasmine", "Karma", "Playwright", "ESLint"],
       "links": { "live": "https://dbstore.online" },
       "visualId": "dbstore"
     },
@@ -188,6 +200,7 @@
       "status": "published",
       "visibility": "public",
       "category": "product",
+      "current": false,
       "featured": true,
       "sortOrder": 15,
       "title": "Angjel Spasovski Portfolio",
@@ -233,6 +246,7 @@
       "status": "published",
       "visibility": "private",
       "category": "enterprise",
+      "current": true,
       "featured": true,
       "sortOrder": 20,
       "title": "Opera MES",
@@ -275,6 +289,7 @@
       "status": "published",
       "visibility": "public",
       "category": "client",
+      "current": false,
       "featured": true,
       "sortOrder": 30,
       "title": "DentCare Macedonia",

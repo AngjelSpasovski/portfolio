@@ -91,9 +91,10 @@ function getProjects(locale: Locale) {
   };
   return portfolioData.projects
     .filter((project) => project.status === "published")
-    .sort((a, b) => a.sortOrder - b.sortOrder)
+    .sort((a, b) => Number(b.current) - Number(a.current) || a.sortOrder - b.sortOrder)
     .map((project) => ({
       id: project.id,
+      current: project.current,
       categoryLabel: categories[project.category][locale],
       title: project.title,
       type: localized(project.type, locale),
@@ -150,16 +151,17 @@ export const content: Record<Locale, SiteContent> = {
         "Software Engineer with 10+ years of experience in web application development, frontend engineering, enterprise software products, and reliable user interfaces for complex business workflows.",
       primaryCta: "View work",
       secondaryCta: "Get in touch",
-      cvCta: "Designed CV",
-      atsCvCta: "ATS CV",
+      cvCta: "CV in English",
+      atsCvCta: "ATS CV in English",
+      cvDownloadName: "angjel-spasovski-cv-en.pdf",
+      atsCvDownloadName: "angjel-spasovski-ats-cv-en.pdf",
       stats: getStats("en"),
     },
     about: {
       tag: "01 / About",
       title: "Reliable frontend work for complex products.",
       paragraphs: [
-        "My recent work has focused on Opera MES, a Manufacturing Execution System for manufacturing operations, where I contribute to frontend development, software design, product maintenance, and improvements to complex production workflows.",
-        "I have also worked on products such as ArkCase and Move One, with experience in JavaScript-based interfaces, CSS, forms, modals, UI maintenance, bug fixing, and long-running enterprise applications.",
+        ...portfolioData.profile.summary.en,
         "Earlier in my career I gained experience in IT administration, scripting, network maintenance, and web platform support, which gives me a broader view when building practical software.",
       ],
       facts: [
@@ -234,16 +236,17 @@ export const content: Record<Locale, SiteContent> = {
         "Софтверски инженер со 10+ години искуство во развој на веб-апликации, frontend инженеринг, enterprise производи и стабилни кориснички интерфејси за сложени деловни процеси.",
       primaryCta: "Види проекти",
       secondaryCta: "Контакт",
-      cvCta: "Дизајнирано CV",
-      atsCvCta: "ATS CV",
+      cvCta: "CV на македонски",
+      atsCvCta: "ATS CV на македонски",
+      cvDownloadName: "angjel-spasovski-cv-mk.pdf",
+      atsCvDownloadName: "angjel-spasovski-ats-cv-mk.pdf",
       stats: getStats("mk"),
     },
     about: {
       tag: "01 / За мене",
       title: "Стабилен frontend за сложени деловни производи.",
       paragraphs: [
-        "Во последните години работам на Opera MES, Manufacturing Execution System за производствени операции. Мојот придонес е во frontend development, software design, product maintenance и подобрување на сложени производствени процеси.",
-        "Работев и на производи како ArkCase и Move One, со искуство во JavaScript интерфејси, CSS, форми, модали, UI одржување, bug fixing и долгорочни enterprise апликации.",
+        ...portfolioData.profile.summary.mk,
         "Претходно стекнав искуство и во IT администрација, scripting, network maintenance и web platform support, што ми дава поширока перспектива кога градам практични software решенија.",
       ],
       facts: [

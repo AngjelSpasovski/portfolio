@@ -7,6 +7,7 @@ export type ProjectVisual = {
   chromeLabel: string;
   logo: {
     src: `/${string}`;
+    darkSrc?: `/${string}`;
     alt: string;
   };
   title: string;
@@ -55,7 +56,8 @@ export function getProjectVisuals(locale: Locale): Record<ProjectVisualId, Proje
     portfolio: {
       chromeLabel: "angjelspasovski.github.io/portfolio",
       logo: {
-        src: "/favicon.svg",
+        src: "/images/projects/portfolio/brand-mark.svg",
+        darkSrc: "/images/projects/portfolio/brand-mark-on-dark.svg",
         alt: locale === "mk" ? "Монограм AS" : "AS monogram",
       },
       title: "Angjel Spasovski Portfolio",
@@ -112,7 +114,8 @@ export function getProjectVisuals(locale: Locale): Record<ProjectVisualId, Proje
     dentcare: {
       chromeLabel: "dentcare-macedonia.web.app",
       logo: {
-        src: "/images/projects/dentcare/logo-on-dark.svg",
+        src: "/images/projects/dentcare/logo.svg",
+        darkSrc: "/images/projects/dentcare/logo-on-dark.svg",
         alt: locale === "mk" ? "Лого на DentCare Macedonia" : "DentCare Macedonia logo",
       },
       title: "DentCare Macedonia",
